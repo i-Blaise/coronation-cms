@@ -105,7 +105,7 @@
                         <div class="card text-white">
                             <img class="card-img" src="../assets/images/card-img.jpg" alt="Card image">
                             <div class="card-img-overlay">
-                                <h3 class="card-title  text-white">Jeader Image</h3>
+                                <h3 class="card-title  text-white">Current Header Image</h3>
                             </div>
                         </div>
                     </div>
