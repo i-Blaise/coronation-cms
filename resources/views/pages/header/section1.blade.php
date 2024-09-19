@@ -6,7 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Homepaage Header</title>
+    <title>Homepage Section 1</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
@@ -47,7 +47,7 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Homepage Header </h2>
+                            <h2 class="pageheader-title">Homepage Section 1 </h2>
                             <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
@@ -86,30 +86,26 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <h3>Header Image</h3>
-                    </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                        <div class="card">
-                            <h5 class="card-header">Upload Header Image</h5>
-                            <div class="card-body">
-                                <form>
-                                    <div class="custom-file mb-3">
-                                        <input type="file" class="custom-file-input" id="customFile">
-                                        <label class="custom-file-label" for="customFile">File Input</label>
-                                    </div>
-                                    <a href="#" class="btn btn-primary">Submit</a>
-                                </form>
-                            </div>
-                        </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="margin-bottom: 2rem;">
+                        <h3>Section 1</h3>
+
+                        <a href="#" class="btn btn-primary btn-lg" style="margin-right: 10px">Left Card &nbsp <span class="badge-dot badge-success"></span></a>
+                        <a href="#" class="btn btn-primary btn-lg">Right Card</a>
                     </div>
 
-                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                        <div class="card text-white">
-                            <img class="card-img" src="../assets/images/card-img.jpg" alt="Card image">
-                            <div class="card-img-overlay">
-                                <a href="#" class="btn btn-primary">Full Image</a>
-                            </div>
+                    {{-- Basic Upoad Image Form w Image Preview after post --}}
+                    @include('components.form-group.image-upload')
+
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="card">
+                            <h5 class="card-header">Section 1 Text</h5>
+
+                            {{-- Short Title/Body Form - TinyMCE  --}}
+                            @include('components.form-group.short-title-body-form')
+
                         </div>
                     </div>
                 </div>
@@ -117,30 +113,18 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
-                            <h5 class="card-header">Header Text</h5>
-                            <div class="card-body">
-                                <form>
+                            <h5 class="card-header">Section 1 Button</h5>
 
-                                    <div class="form-row">
-                                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2">
-                                            <label for="exampleFormControlTextarea1">Title</label>
-                                            @include('components.forms.tinymce-editor')
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2">
-                                            <label for="exampleFormControlTextarea1">Body</label>
-                                            @include('components.forms.tinymce-editor')
-                                        </div>
+                            {{-- Input field for standard Button Text and Button Link --}}
+                            @include('components.form-group.button-link-form')
 
-                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
-                                            <button class="btn btn-primary" type="submit">Submit</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
                         </div>
                     </div>
-
                 </div>
+
+                <a href="#" class="btn btn-primary btn-block">Submit</a>
+
+
             </div>
 
 
