@@ -37,7 +37,10 @@ Route::get('/about-sec4', function () {
     return view('pages.aboutpage.section4');
 })->name('about-sec4');
 
-
 Route::get('/about-sec5', function () {
     return view('pages.aboutpage.section5');
 })->name('about-sec5');
+
+Route::get('/about-add-member', function () {
+    return view('pages.aboutpage.add-member');
+})->name('add-member');

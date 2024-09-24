@@ -12,8 +12,6 @@
     <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/libs/css/style.css">
     <link rel="stylesheet" href="../assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-    <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
-
 
     {{-- TinyMCE Editor  --}}
     @include('components.head.tinymce-config')
@@ -49,7 +47,7 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Aboutpage Section 4 </h2>
+                            <h2 class="pageheader-title">Add Member</h2>
                             <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
@@ -90,55 +88,38 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="margin-bottom: 2rem;">
                         <h3>Section 1</h3>
-
-                        <a href="{{ route('add-member') }}" class="btn btn-primary btn-lg" style="margin-right: 10px">Add New Board Member</a>
                     </div>
+
+                    {{-- Basic Upoad Image Form w Image Preview after post --}}
+                    @include('components.form-group.image-upload')
 
                 </div>
 
-                <div class="col-lg-12">
-                    <div class="section-block">
-                        <h3 class="section-title">All Board Members</h3>
-                    </div>
-                    <div class="card">
-                        <div class="campaign-table table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr class="border-0">
-                                        <th class="border-0">Image</th>
-                                        <th class="border-0">Name</th>
-                                        <th class="border-0">Date Added</th>
-                                        <th class="border-0">Date Edited</th>
-                                        <th class="border-0">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="m-r-10"><img src="assets/images/dribbble.png" alt="user" width="35"></div>
-                                        </td>
-                                        <td>Fashion E Commerce </td>
-                                        <td>70%</td>
-                                        <td>7 Aug,2018</td>
-                                        <td>
-                                            <div class="dropdown float-right">
-                                                <a href="#" class="dropdown-toggle card-drop" data-toggle="dropdown" aria-expanded="true">
-                                                        <i class="mdi mdi-dots-vertical"></i>
-                                                             </a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <!-- item-->
-                                                    <a href="javascript:void(0);" class="dropdown-item">Edit</a>
-                                                    <!-- item-->
-                                                    <a href="javascript:void(0);" class="dropdown-item">Delete</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="card">
+                            <h5 class="card-header">Section 1 Text</h5>
+
+                            <div class="card-body">
+                                <form>
+
+                            {{-- Short Title/Body Form - TinyMCE  --}}
+                            @include('components.form-group.short-title-body-form')
+
+
+
+                            <div class="form-row col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2">
+                                <label for="inputText3" class="col-form-label">Member Title</label>
+                                <input id="inputText3" type="text" class="form-control">
+                            </div>
+
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <a href="#" class="btn btn-primary btn-block">Submit</a>
 
 
             </div>

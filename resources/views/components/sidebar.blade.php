@@ -22,7 +22,7 @@
                                     <a class="nav-link" href="{{ route('home-sec1') }}">Section 1</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('home-sec2') }}">Section 1</a>
+                                    <a class="nav-link" href="{{ route('home-sec2') }}">Section 2</a>
                                 </li>
                             </ul>
                         </div>
@@ -49,9 +49,27 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('about-sec4') }}">Section 4</a>
                                 </li>
-                                {{-- <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('about-sec5') }}">Section 2</a>
-                                </li> --}}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('about-sec5') }}">Section 5</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+
+                    <li class="nav-item ">
+                        <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="fa fa-fw fa-user-circle"></i> Producs & Solutions Page <span class="badge badge-success">6</span></a>
+                        <div id="submenu-3" class="collapse submenu" style="">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('about-header') }}">Header</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('about-sec1') }}">Section 1</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('about-sec2') }}">Section 2</a>
+                                </li>
                             </ul>
                         </div>
                     </li>
