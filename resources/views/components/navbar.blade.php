@@ -20,7 +20,18 @@
                         </div>
                         <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
                         <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
-                        <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                        <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>
+                                                    <!-- Authentication -->
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+
+                            <x-dropdown-link :href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                {{ __('Log Out') }}
+                            </x-dropdown-link>
+                        </form>
+                        </a>
                     </div>
                 </li>
             </ul>
