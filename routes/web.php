@@ -3,6 +3,11 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
+    return view('pages.auth.index');
+})->name('login');
+
+
+Route::get('/homepage', function () {
     return view('pages.homepage.header');
 })->name('home-header');
 
