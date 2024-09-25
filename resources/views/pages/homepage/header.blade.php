@@ -98,8 +98,6 @@
                                         <input type="file" class="custom-file-input" id="customFile">
                                         <label class="custom-file-label" for="customFile">File Input</label>
                                     </div>
-                                    <a href="#" class="btn btn-primary">Submit</a>
-                                </form>
                             </div>
                         </div>
                     </div>
@@ -118,7 +116,7 @@
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
                             <h5 class="card-header">Header Text</h5>
-                            <div class="card-body">
+                            {{-- <div class="card-body">
                                 <form>
 
                                     <div class="form-row">
@@ -136,8 +134,12 @@
                                         </div>
                                     </div>
                                 </form>
-                            </div>
+                            </div> --}}
+                            @include('components.form-group.left-right-text-form')
                         </div>
+
+                        <a href="#" class="btn btn-primary">Submit</a>
+                    </form>
                     </div>
 
                 </div>

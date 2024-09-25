@@ -17,12 +17,44 @@ class HomepageController extends Controller
         return view('pages.homepage.header', compact('home_header'));
     }
 
+    public function uploadImage($imageFile): string
+    { //Move Uploaded File to public folder
+        $destinationPath = 'images/uploads/homepage/';
+        $hashed_image_name = $imageFile->hashName();
+        $img_path = $destinationPath.$hashed_image_name;
+        $imageFile->move(public_path($destinationPath), $hashed_image_name);
+
+        return $img_path;
+    }
+
+
+    public function updateHomeHeader(Request $request)
+    {
+        $request->validate([
+            'image' => 'required',
+            'caption' => 'required',
+            'body' => 'required'
+        ]);
+
+        if(!is_null($request->file('image')))
+        {
+            $imagePath = $this->uploadImage($request->file('image'));
+        }
+        $home_header = Homepage::find(1);
+
+        isset($imagePath) ? $home_header->header_image = $imagePath : '';
+        $home_header->header_caption = $request->caption;
+        $home_header->header_body = $request->body;
+
+        return redirect()->back()->with('success', 'Header updated successfully.');
+    }
+
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return view('posts.create');
+        //
     }
 
     /**
