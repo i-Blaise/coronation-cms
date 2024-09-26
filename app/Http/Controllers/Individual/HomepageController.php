@@ -30,14 +30,17 @@ class HomepageController extends Controller
 
     public function updateHomeHeader(Request $request)
     {
-        // dd($request->image);
+        // dd($request->file('image'));
+        // dd($request->hasFile('image'));
+        // dd($request->all());
+
         $request->validate([
-            'image' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'caption' => 'required',
             'body' => 'required'
         ]);
 
-        dd($request->file('image'));
+        // dd($request->file('image'));
         if(!is_null($request->file('image')))
         {
             $imagePath = $this->uploadImage($request->file('image'));
@@ -50,7 +53,9 @@ class HomepageController extends Controller
 
         $home_header->save();
 
-        return redirect()->back()->with('success', 'Header updated successfully.');
+        toastr()->success('Homepage Header Updated');
+
+        return back();
     }
 
     /**

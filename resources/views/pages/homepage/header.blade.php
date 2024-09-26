@@ -87,7 +87,7 @@
 
 
 
-                <form action="{{ route('home-header-update') }}"  method="POST">
+                <form action="{{ route('home-header-update') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('POST')
 
@@ -96,13 +96,13 @@
                         <h3>Header Image</h3>
                     </div>
 
-                    @include('components.form-group.image-upload')
-                    {{-- <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                    {{-- @include('components.form-group.image-upload') --}}
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="card">
                             <h5 class="card-header">Upload Header Image</h5>
                             <div class="card-body">
                                     <div class="custom-file mb-3">
-                                        <input type="file" class="custom-file-input" id="customFile">
+                                        <input type="file" class="custom-file-input" id="customFile" name="image">
                                         <label class="custom-file-label" for="customFile">File Input</label>
                                     </div>
                             </div>
@@ -116,7 +116,7 @@
                                 <a href="#" class="btn btn-primary">Full Image</a>
                             </div>
                         </div>
-                    </div> --}}
+                    </div>
                 </div>
 
                 <div class="row">
