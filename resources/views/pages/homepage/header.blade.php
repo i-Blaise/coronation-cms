@@ -85,15 +85,22 @@
                     </div>
                 </div>
 
+
+
+                <form action="{{ route('home-header-update') }}"  method="POST">
+                    @csrf
+                    @method('POST')
+
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <h3>Header Image</h3>
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+
+                    @include('components.form-group.image-upload')
+                    {{-- <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="card">
                             <h5 class="card-header">Upload Header Image</h5>
                             <div class="card-body">
-                                <form>
                                     <div class="custom-file mb-3">
                                         <input type="file" class="custom-file-input" id="customFile">
                                         <label class="custom-file-label" for="customFile">File Input</label>
@@ -109,7 +116,7 @@
                                 <a href="#" class="btn btn-primary">Full Image</a>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
 
                 <div class="row">
@@ -138,7 +145,8 @@
                             @include('components.form-group.left-right-text-form')
                         </div>
 
-                        <a href="#" class="btn btn-primary">Submit</a>
+                        {{-- <a href="#" class="btn btn-primary">Submit</a> --}}
+                        <button class="btn btn-primary" type="submit">Submit</button>
                     </form>
                     </div>
 

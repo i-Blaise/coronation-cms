@@ -4,13 +4,10 @@
     <div class="card">
         <h5 class="card-header">Upload Image</h5>
         <div class="card-body">
-            <form>
                 <div class="custom-file mb-3">
-                    <input type="file" class="custom-file-input" id="customFile">
+                    <input type="file" class="custom-file-input" id="customFile" name="image">
                     <label class="custom-file-label" for="customFile">File Input</label>
                 </div>
-                <a href="#" class="btn btn-primary">Submit</a>
-            </form>
         </div>
     </div>
 </div>

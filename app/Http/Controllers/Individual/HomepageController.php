@@ -13,7 +13,7 @@ class HomepageController extends Controller
      */
     public function index()
     {
-        $home_header = Homepage::select('header_image', 'header_caption', 'header_body')->where('id', 1)->first();
+        $home_header = Homepage::select('id', 'header_image', 'header_caption', 'header_body')->where('id', 1)->first();
         return view('pages.homepage.header', compact('home_header'));
     }
 
@@ -30,12 +30,14 @@ class HomepageController extends Controller
 
     public function updateHomeHeader(Request $request)
     {
+        // dd($request->image);
         $request->validate([
             'image' => 'required',
             'caption' => 'required',
             'body' => 'required'
         ]);
 
+        dd($request->file('image'));
         if(!is_null($request->file('image')))
         {
             $imagePath = $this->uploadImage($request->file('image'));
@@ -45,6 +47,8 @@ class HomepageController extends Controller
         isset($imagePath) ? $home_header->header_image = $imagePath : '';
         $home_header->header_caption = $request->caption;
         $home_header->header_body = $request->body;
+
+        $home_header->save();
 
         return redirect()->back()->with('success', 'Header updated successfully.');
     }

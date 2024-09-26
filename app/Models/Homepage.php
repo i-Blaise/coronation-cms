@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Homepage extends Model
 {
     use HasFactory;
+
+    protected $table = 'homepage';
 }

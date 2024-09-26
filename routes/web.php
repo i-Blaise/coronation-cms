@@ -8,9 +8,9 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/dashboard', function () {
-    return view('pages.homepage.header');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('pages.homepage.header');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -20,8 +20,9 @@ Route::middleware('auth')->group(function () {
 
 
     // Homepage
-    Route::resource('home-header', HomepageController::class)->only(['index']);
-    Route::get('home-header/update', [HomepageController::class, 'updateHomeHeader'])->name('home-header-update');
+    // Route::resource('home-header', HomepageController::class)->only(['index']);
+    Route::get('home-header', [HomepageController::class, 'index'])->name('index');
+    Route::post('home-header/update', [HomepageController::class, 'updateHomeHeader'])->name('home-header-update');
 });
 
 require __DIR__.'/auth.php';
