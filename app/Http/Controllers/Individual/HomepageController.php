@@ -35,7 +35,7 @@ class HomepageController extends Controller
         // dd($request->all());
 
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
             'caption' => 'required',
             'body' => 'required'
         ]);
@@ -54,6 +54,51 @@ class HomepageController extends Controller
         $home_header->save();
 
         toastr()->success('Homepage Header Updated');
+
+        return back();
+    }
+
+
+
+
+
+
+    // Homepage Section 1
+
+    public function homeSec1()
+    {
+        $home = Homepage::first();
+        return view('pages.homepage.section1', compact('home'));
+    }
+
+    public function updateSection1(Request $request)
+    {
+        // dd($request->all());
+
+        $request->validate([
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'caption' => 'required',
+            'body' => 'required',
+            'text' => 'required',
+            'link' => 'required'
+        ]);
+
+        // dd($request->file('image'));
+        if(!is_null($request->file('image')))
+        {
+            $imagePath = $this->uploadImage($request->file('image'));
+        }
+        $home_header = Homepage::find(1);
+
+        isset($imagePath) ? $home_header->tile1_image = $imagePath : '';
+        $home_header->tile1_caption = $request->caption;
+        $home_header->tile1_text = $request->body;
+        $home_header->tile1_btn_text = $request->text;
+        $home_header->tile1_btn_link = $request->link;
+
+        $home_header->save();
+
+        toastr()->success('Homepage Section 1 Updated');
 
         return back();
     }

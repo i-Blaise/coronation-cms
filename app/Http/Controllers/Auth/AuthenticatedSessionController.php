@@ -28,7 +28,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('home-header.index', absolute: false));
+        return redirect()->intended(route('home-header', absolute: false));
     }
 
     /**

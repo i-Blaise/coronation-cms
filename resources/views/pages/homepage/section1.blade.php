@@ -53,8 +53,8 @@
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Individual</a></li>
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Homepae</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Header</li>
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Homepage</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Section 1</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -85,6 +85,12 @@
                     </div>
                 </div>
 
+
+                <form action="{{ route('home-sec1-update') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('POST')
+
+
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="margin-bottom: 2rem;">
                         <h3>Section 1</h3>
@@ -94,18 +100,39 @@
                     </div>
 
                     {{-- Basic Upoad Image Form w Image Preview after post --}}
-                    @include('components.form-group.image-upload')
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="card">
+                            <h5 class="card-header">Upload Header Image</h5>
+                            <div class="card-body">
+                                    <div class="custom-file mb-3">
+                                        <input type="file" class="custom-file-input" id="customFile" name="image">
+                                        <label class="custom-file-label" for="customFile">File Input</label>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                        <div class="card text-white">
+                            <img class="card-img" src="{{ asset($home->tile1_image) }}" alt="Card image">
+                            <div class="card-img-overlay">
+                                <a href="#" class="btn btn-primary">Full Image</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+
 
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
                             <h5 class="card-header">Section 1 Text</h5>
-
-                            {{-- Short Title/Body Form - TinyMCE  --}}
-                            @include('components.form-group.short-title-body-form')
-
+                            @php
+                                $caption = $home->tile1_caption;
+                                $body = $home->tile1_text;
+                            @endphp
+                            @include('components.form-group.left-right-text-form')
                         </div>
                     </div>
                 </div>
@@ -116,15 +143,17 @@
                             <h5 class="card-header">Section 1 Button</h5>
 
                             {{-- Input field for standard Button Text and Button Link --}}
+                            @php
+                            $text = $home->tile1_btn_text;
+                            $link = $home->tile1_btn_link;
+                            @endphp
                             @include('components.form-group.button-link-form')
 
                         </div>
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </form>
                     </div>
                 </div>
-
-                <a href="#" class="btn btn-primary btn-block">Submit</a>
-
-
             </div>
 
 

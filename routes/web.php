@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('auth.login');
-});
+})->name('login');
 
 // Route::get('/dashboard', function () {
 //     return view('pages.homepage.header');
@@ -21,8 +21,11 @@ Route::middleware('auth')->group(function () {
 
     // Homepage
     // Route::resource('home-header', HomepageController::class)->only(['index']);
-    Route::get('home-header', [HomepageController::class, 'index'])->name('index');
+    Route::get('home-header', [HomepageController::class, 'index'])->name('home-header');
     Route::post('home-header/update', [HomepageController::class, 'updateHomeHeader'])->name('home-header-update');
+
+    Route::get('home/section1', [HomepageController::class, 'homeSec1'])->name('home-sec1');
+    Route::post('home/section1/update', [HomepageController::class, 'updateSection1'])->name('home-sec1-update');
 });
 
 require __DIR__.'/auth.php';
@@ -34,18 +37,18 @@ require __DIR__.'/auth.php';
 
 
 
-Route::get('/', function () {
-    return view('auth.login');
-})->name('login');
+// Route::get('/', function () {
+//     return view('auth.login');
+// })->name('login');
 
 
-Route::get('/homepage', function () {
-    return view('pages.homepage.header');
-})->name('home-header');
+// Route::get('/homepage', function () {
+//     return view('pages.homepage.header');
+// })->name('home-header');
 
-Route::get('/section1', function () {
-    return view('pages.homepage.section1');
-})->name('home-sec1');
+// Route::get('/section1', function () {
+//     return view('pages.homepage.section1');
+// })->name('home-sec1');
 
 Route::get('/section2', function () {
     return view('pages.homepage.section2');

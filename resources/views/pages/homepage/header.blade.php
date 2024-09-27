@@ -111,7 +111,7 @@
 
                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                         <div class="card text-white">
-                            <img class="card-img" src="../assets/images/card-img.jpg" alt="Card image">
+                            <img class="card-img" src="{{ asset($home_header->header_image) }}" alt="Card image">
                             <div class="card-img-overlay">
                                 <a href="#" class="btn btn-primary">Full Image</a>
                             </div>
@@ -123,6 +123,10 @@
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
                             <h5 class="card-header">Header Text</h5>
+                            @php
+                                $caption = $home_header->header_caption;
+                                $body = $home_header->header_body;
+                            @endphp
                             {{-- <div class="card-body">
                                 <form>
 
