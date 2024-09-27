@@ -112,6 +112,49 @@ class HomepageController extends Controller
         return back();
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // Homepage Section 2
+
+        public function homeSec2()
+        {
+            $home = Homepage::first();
+            return view('pages.homepage.section2', compact('home'));
+        }
+
+        public function updateSection2(Request $request)
+        {
+            $request->validate([
+                'caption' => 'required',
+                'body' => 'required'
+            ]);
+
+            $home_header = Homepage::find(1);
+
+            $home_header->insight_caption = $request->caption;
+            $home_header->insight_body = $request->body;
+
+            $home_header->save();
+
+            toastr()->success('Homepage Section 2 Updated');
+
+            return back();
+        }
+
     /**
      * Show the form for creating a new resource.
      */

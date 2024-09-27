@@ -86,14 +86,19 @@
                     </div>
                 </div>
 
+                <form action="{{ route('home-sec2-update') }}" method="POST">
+                    @csrf
+                    @method('POST')
 
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
                             <h5 class="card-header">Section 1 Text</h5>
-
-                            {{-- Short Title/Body Form - TinyMCE  --}}
-                            @include('components.form-group.short-title-body-form')
+                            @php
+                                $caption = $home->insight_caption;
+                                $body = $home->insight_body
+                            @endphp
+                            @include('components.form-group.left-right-text-form')
 
                         </div>
                     </div>
@@ -117,7 +122,6 @@
                             <h5 class="card-header">Select post for each card</h5>
 
                             <div class="card-body">
-                                <form>
 
                                     <div class="form-row">
                                         <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
@@ -148,7 +152,6 @@
                                         </div>
                                     </div>
 
-                                </form>
                             </div>
 
                         </div>
@@ -170,7 +173,6 @@
                             <h5 class="card-header">Sort Card Order</h5>
 
                             <div class="card-body">
-                                <form>
 
                                     <div class="form-row">
                                         <select class="selectpicker" data-width="75%">
@@ -180,13 +182,14 @@
                                         </select>
                                     </div>
 
-                                </form>
                             </div>
 
                         </div>
                     </div>
                 </div>
-                <a href="#" class="btn btn-primary btn-block">Submit</a>
+                <button class="btn btn-primary" type="submit" name="submit">Submit</button>
+            </form>
+                {{-- <a href="#" class="btn btn-primary btn-block">Submit</a> --}}
 
 
             </div>

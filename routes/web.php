@@ -26,6 +26,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('home/section1', [HomepageController::class, 'homeSec1'])->name('home-sec1');
     Route::post('home/section1/update', [HomepageController::class, 'updateSection1'])->name('home-sec1-update');
+
+    Route::get('home/section2', [HomepageController::class, 'homeSec2'])->name('home-sec2');
+    Route::post('home/section2/update', [HomepageController::class, 'updateSection2'])->name('home-sec2-update');
 });
 
 require __DIR__.'/auth.php';
@@ -50,9 +53,9 @@ require __DIR__.'/auth.php';
 //     return view('pages.homepage.section1');
 // })->name('home-sec1');
 
-Route::get('/section2', function () {
-    return view('pages.homepage.section2');
-})->name('home-sec2');
+// Route::get('/section2', function () {
+//     return view('pages.homepage.section2');
+// })->name('home-sec2');
 
 
 
