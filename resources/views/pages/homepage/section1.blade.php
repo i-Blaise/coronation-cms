@@ -95,14 +95,22 @@
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="margin-bottom: 2rem;">
                         <h3>Section 1</h3>
 
-                        <a href="#" class="btn btn-primary btn-lg" style="margin-right: 10px">Left Card &nbsp <span class="badge-dot badge-success"></span></a>
-                        <a href="#" class="btn btn-primary btn-lg">Right Card</a>
+                        <a href="?card=left" class="btn btn-primary btn-lg" style="margin-right: 10px">Left Card &nbsp
+                            @if (request('card') == 'left' || is_null(request('card')))
+                            <span class="badge-dot badge-success"></span>
+                            @endif
+                        </a>
+                        <a href="?card=right" class="btn btn-primary btn-lg" style="margin-right: 10px">Right Card &nbsp
+                            @if (request('card') == 'right')
+                            <span class="badge-dot badge-success"></span>
+                            @endif
+                        </a>
                     </div>
 
                     {{-- Basic Upoad Image Form w Image Preview after post --}}
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="card">
-                            <h5 class="card-header">Upload Header Image</h5>
+                            <h5 class="card-header">Upload Image</h5>
                             <div class="card-body">
                                     <div class="custom-file mb-3">
                                         <input type="file" class="custom-file-input" id="customFile" name="image">
@@ -112,9 +120,12 @@
                         </div>
                     </div>
 
+                    @php
+                        $image = request('card') == 'right' ? $home->tile2_image : $home->tile1_image;
+                    @endphp
                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                         <div class="card text-white">
-                            <img class="card-img" src="{{ asset($home->tile1_image) }}" alt="Card image">
+                            <img class="card-img" src="{{ asset($image) }}" alt="Card image">
                             <div class="card-img-overlay">
                                 <a href="#" class="btn btn-primary">Full Image</a>
                             </div>
@@ -129,8 +140,8 @@
                         <div class="card">
                             <h5 class="card-header">Section 1 Text</h5>
                             @php
-                                $caption = $home->tile1_caption;
-                                $body = $home->tile1_text;
+                                $caption = request('card') == 'right' ? $home->tile2_caption : $home->tile1_caption;
+                                $body = request('card') == 'right' ? $home->tile2_text : $home->tile1_text;
                             @endphp
                             @include('components.form-group.left-right-text-form')
                         </div>
@@ -144,13 +155,18 @@
 
                             {{-- Input field for standard Button Text and Button Link --}}
                             @php
-                            $text = $home->tile1_btn_text;
-                            $link = $home->tile1_btn_link;
+                            $text = request('card') == 'right' ? $home->tile2_btn_text : $home->tile1_btn_text;
+                            $link = request('card') == 'right' ? $home->tile2_btn_link : $home->tile1_btn_link;
                             @endphp
                             @include('components.form-group.button-link-form')
 
                         </div>
-                        <button class="btn btn-primary" type="submit">Submit</button>
+                        @if (request('card') == 'right')
+                        <button class="btn btn-primary" type="submit" name="submit" value="right">Submit</button>
+                        @else
+                        <button class="btn btn-primary" type="submit" name="submit"  value="left">Submit</button>
+                        @endif
+
                     </form>
                     </div>
                 </div>

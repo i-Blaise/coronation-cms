@@ -90,11 +90,20 @@ class HomepageController extends Controller
         }
         $home_header = Homepage::find(1);
 
-        isset($imagePath) ? $home_header->tile1_image = $imagePath : '';
-        $home_header->tile1_caption = $request->caption;
-        $home_header->tile1_text = $request->body;
-        $home_header->tile1_btn_text = $request->text;
-        $home_header->tile1_btn_link = $request->link;
+        if($request->submit == 'left')
+        {
+            isset($imagePath) ? $home_header->tile1_image = $imagePath : '';
+            $home_header->tile1_caption = $request->caption;
+            $home_header->tile1_text = $request->body;
+            $home_header->tile1_btn_text = $request->text;
+            $home_header->tile1_btn_link = $request->link;
+        }else{
+            isset($imagePath) ? $home_header->tile2_image = $imagePath : '';
+            $home_header->tile2_caption = $request->caption;
+            $home_header->tile2_text = $request->body;
+            $home_header->tile2_btn_text = $request->text;
+            $home_header->tile2_btn_link = $request->link;
+        }
 
         $home_header->save();
 
