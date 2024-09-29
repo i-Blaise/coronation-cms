@@ -12,8 +12,6 @@
     <link href="{{ asset('assets/vendor/fonts/circular-std/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/libs/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/fonts/fontawesome/css/fontawesome-all.css') }}">
-    <!-- Toastr CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
 
     {{-- TinyMCE Editor  --}}
     @include('components.head.tinymce-config')
@@ -90,7 +88,7 @@
 
 
 
-                <form action="{{ route('about-sec5-store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('about-sec5-update', ['id' => $bod->id]) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('POST')
 
@@ -106,7 +104,7 @@
 
                                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                                     <label for="inputText3" class="col-form-label">Member Name</label>
-                                    <input id="inputText3" type="text" name="name" class="form-control">
+                                    <input id="inputText3" type="text" name="name" class="form-control" value="{{ $bod->name }}">
                                 </div>
                             </div>
                         </div>
@@ -125,13 +123,13 @@
                             <div class="card-body form-row">
                             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2">
                                 <label for="inputText3" class="col-form-label">Member Title</label>
-                                <input id="inputText3" type="text" name="title" class="form-control">
+                                <input id="inputText3" type="text" name="title" class="form-control" value="{{ $bod->title }}">
                             </div>
 
 
                             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2">
                                 <label for="exampleFormControlTextarea1">Body</label>
-                                <textarea id="shortText" name="body"></textarea>
+                                <textarea id="shortText" name="body">{{ $bod->body }}</textarea>
                             </div>
 
                             </div>
@@ -167,16 +165,6 @@
     <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.js') }}"></script>
     <script src="{{ asset('assets/vendor/slimscroll/jquery.slimscroll.js') }}"></script>
     <script src="{{ asset('assets/libs/js/main-js.js') }}"></script>
-    <!-- Toastr JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
-    <script>
-        @if ($errors->any())
-            @foreach ($errors->all() as $error)
-                toastr.error("{{ $error }}");
-            @endforeach
-        @endif
-    </script>
 </body>
 
 </html>

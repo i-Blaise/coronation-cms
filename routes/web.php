@@ -49,6 +49,13 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/section4', [AboutUsController::class, 'aboutSec4'])->name('about-sec4');
         Route::post('/section4/update', [AboutUsController::class, 'updateSection4'])->name('about-sec4-update');
+
+        Route::get('/section5', [AboutUsController::class, 'aboutSec5'])->name('about-sec5');
+        Route::get('/section5/create/bod', [AboutUsController::class, 'createBoD'])->name('about-create-bod');
+        Route::post('/section5/add/bod', [AboutUsController::class, 'storeBoD'])->name('about-sec5-store');
+        Route::get('/section5/{id}/edit', [AboutUsController::class, 'editBoD'])->name('about-sec5-edit');
+        Route::post('/section5/{id}/update', [AboutUsController::class, 'updateBoD'])->name('about-sec5-update');
+        Route::get('/section5/{id}/delete', [AboutUsController::class, 'deleteBoD'])->name('about-sec5-delete');
     });
 
 
@@ -104,11 +111,11 @@ require __DIR__.'/auth.php';
 //     return view('pages.aboutpage.section4');
 // })->name('about-sec4');
 
-Route::get('/about-sec5', function () {
-    return view('pages.aboutpage.section5');
-})->name('about-sec5');
+// Route::get('/about-sec5', function () {
+//     return view('pages.aboutpage.section5');
+// })->name('about-sec5');
 
-Route::get('/about-add-member', function () {
-    return view('pages.aboutpage.add-member');
-})->name('add-member');
+// Route::get('/about-add-member', function () {
+//     return view('pages.aboutpage.add-member');
+// })->name('add-member');
 

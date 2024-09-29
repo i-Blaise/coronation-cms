@@ -12,7 +12,12 @@
     <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/libs/css/style.css">
     <link rel="stylesheet" href="../assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-    <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+    <!-- Toastr CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
+
+
+
 
 
     {{-- TinyMCE Editor  --}}
@@ -91,7 +96,7 @@
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="margin-bottom: 2rem;">
                         <h3>Section 1</h3>
 
-                        <a href="{{ route('add-member') }}" class="btn btn-primary btn-lg" style="margin-right: 10px">Add New Board Member</a>
+                        <a href="{{ route('about-create-bod') }}" class="btn btn-primary btn-lg" style="margin-right: 10px">Add New Board Member</a>
                     </div>
 
                 </div>
@@ -113,13 +118,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach($bods as $bod)
                                     <tr>
                                         <td>
-                                            <div class="m-r-10"><img src="assets/images/dribbble.png" alt="user" width="35"></div>
+                                            <div class="m-r-10"><img src="{{ asset($bod->image) }}" alt="user" width="35"></div>
                                         </td>
-                                        <td>Fashion E Commerce </td>
-                                        <td>70%</td>
-                                        <td>7 Aug,2018</td>
+                                        <td>{{ $bod->name }}</td>
+                                        <td>{{ $bod->title }}</td>
+                                        <td>{{ $bod->created_at }}</td>
                                         <td>
                                             <div class="dropdown float-right">
                                                 <a href="#" class="dropdown-toggle card-drop" data-toggle="dropdown" aria-expanded="true">
@@ -127,13 +133,14 @@
                                                              </a>
                                                 <div class="dropdown-menu dropdown-menu-right">
                                                     <!-- item-->
-                                                    <a href="javascript:void(0);" class="dropdown-item">Edit</a>
+                                                    <a href="{{ route('about-sec5-edit', ['id' => $bod->id]) }}" class="dropdown-item">Edit</a>
                                                     <!-- item-->
-                                                    <a href="javascript:void(0);" class="dropdown-item">Delete</a>
+                                                    <a href="{{ route('about-sec5-delete', ['id' => $bod->id]) }}" class="dropdown-item">Delete</a>
                                                 </div>
                                             </div>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -164,6 +171,17 @@
     <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="../assets/vendor/slimscroll/jquery.slimscroll.js"></script>
     <script src="../assets/libs/js/main-js.js"></script>
+    <!-- Toastr JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script>
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                toastr.error("{{ $error }}");
+            @endforeach
+        @endif
+    </script>
+
 </body>
 
 </html>

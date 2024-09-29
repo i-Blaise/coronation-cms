@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Individual;
 
 use App\Http\Controllers\Controller;
 use App\Models\AboutUs;
+use App\Models\BOD;
 use Illuminate\Http\Request;
 
 class AboutUsController extends Controller
@@ -180,7 +181,7 @@ class AboutUsController extends Controller
 
 
 
-    //  Section 3
+    //  Section 4
 
     public function aboutSec4()
     {
@@ -217,5 +218,91 @@ class AboutUsController extends Controller
 
 
 
+    //  Section 5
+
+    public function aboutSec5()
+    {
+        $bods = BOD::all();
+        return view('pages.aboutpage.section5', compact('bods'));
+    }
+
+    public function createBoD()
+    {
+        return view('pages.aboutpage.add-member');
+    }
+
+
+    public function storeBoD(Request $request)
+    {
+        // dd($request->all());
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'name' => 'required',
+            'body' => 'required',
+            'title' => 'required'
+        ]);
+
+        if(!is_null($request->file('image')))
+        {
+            $imagePath = $this->uploadImage($request->file('image'));
+        }
+
+        BOD::create([
+            'image' => $imagePath,
+            'name' => $request->name,
+            'body' => $request->body,
+            'title' => $request->title
+        ]);
+
+        toastr()->success('BOD Added');
+
+        return redirect()->route('about-sec5');
+    }
+
+
+
+    public function editBoD($id)
+    {
+        $bod = BOD::find($id);
+        return view('pages.aboutpage.edit-member', compact('bod'));
+    }
+
+    public function updateBoD(Request $request, $id)
+    {
+        // dd($request->all());
+        $request->validate([
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'name' => 'required',
+            'body' => 'required',
+            'title' => 'required'
+        ]);
+
+        if(!is_null($request->file('image')))
+        {
+            $imagePath = $this->uploadImage($request->file('image'));
+        }
+
+        $bod = BOD::find($id);
+
+        isset($imagePath) ? $bod->image = $imagePath : '';
+        $bod->name = $request->name;
+        $bod->title = $request->title;
+        $bod->body = $request->body;
+
+        $bod->save();
+
+        toastr()->success('BOD Added');
+
+        return redirect()->route('about-sec5');
+    }
+
+    public function deleteBoD($id)
+    {
+        BOD::destroy($id);
+
+        toastr()->success('BOD Deleted');
+
+        return back();
+    }
 
 }
