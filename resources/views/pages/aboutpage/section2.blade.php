@@ -85,31 +85,59 @@
                     </div>
                 </div>
 
+
+                <form action="{{ route('about-sec2-update') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('POST')
+
+
                 <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="margin-bottom: 2rem;">
-                        <h3>Section 1</h3>
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <h3>Header Image</h3>
                     </div>
 
-                    {{-- Basic Upoad Image Form w Image Preview after post --}}
-                    @include('components.form-group.image-upload')
+                    {{-- @include('components.form-group.image-upload') --}}
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="card">
+                            <h5 class="card-header">Upload Section 2 Image</h5>
+                            <div class="card-body">
+                                    <div class="custom-file mb-3">
+                                        <input type="file" class="custom-file-input" id="customFile" name="image">
+                                        <label class="custom-file-label" for="customFile">File Input</label>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                        <div class="card text-white">
+                            <img class="card-img" src="{{ asset($about->sec2_image) }}" alt="Card image">
+                            <div class="card-img-overlay">
+                                <a href="#" class="btn btn-primary">Full Image</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
-                            <h5 class="card-header">Section 1 Text</h5>
+                            <h5 class="card-header">Section 2 Text</h5>
 
                             {{-- Short Title/Body Form - TinyMCE  --}}
-                            @include('components.form-group.short-title-body-form')
+                            @php
+                            $caption = $about->sec2_caption;
+                            $body = $about->sec2_body;
+                        @endphp
+                        @include('components.form-group.left-right-text-form')
+                    </div>
 
+                    {{-- <a href="#" class="btn btn-primary">Submit</a> --}}
+                    <button class="btn btn-primary" type="submit">Submit</button>
+
+                </form>
                         </div>
                     </div>
-                </div>
-
-                <a href="#" class="btn btn-primary btn-block">Submit</a>
-
-
             </div>
 
 
