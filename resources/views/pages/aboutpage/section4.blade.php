@@ -85,29 +85,28 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="margin-bottom: 2rem;">
-                        <h3>Section 1</h3>
-                    </div>
+                <form action="{{ route('about-sec4-update') }}" method="POST">
+                    @csrf
+                    @method('POST')
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="card">
+                                <h5 class="card-header">Section 4 Text</h5>
 
-                    {{-- Basic Upoad Image Form w Image Preview after post --}}
-                    @include('components.form-group.image-upload')
+                                {{-- Short Title/Body Form - TinyMCE  --}}
+                                @php
+                                $caption = $about->sec4_caption;
+                                $body = $about->sec4_body;
+                            @endphp
+                            @include('components.form-group.left-right-text-form')
+                        </div>
 
-                </div>
+                        {{-- <a href="#" class="btn btn-primary">Submit</a> --}}
+                        <button class="btn btn-primary" type="submit">Submit</button>
 
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="card">
-                            <h5 class="card-header">Section 1 Text</h5>
-
-                            {{-- Short Title/Body Form - TinyMCE  --}}
-                            @include('components.form-group.short-title-body-form')
-
+                </form>
                         </div>
                     </div>
-                </div>
-
-                <a href="#" class="btn btn-primary btn-block">Submit</a>
 
 
             </div>

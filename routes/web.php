@@ -46,6 +46,9 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/section3', [AboutUsController::class, 'aboutSec3'])->name('about-sec3');
         Route::post('/section3/update', [AboutUsController::class, 'updateSection3'])->name('about-sec3-update');
+
+        Route::get('/section4', [AboutUsController::class, 'aboutSec4'])->name('about-sec4');
+        Route::post('/section4/update', [AboutUsController::class, 'updateSection4'])->name('about-sec4-update');
     });
 
 
@@ -97,9 +100,9 @@ require __DIR__.'/auth.php';
 //     return view('pages.aboutpage.section3');
 // })->name('about-sec3');
 
-Route::get('/about-sec4', function () {
-    return view('pages.aboutpage.section4');
-})->name('about-sec4');
+// Route::get('/about-sec4', function () {
+//     return view('pages.aboutpage.section4');
+// })->name('about-sec4');
 
 Route::get('/about-sec5', function () {
     return view('pages.aboutpage.section5');

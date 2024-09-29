@@ -167,10 +167,50 @@ class AboutUsController extends Controller
 
         $about_header->save();
 
-        toastr()->success('About Us Page Section 2 Updated');
+        toastr()->success('About Us Page Section 3 Updated');
 
         return back();
     }
+
+
+
+
+
+
+
+
+
+    //  Section 3
+
+    public function aboutSec4()
+    {
+        $about = AboutUs::select('id', 'sec4_caption', 'sec4_body')->where('id', 1)->first();
+        return view('pages.aboutpage.section4', compact('about'));
+    }
+
+
+    public function updateSection4(Request $request)
+    {
+        // dd($request->all());
+
+        $request->validate([
+            'caption' => 'required',
+            'body' => 'required'
+        ]);
+
+        $about_header = AboutUs::find(1);
+
+        $about_header->sec4_caption = $request->caption;
+        $about_header->sec4_body = $request->body;
+
+        $about_header->save();
+
+        toastr()->success('About Us Page Section 4 Updated');
+
+        return back();
+    }
+
+
 
 
 
