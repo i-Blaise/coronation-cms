@@ -85,21 +85,56 @@
                     </div>
                 </div>
 
+                <form action="{{ route('about-sec1-update') }}" method="POST">
+                    @csrf
+                    @method('POST')
 
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
-                            <h5 class="card-header">Section 1 Text</h5>
-
-                            {{-- Short Title/Body Form - TinyMCE  --}}
-                            @include('components.form-group.left-right-text-form')
+                            <h5 class="card-header">Section 1 Left </h5>
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2">
+                                        <label for="exampleFormControlTextarea1">Caption</label>
+                                        <textarea id="shortText" name="caption_right">{{ $about->sec1_caption_left }}</textarea>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2">
+                                        <label for="exampleFormControlTextarea1">Body</label>
+                                        <textarea id="shortText" name="body_right">{{ $about->sec1_body_left }}</textarea>
+                                    </div>
+                                </div>
+                        </div>
 
                         </div>
                     </div>
                 </div>
 
-                <a href="#" class="btn btn-primary btn-block">Submit</a>
 
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="card">
+                            <h5 class="card-header">Section 1 Right</h5>
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2">
+                                        <label for="exampleFormControlTextarea1">Caption</label>
+                                        <textarea id="shortText" name="caption_left">{{ $about->sec1_caption_right }}</textarea>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2">
+                                        <label for="exampleFormControlTextarea1">Body</label>
+                                        <textarea id="shortText" name="body_left">{{ $about->sec1_body_right }}</textarea>
+                                    </div>
+                                </div>
+                        </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" type="submit">Submit</button>
+
+                </form>
 
             </div>
 

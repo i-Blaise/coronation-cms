@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Individual\AboutUsController;
 use App\Http\Controllers\Individual\HomepageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,20 @@ Route::middleware('auth')->group(function () {
 
     Route::get('home/section2', [HomepageController::class, 'homeSec2'])->name('home-sec2');
     Route::post('home/section2/update', [HomepageController::class, 'updateSection2'])->name('home-sec2-update');
+
+
+
+    // About Us Page
+    Route::prefix('about')->group(function () {
+        Route::get('/header', [AboutUsController::class, 'index'])->name('about-header');
+        Route::post('/header/update', [AboutUsController::class, 'updateAboutHeader'])->name('about-header-update');
+
+        Route::get('/section1', [AboutUsController::class, 'aboutSec1'])->name('about-sec1');
+        Route::post('/section1/update', [AboutUsController::class, 'updateSection1'])->name('about-sec1-update');
+    });
+
+
+
 });
 
 require __DIR__.'/auth.php';
@@ -60,13 +75,13 @@ require __DIR__.'/auth.php';
 
 
 
-Route::get('/about', function () {
-    return view('pages.aboutpage.header');
-})->name('about-header');
+// Route::get('/about', function () {
+//     return view('pages.aboutpage.header');
+// })->name('about-header');
 
-Route::get('/about-sec1', function () {
-    return view('pages.aboutpage.section1');
-})->name('about-sec1');
+// Route::get('/about-sec1', function () {
+//     return view('pages.aboutpage.section1');
+// })->name('about-sec1');
 
 Route::get('/about-sec2', function () {
     return view('pages.aboutpage.section2');

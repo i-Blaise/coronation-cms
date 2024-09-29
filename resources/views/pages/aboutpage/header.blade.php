@@ -85,6 +85,10 @@
                     </div>
                 </div>
 
+
+            <form action="{{ route('about-header-update') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('POST')
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <h3>Header Image</h3>
@@ -93,20 +97,17 @@
                         <div class="card">
                             <h5 class="card-header">Upload Header Image</h5>
                             <div class="card-body">
-                                <form>
                                     <div class="custom-file mb-3">
-                                        <input type="file" class="custom-file-input" id="customFile">
+                                        <input type="file" class="custom-file-input" id="customFile" name="image">
                                         <label class="custom-file-label" for="customFile">File Input</label>
                                     </div>
-                                    <a href="#" class="btn btn-primary">Submit</a>
-                                </form>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                         <div class="card text-white">
-                            <img class="card-img" src="../assets/images/card-img.jpg" alt="Card image">
+                            <img class="card-img" src="{{ asset($about_header->header_image) }}" alt="Card image">
                             <div class="card-img-overlay">
                                 <a href="#" class="btn btn-primary">Full Image</a>
                             </div>
@@ -117,26 +118,14 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
-                            <h5 class="card-header">Header Text</h5>
-                            <div class="card-body">
-                                <form>
-
-                                    <div class="form-row">
-                                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2">
-                                            <label for="exampleFormControlTextarea1">Title</label>
-                                            @include('components.forms.tinymce-editor')
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2">
-                                            <label for="exampleFormControlTextarea1">Body</label>
-                                            @include('components.forms.tinymce-editor')
-                                        </div>
-
-                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
-                                            <button class="btn btn-primary" type="submit">Submit</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
+                            @php
+                                $caption = $about_header->header_caption;
+                                $body = $about_header->header_body;
+                            @endphp
+                            @include('components.form-group.left-right-text-form')
+                            <button class="btn btn-primary" type="submit">Submit</button>
+                        </form>
+                        </div>
                         </div>
                     </div>
 
