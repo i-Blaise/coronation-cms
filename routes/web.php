@@ -6,7 +6,7 @@ use App\Http\Controllers\Individual\PnSController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
 
@@ -23,7 +23,7 @@ Route::middleware('auth')->group(function () {
 
     // Homepage
     // Route::resource('home-header', HomepageController::class)->only(['index']);
-    Route::get('home-header', [HomepageController::class, 'index'])->name('home-header');
+    Route::get('/', [HomepageController::class, 'index'])->name('home-header');
     Route::post('home-header/update', [HomepageController::class, 'updateHomeHeader'])->name('home-header-update');
 
     Route::get('home/section1', [HomepageController::class, 'homeSec1'])->name('home-sec1');
