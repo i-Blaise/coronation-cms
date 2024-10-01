@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Individual\AboutUsController;
 use App\Http\Controllers\Individual\HomepageController;
+use App\Http\Controllers\Individual\PnSController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -59,6 +60,17 @@ Route::middleware('auth')->group(function () {
     });
 
 
+    // Products and Solutions Page
+    Route::prefix('pns')->group(function () {
+        Route::get('/header', [PnSController::class, 'index'])->name('pns-header');
+        Route::post('/header/update', [PnSController::class, 'updatePnSHeader'])->name('pns-header-update');
+
+
+        Route::get('/section1', [PnSController::class, 'PnsSec1'])->name('pns-sec1');
+        Route::post('/section1/update', [PnSController::class, 'updateSection1'])->name('pns-section1-update');
+    });
+
+
 
 });
 
@@ -76,46 +88,9 @@ require __DIR__.'/auth.php';
 // })->name('login');
 
 
-// Route::get('/homepage', function () {
-//     return view('pages.homepage.header');
-// })->name('home-header');
-
-// Route::get('/section1', function () {
-//     return view('pages.homepage.section1');
-// })->name('home-sec1');
-
-// Route::get('/section2', function () {
-//     return view('pages.homepage.section2');
-// })->name('home-sec2');
 
 
 
 
-// Route::get('/about', function () {
-//     return view('pages.aboutpage.header');
-// })->name('about-header');
 
-// Route::get('/about-sec1', function () {
-//     return view('pages.aboutpage.section1');
-// })->name('about-sec1');
-
-// Route::get('/about-sec2', function () {
-//     return view('pages.aboutpage.section2');
-// })->name('about-sec2');
-
-// Route::get('/about-sec3', function () {
-//     return view('pages.aboutpage.section3');
-// })->name('about-sec3');
-
-// Route::get('/about-sec4', function () {
-//     return view('pages.aboutpage.section4');
-// })->name('about-sec4');
-
-// Route::get('/about-sec5', function () {
-//     return view('pages.aboutpage.section5');
-// })->name('about-sec5');
-
-// Route::get('/about-add-member', function () {
-//     return view('pages.aboutpage.add-member');
-// })->name('add-member');
 

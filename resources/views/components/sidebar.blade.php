@@ -12,7 +12,7 @@
                     </li>
 
                     <li class="nav-item ">
-                        <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Homepage <span class="badge badge-success">6</span></a>
+                        <a class="nav-link {{ Route::is('home-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Homepage <span class="badge badge-success">6</span></a>
                         <div id="submenu-1" class="collapse submenu" style="">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
@@ -31,7 +31,7 @@
 
 
                     <li class="nav-item ">
-                        <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-user-circle"></i>About Page <span class="badge badge-success">6</span></a>
+                        <a class="nav-link {{ Route::is('about-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-user-circle"></i>About Page <span class="badge badge-success">6</span></a>
                         <div id="submenu-2" class="collapse submenu" style="">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
@@ -58,14 +58,32 @@
 
 
                     <li class="nav-item ">
-                        <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="fa fa-fw fa-user-circle"></i> Producs & Solutions Page <span class="badge badge-success">6</span></a>
+                        <a class="nav-link {{ Route::is('pns-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="fa fa-fw fa-user-circle"></i> Producs & Solutions Page <span class="badge badge-success">6</span></a>
                         <div id="submenu-3" class="collapse submenu" style="">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('about-header') }}">Header</a>
+                                    <a class="nav-link" href="{{ route('pns-header') }}">Header</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('about-sec1') }}">Section 1</a>
+                                    <a class="nav-link" href="{{ route('pns-sec1') }}">Section 1</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('about-sec2') }}">Section 2</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+
+                    <li class="nav-item ">
+                        <a class="nav-link {{ Route::is('pns-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="fa fa-fw fa-user-circle"></i> Motor Insuance Page <span class="badge badge-success">6</span></a>
+                        <div id="submenu-3" class="collapse submenu" style="">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('pns-header') }}">Header</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('pns-sec1') }}">Section 1</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('about-sec2') }}">Section 2</a>
