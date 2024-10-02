@@ -67,9 +67,6 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('pns-sec1') }}">Section 1</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('about-sec2') }}">Section 2</a>
-                                </li>
                             </ul>
                         </div>
                     </li>
