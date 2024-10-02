@@ -75,6 +75,8 @@ Route::middleware('auth')->group(function () {
     // Motor Insurance Page
     Route::prefix('motor')->group(function () {
         Route::get('/', [MotorInsuranceController::class, 'index'])->name('motor');
+        Route::get('/show/header', [MotorInsuranceController::class, 'showMotorHeader'])->name('motor-header');
+        Route::post('/header/update', [MotorInsuranceController::class, 'updateMotorInsuranceHeader'])->name('motor-header-update');
         Route::post('/update', [MotorInsuranceController::class, 'updateMotorInsurance'])->name('motor-update');
     });
 

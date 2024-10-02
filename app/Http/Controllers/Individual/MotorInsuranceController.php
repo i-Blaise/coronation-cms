@@ -26,6 +26,45 @@ class MotorInsuranceController extends Controller
     }
 
 
+    public function showMotorHeader()
+    {
+        $motor = MotorInsurance::find(1);
+        return view('pages.motor_insurance.header', compact('motor'));
+    }
+
+    public function updateMotorInsuranceHeader(Request $request)
+    {
+        $request->validate([
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'caption' => 'required',
+            'body' => 'required'
+        ]);
+
+
+        if(!is_null($request->file('image')))
+        {
+            $imagePath = $this->uploadImage($request->file('image'));
+        }
+
+        $motor = MotorInsurance::find(1);
+
+        isset($imagePath) ? $motor->header_image = $imagePath : '';
+        $motor->header_caption = $request->caption;
+        $motor->header_body = $request->body;
+
+        $motor->save();
+
+        toastr()->success('Motor Insurance Header Updated');
+
+        return back();
+    }
+
+
+
+
+
+
+
     public function updateMotorInsurance(Request $request)
     {
         // dd($request->all());

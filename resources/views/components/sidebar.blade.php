@@ -71,11 +71,48 @@
                         </div>
                     </li>
 
-                    <li class="nav-item ">
-                        <a class="nav-link" href="{{ route('motor') }}"><i class="fa fa-fw fa-user-circle"></i> Motor Insuance Page <span class="badge badge-success">6</span></a>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Route::is('motor-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-4" aria-controls="submenu-4"><i class="fa fa-fw fa-user-circle"></i> Motor Insuance Page <span class="badge badge-success">6</span></a>
+                        <div id="submenu-4" class="collapse submenu" style="">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('motor-header') }}">Header</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('motor') }}">Motor Insurance</a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
 
 
+                    <li class="nav-item">
+                        <a class="nav-link {{ Route::is('motor-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fa fa-fw fa-user-circle"></i> Travel Insuance Page <span class="badge badge-success">6</span></a>
+                        <div id="submenu-5" class="collapse submenu" style="">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('pns-header') }}">Header</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('motor') }}">Travel Insurance</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link {{ Route::is('motor-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fa fa-fw fa-user-circle"></i> House Insuance Page <span class="badge badge-success">6</span></a>
+                        <div id="submenu-6" class="collapse submenu" style="">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('pns-header') }}">Header</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('motor') }}">House Insurance</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
 
 
 
@@ -83,7 +120,7 @@
                     <li class="nav-divider">
                         Institute
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-10" aria-controls="submenu-10"><i class="fas fa-f fa-folder"></i>Menu Level</a>
                         <div id="submenu-10" class="collapse submenu" style="">
                             <ul class="nav flex-column">
@@ -105,6 +142,49 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Level 3</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li> --}}
+
+                    <li class="nav-item">
+                        <a class="nav-link {{ Route::is('motor-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-4" aria-controls="submenu-4"><i class="fa fa-fw fa-user-circle"></i> Motor Insuance Page <span class="badge badge-success">6</span></a>
+                        <div id="submenu-4" class="collapse submenu" style="">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('pns-header') }}">Header</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('motor') }}">Motor Insurance</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link {{ Route::is('motor-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fa fa-fw fa-user-circle"></i> Engineer Insuance Page <span class="badge badge-success">6</span></a>
+                        <div id="submenu-5" class="collapse submenu" style="">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('pns-header') }}">Header</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('motor') }}">Travel Insurance</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link {{ Route::is('motor-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fa fa-fw fa-user-circle"></i> Marine Insuance Page <span class="badge badge-success">6</span></a>
+                        <div id="submenu-6" class="collapse submenu" style="">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('pns-header') }}">Header</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('motor') }}">House Insurance</a>
                                 </li>
                             </ul>
                         </div>
