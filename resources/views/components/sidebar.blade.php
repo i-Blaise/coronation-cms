@@ -71,23 +71,12 @@
                         </div>
                     </li>
 
-
                     <li class="nav-item ">
-                        <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="fa fa-fw fa-user-circle"></i> Motor Insuance Page <span class="badge badge-success">6</span></a>
-                        <div id="submenu-3" class="collapse submenu" style="">
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('pns-header') }}">Header</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('pns-sec1') }}">Section 1</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('about-sec2') }}">Section 2</a>
-                                </li>
-                            </ul>
-                        </div>
+                        <a class="nav-link" href="{{ route('motor') }}"><i class="fa fa-fw fa-user-circle"></i> Motor Insuance Page <span class="badge badge-success">6</span></a>
                     </li>
+
+
+
 
 
 

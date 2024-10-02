@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Individual\AboutUsController;
 use App\Http\Controllers\Individual\HomepageController;
+use App\Http\Controllers\Individual\MotorInsuranceController;
 use App\Http\Controllers\Individual\PnSController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -70,6 +71,12 @@ Route::middleware('auth')->group(function () {
         Route::post('/section1/update', [PnSController::class, 'updateSection1'])->name('pns-section1-update');
     });
 
+
+    // Motor Insurance Page
+    Route::prefix('motor')->group(function () {
+        Route::get('/', [MotorInsuranceController::class, 'index'])->name('motor');
+        Route::post('/update', [MotorInsuranceController::class, 'updateMotorInsurance'])->name('motor-update');
+    });
 
 
 });

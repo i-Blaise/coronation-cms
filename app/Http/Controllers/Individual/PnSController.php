@@ -17,7 +17,7 @@ class PnSController extends Controller
 
     public function uploadImage($imageFile): string
     { //Move Uploaded File to public folder
-        $destinationPath = 'images/uploads/aboutus/';
+        $destinationPath = 'images/uploads/pns/';
         $hashed_image_name = $imageFile->hashName();
         $img_path = $destinationPath.$hashed_image_name;
         $imageFile->move(public_path($destinationPath), $hashed_image_name);
