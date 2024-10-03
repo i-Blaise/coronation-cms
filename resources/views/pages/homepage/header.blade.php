@@ -15,6 +15,10 @@
 
     {{-- TinyMCE Editor  --}}
     @include('components.head.tinymce-config')
+
+    {{-- Toastr Notifications  --}}
+    @include('components.head.notif')
+
 </head>
 
 <body>
@@ -73,7 +77,7 @@
                             <div class="row">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <h2>Overview</h2>
-                                    <p class="lead">Iframe of section being edited.</p>
+                                    <p class="lead">Live Site of section being edited.</p>
                                 </div>
                             </div>
                         </div>
