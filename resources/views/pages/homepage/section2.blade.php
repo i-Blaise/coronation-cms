@@ -16,6 +16,10 @@
 
     {{-- TinyMCE Editor  --}}
     @include('components.head.tinymce-config')
+
+    {{-- Toastr Notifications  --}}
+    @include('components.head.notif')
+
 </head>
 
 <body>
@@ -74,7 +78,7 @@
                             <div class="row">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <h2>Overview</h2>
-                                    <p class="lead">Iframe of section being edited.</p>
+                                    <p class="lead">Life site of section being edited.</p>
                                 </div>
                             </div>
                         </div>
@@ -93,7 +97,7 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
-                            <h5 class="card-header">Section 1 Text</h5>
+                            <h5 class="card-header">Section 2 Text</h5>
                             @php
                                 $caption = $home->insight_caption;
                                 $body = $home->insight_body
@@ -105,18 +109,18 @@
                 </div>
 
 
-                <h5>Insight Cards </h5>
+                {{-- <h5>Insight Cards </h5>
                 <p>Sort how Insight cards are displayed. You can sort in ascending or descending order by date posted. Or Select the specific cards you want displayed in homepage</p>
                 <label class="custom-control custom-radio custom-control-inline">
                     <input type="radio" name="radio-inline" checked="" class="custom-control-input"><span class="custom-control-label">Sort Insight Cards</span>
                 </label>
                 <label class="custom-control custom-radio custom-control-inline">
                     <input type="radio" name="radio-inline" class="custom-control-input"><span class="custom-control-label">Select Insight Cards</span>
-                </label>
+                </label> --}}
 
 
 
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
                             <h5 class="card-header">Select post for each card</h5>
@@ -156,7 +160,7 @@
 
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
 
 
@@ -167,7 +171,7 @@
 
 
 
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
                             <h5 class="card-header">Sort Card Order</h5>
@@ -186,7 +190,7 @@
 
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <button class="btn btn-primary" type="submit" name="submit">Submit</button>
             </form>
                 {{-- <a href="#" class="btn btn-primary btn-block">Submit</a> --}}

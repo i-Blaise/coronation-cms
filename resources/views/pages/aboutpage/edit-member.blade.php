@@ -15,6 +15,9 @@
 
     {{-- TinyMCE Editor  --}}
     @include('components.head.tinymce-config')
+
+    {{-- Toastr Notifications  --}}
+    @include('components.head.notif')
 </head>
 
 <body>
@@ -54,7 +57,7 @@
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Individual</a></li>
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Aboutpage</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Header</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Edit BOD</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -79,11 +82,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <iframe style="border:2px #000 solid" src="https://coronation.interactivedigital.com.gh/" title="iFrame" width="100%" height="400px" scrolling="no" frameborder="yes" allow=""></iframe>
                     </div>
-                </div>
+                </div> --}}
 
 
 

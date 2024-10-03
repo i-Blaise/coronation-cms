@@ -15,6 +15,10 @@
 
     {{-- TinyMCE Editor  --}}
     @include('components.head.tinymce-config')
+
+    {{-- Toastr Notifications  --}}
+    @include('components.head.notif')
+
 </head>
 
 <body>
@@ -54,7 +58,7 @@
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Individual</a></li>
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Aboutpage</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Header</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Section 1</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -73,7 +77,7 @@
                             <div class="row">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <h2>Overview</h2>
-                                    <p class="lead">Iframe of section being edited.</p>
+                                    <p class="lead">Live site of section being edited.</p>
                                 </div>
                             </div>
                         </div>

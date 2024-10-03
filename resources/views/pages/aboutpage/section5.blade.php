@@ -22,6 +22,11 @@
 
     {{-- TinyMCE Editor  --}}
     @include('components.head.tinymce-config')
+
+
+    {{-- Toastr Notifications  --}}
+    @include('components.head.notif')
+
 </head>
 
 <body>
@@ -121,7 +126,7 @@
                                     @foreach($bods as $bod)
                                     <tr>
                                         <td>
-                                            <div class="m-r-10"><img src="{{ asset($bod->image) }}" alt="user" width="35"></div>
+                                            <div class="m-r-10"><a href="{{ asset($bod->image) }}" target="_blank"><img src="{{ asset($bod->image) }}" alt="user" width="35"></a></div>
                                         </td>
                                         <td>{{ $bod->name }}</td>
                                         <td>{{ $bod->title }}</td>
