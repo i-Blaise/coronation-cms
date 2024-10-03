@@ -13,7 +13,7 @@ class HomepageController extends Controller
      */
     public function index()
     {
-        $homepage = Homepage::all();
+        $homepage = Homepage::select('header_image', 'header_caption', 'header_body')->where('id', '1')->get();
         return response()->json($homepage);
     }
 
