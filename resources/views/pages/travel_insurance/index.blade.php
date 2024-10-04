@@ -15,6 +15,9 @@
 
     {{-- TinyMCE Editor  --}}
     @include('components.head.tinymce-config')
+
+    {{-- Toastr Notifications  --}}
+    @include('components.head.notif')
 </head>
 
 <body>

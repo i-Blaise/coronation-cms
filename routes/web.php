@@ -4,6 +4,7 @@ use App\Http\Controllers\Individual\AboutUsController;
 use App\Http\Controllers\Individual\HomepageController;
 use App\Http\Controllers\Individual\MotorInsuranceController;
 use App\Http\Controllers\Individual\PnSController;
+use App\Http\Controllers\Individual\TravelInsuranceController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -79,6 +80,13 @@ Route::middleware('auth')->group(function () {
         Route::post('/header/update', [MotorInsuranceController::class, 'updateMotorInsuranceHeader'])->name('motor-header-update');
         Route::post('/update', [MotorInsuranceController::class, 'updateMotorInsurance'])->name('motor-update');
     });
+
+        // Travel Insurance Page
+        Route::prefix('travel')->group(function () {
+            Route::get('/', [TravelInsuranceController::class, 'index'])->name('travel');
+            Route::get('/show/header', [TravelInsuranceController::class, 'showTravelHeader'])->name('travel-header');
+            Route::post('/header/update', [TravelInsuranceController::class, 'updateTravelInsuranceHeader'])->name('travel-header-update');
+        });
 
 
 });

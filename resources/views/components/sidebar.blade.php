@@ -87,14 +87,14 @@
 
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fa fa-fw fa-user-circle"></i> Travel Insuance Page <span class="badge badge-success">6</span></a>
+                        <a class="nav-link {{ Route::is('travel-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fa fa-fw fa-user-circle"></i> Travel Insuance Page <span class="badge badge-success">6</span></a>
                         <div id="submenu-5" class="collapse submenu" style="">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('pns-header') }}">Header</a>
+                                    <a class="nav-link" href="{{ route('travel-header') }}">Header</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('motor') }}">Travel Insurance</a>
+                                    <a class="nav-link" href="{{ route('travel') }}">Travel Insurance</a>
                                 </li>
                             </ul>
                         </div>

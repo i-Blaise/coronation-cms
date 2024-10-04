@@ -6,7 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Aboutpage Header</title>
+    <title>Travel Insurance Header</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}">
     <link href="{{ asset('assets/vendor/fonts/circular-std/style.css') }}" rel="stylesheet">
@@ -15,6 +15,9 @@
 
     {{-- TinyMCE Editor  --}}
     @include('components.head.tinymce-config')
+
+    {{-- Toastr Notifications  --}}
+    @include('components.head.notif')
 </head>
 
 <body>
@@ -47,14 +50,14 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Aboutpage Header </h2>
+                            <h2 class="pageheader-title">Travel Insurance Header </h2>
                             <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Individual</a></li>
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Homepae</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Header</li>
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Insurance</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Travel Header</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -73,7 +76,7 @@
                             <div class="row">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <h2>Overview</h2>
-                                    <p class="lead">Iframe of section being edited.</p>
+                                    <p class="lead">Live site of section being edited.</p>
                                 </div>
                             </div>
                         </div>
@@ -86,7 +89,7 @@
                 </div>
 
 
-            <form action="{{ route('motor-header-update') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('travel-header-update') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
                 <div class="row">
@@ -106,7 +109,7 @@
                     </div>
 
                     @php
-                    $image = $motor->header_image;
+                    $image = $travel->header_image;
                     @endphp
                     {{-- Current Image Card --}}
                     @include('components.current-image')
@@ -117,8 +120,8 @@
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
                             @php
-                                $caption = $motor->header_caption;
-                                $body = $motor->header_body;
+                                $caption = $travel->header_caption;
+                                $body = $travel->header_body;
                             @endphp
                             @include('components.form-group.left-right-text-form')
                             <button class="btn btn-primary" type="submit">Submit</button>
@@ -127,7 +130,6 @@
                         </div>
                     </div>
 
-                </div>
             </div>
 
 

@@ -94,7 +94,7 @@
                 @method('POST')
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <h3>Image</h3>
+                        <h3>Background Image</h3>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="card">
