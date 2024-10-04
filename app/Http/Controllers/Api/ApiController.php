@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\AboutUs;
 use App\Models\BOD;
 use App\Models\Homepage;
+use App\Models\MotorInsurance;
 use App\Models\PnS;
 use Illuminate\Http\Request;
 
@@ -33,5 +34,11 @@ class ApiController extends Controller
     {
         $pns = PnS::all();
         return response()->json($pns);
+    }
+
+    public function individualMotorInsurance()
+    {
+        $motor = MotorInsurance::all();
+        return response()->json($motor);
     }
 }

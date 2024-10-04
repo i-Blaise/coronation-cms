@@ -12,3 +12,4 @@ Route::get('/home/fetch', [ApiController::class, 'homepage']);
 Route::get('/about/fetch', [ApiController::class, 'aboutpage']);
 Route::get('/bod/fetch', [ApiController::class, 'bod']);
 Route::get('/pns/fetch', [ApiController::class, 'pns']);
+Route::get('/motor/individual/fetch', [ApiController::class, 'individualMotorInsurance']);
