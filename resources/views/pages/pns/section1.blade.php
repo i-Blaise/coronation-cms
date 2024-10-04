@@ -15,6 +15,9 @@
 
     {{-- TinyMCE Editor  --}}
     @include('components.head.tinymce-config')
+
+    {{-- Toastr Notifications  --}}
+    @include('components.head.notif')
 </head>
 
 <body>
@@ -47,14 +50,14 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Aboutpage Header </h2>
+                            <h2 class="pageheader-title">Products & Solutions Section 1 </h2>
                             <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Individual</a></li>
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Homepae</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Header</li>
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Products & Solution</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Section 1</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -200,7 +203,6 @@
                         </form>
                         </div>
                     </div>
-                </div>
                 </div>
             </div>
 

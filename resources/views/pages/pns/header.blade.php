@@ -6,7 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Aboutpage Header</title>
+    <title>Products and Solutions Header</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
@@ -15,6 +15,9 @@
 
     {{-- TinyMCE Editor  --}}
     @include('components.head.tinymce-config')
+
+    {{-- Toastr Notifications  --}}
+    @include('components.head.notif')
 </head>
 
 <body>
@@ -47,13 +50,13 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Aboutpage Header </h2>
+                            <h2 class="pageheader-title">Products & Solution Header </h2>
                             <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Individual</a></li>
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Homepae</a></li>
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Products & Solution</a></li>
                                         <li class="breadcrumb-item active" aria-current="page">Header</li>
                                     </ol>
                                 </nav>
@@ -105,14 +108,12 @@
                         </div>
                     </div>
 
-                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                        <div class="card text-white">
-                            <img class="card-img" src="{{ asset($pns_header->header_image) }}" alt="Card image">
-                            <div class="card-img-overlay">
-                                <a href="#" class="btn btn-primary">Full Image</a>
-                            </div>
-                        </div>
-                    </div>
+                    @php
+                    $image = $pns_header->header_image;
+                    @endphp
+                    {{-- Current Image Card --}}
+                    @include('components.current-image')
+
                 </div>
 
                 <div class="row">
@@ -129,7 +130,6 @@
                         </div>
                     </div>
 
-                </div>
             </div>
 
 
