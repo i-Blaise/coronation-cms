@@ -6,7 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Motor Insurance Header</title>
+    <title>Aboutpage Header</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}">
     <link href="{{ asset('assets/vendor/fonts/circular-std/style.css') }}" rel="stylesheet">
@@ -15,9 +15,6 @@
 
     {{-- TinyMCE Editor  --}}
     @include('components.head.tinymce-config')
-
-    {{-- Toastr Notifications  --}}
-    @include('components.head.notif')
 </head>
 
 <body>
@@ -50,7 +47,7 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Motor Insurance Header </h2>
+                            <h2 class="pageheader-title">Aboutpage Header </h2>
                             <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
@@ -76,7 +73,7 @@
                             <div class="row">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <h2>Overview</h2>
-                                    <p class="lead">Live site of section being edited.</p>
+                                    <p class="lead">Iframe of section being edited.</p>
                                 </div>
                             </div>
                         </div>
@@ -130,6 +127,7 @@
                         </div>
                     </div>
 
+                </div>
             </div>
 
 
