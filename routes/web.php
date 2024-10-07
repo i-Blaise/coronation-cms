@@ -81,12 +81,13 @@ Route::middleware('auth')->group(function () {
         Route::post('/update', [MotorInsuranceController::class, 'updateMotorInsurance'])->name('motor-update');
     });
 
-        // Travel Insurance Page
-        Route::prefix('travel')->group(function () {
-            Route::get('/', [TravelInsuranceController::class, 'index'])->name('travel');
-            Route::get('/show/header', [TravelInsuranceController::class, 'showTravelHeader'])->name('travel-header');
-            Route::post('/header/update', [TravelInsuranceController::class, 'updateTravelInsuranceHeader'])->name('travel-header-update');
-        });
+
+    // Travel Insurance Page
+    Route::prefix('travel')->group(function () {
+        Route::get('/', [TravelInsuranceController::class, 'index'])->name('travel');
+        Route::get('/show/header', [TravelInsuranceController::class, 'showTravelHeader'])->name('travel-header');
+        Route::post('/header/update', [TravelInsuranceController::class, 'updateTravelInsuranceHeader'])->name('travel-header-update');
+    });
 
 
 });

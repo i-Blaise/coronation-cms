@@ -109,7 +109,7 @@
                     </div>
 
                     @php
-                    $image = $motor->sec1_image;
+                    $image = $travel->sec1_image;
                     @endphp
                     {{-- Current Image Card --}}
                     @include('components.current-image')
@@ -122,8 +122,8 @@
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
                             @php
-                                $caption = $motor->sec1_caption;
-                                $body = $motor->sec1_body;
+                                $caption = $travel->sec1_caption;
+                                $body = $travel->sec1_body;
                             @endphp
                             @include('components.form-group.left-right-text-form')
                         </div>
@@ -182,19 +182,15 @@
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
                             @php
-                            if(request('type') == 'comp' || is_null(request('type')))
+                            if(request('type') == 'student' || is_null(request('type')))
                             {
-                                $body1 = $motor->compliance_ins_body;
-                                $features = $motor->compliance_ins_features;
+                                $body1 = $travel->compliance_ins_body;
+                                $features = $travel->compliance_ins_features;
                                 $submit_value = 'comp';
                             }elseif (request('type') == 'tpft') {
-                                $body1 = $motor->tp_fire_theft_body;
-                                $features = $motor->tp_fire_theft_features;
+                                $body1 = $travel->tp_fire_theft_body;
+                                $features = $travel->tp_fire_theft_features;
                                 $submit_value = 'tpft';
-                            }elseif (request('type') == 'tpo') {
-                                $body1 = $motor->tp_only_body;
-                                $features = $motor->tp_only_features;
-                                $submit_value = 'tpo';
                             }
                             @endphp
 
