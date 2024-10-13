@@ -50,14 +50,14 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Motor Insurance Page</h2>
+                            <h2 class="pageheader-title">Travel Insurance Page</h2>
                             <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Individual</a></li>
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Inurance</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Motor</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Travel</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -89,37 +89,17 @@
                 </div>
 
 
-            <form action="{{ route('motor-update') }}" method="POST" enctype="multipart/form-data">
+
+
+            <form action="{{ route('travel-update') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <h3>Header Image</h3>
-                    </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                        <div class="card">
-                            <h5 class="card-header">Upload Section 1 Image</h5>
-                            <div class="card-body">
-                                    <div class="custom-file mb-3">
-                                        <input type="file" class="custom-file-input" id="customFile" name="image">
-                                        <label class="custom-file-label" for="customFile">File Input</label>
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    @php
-                    $image = $travel->sec1_image;
-                    @endphp
-                    {{-- Current Image Card --}}
-                    @include('components.current-image')
-
-                </div>
 
 
 
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <h3>Section 1 Texts</h3>
                         <div class="card">
                             @php
                                 $caption = $travel->sec1_caption;
@@ -132,24 +112,25 @@
 
 
 
+
+
+
+
+
+
+
                 <div class="row">
 
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
 
-                        <a href="?type=comp" class="btn btn-primary btn-lg" style="margin-right: 10px">Compliance Insurance  &nbsp
-                            @if (request('type') == 'comp' || is_null(request('type')))
+                        <a href="?type=student" class="btn btn-primary btn-lg" style="margin-right: 10px">Students  &nbsp
+                            @if (request('type') == 'student' || is_null(request('type')))
                             <span class="badge-dot badge-success"></span>
                             @endif
                         </a>
 
-                        <a href="?type=tpft" class="btn btn-primary btn-lg" style="margin-right: 10px">Third Party Fire and Theft &nbsp
-                            @if (request('type') == 'tpft')
-                            <span class="badge-dot badge-success"></span>
-                            @endif
-                        </a>
-
-                        <a href="?type=tpo" class="btn btn-primary btn-lg" style="margin-right: 10px">Third Part Only &nbsp
-                            @if (request('type') == 'tpo')
+                        <a href="?type=individual" class="btn btn-primary btn-lg" style="margin-right: 10px">Individuals &nbsp
+                            @if (request('type') == 'individual')
                             <span class="badge-dot badge-success"></span>
                             @endif
                         </a>
@@ -162,15 +143,11 @@
                         @php
                         if(request('type') == 'comp' || is_null(request('type')))
                         {
-                            $title = 'Compliance Insurance';
+                            $title = 'Students';
 
-                        }elseif (request('type') == 'tpft') {
+                        }elseif (request('type') == 'individual') {
 
-                            $title = 'Third Party Fire and Theft';
-
-                        }elseif (request('type') == 'tpo') {
-
-                            $title = 'Third Party Only';
+                            $title = 'Individuals';
 
                         }
                         @endphp
@@ -178,21 +155,48 @@
                         <h3> {{ $title }}</h3>
                     </div>
 
+
+
+
+
+                    @php
+                    if(request('type') == 'student' || is_null(request('type')))
+                    {
+                        $body1 = $travel->student_insurance_body;
+                        $features = $travel->student_insurance_features;
+                        $image = $travel->student_ins_image;
+                        $submit_value = 'student';
+                    }elseif (request('type') == 'individual') {
+                        $body1 = $travel->individual_insurance_body;
+                        $features = $travel->individual_insurance_features;
+                        $image = $travel->individual_ins_image;
+                        $submit_value = 'individual';
+                    }
+                    @endphp
+
+
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="card">
+                            <h5 class="card-header">Upload Image</h5>
+                            <div class="card-body">
+                                    <div class="custom-file mb-3">
+                                        <input type="file" class="custom-file-input" id="customFile" name="image">
+                                        <label class="custom-file-label" for="customFile">File Input</label>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- Current Image Card --}}
+                    @include('components.current-image')
+
+                </div>
+
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
-                            @php
-                            if(request('type') == 'student' || is_null(request('type')))
-                            {
-                                $body1 = $travel->compliance_ins_body;
-                                $features = $travel->compliance_ins_features;
-                                $submit_value = 'comp';
-                            }elseif (request('type') == 'tpft') {
-                                $body1 = $travel->tp_fire_theft_body;
-                                $features = $travel->tp_fire_theft_features;
-                                $submit_value = 'tpft';
-                            }
-                            @endphp
 
                             <div class="card-body">
                                 <div class="form-row">

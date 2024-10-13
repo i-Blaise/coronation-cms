@@ -56,4 +56,67 @@ class TravelInsuranceController extends Controller
 
         return back();
     }
+
+
+
+
+
+    public function updatetravelInsurance(Request $request)
+    {
+        // dd($request->all());
+
+        $request->validate([
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'caption' => 'required',
+            'body' => 'required',
+            'body1' => 'required',
+            'features' => 'required',
+        ]);
+
+
+        if(!is_null($request->file('image')))
+        {
+            $imagePath = $this->uploadImage($request->file('image'));
+        }
+
+        $travel = TravelInsurance::find(1);
+
+        $travel->sec1_caption = $request->caption;
+        $travel->sec1_body = $request->body;
+
+        if($request->submit == 'student')
+        {
+            isset($imagePath) ? $travel->student_ins_image = $imagePath : '';
+            $travel->student_insurance_body = $request->body1;
+            $travel->student_insurance_features = $request->features;
+
+        }elseif($request->submit == 'individual')
+        {
+            isset($imagePath) ? $travel->individual_ins_image = $imagePath : '';
+            $travel->individual_insurance_body = $request->body1;
+            $travel->individual_insurance_features = $request->features;
+
+        }
+
+        $travel->save();
+
+        toastr()->success('Travel Insurance Page Updated');
+
+        return back();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
+
