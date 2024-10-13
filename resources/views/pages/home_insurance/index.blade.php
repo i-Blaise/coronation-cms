@@ -91,7 +91,7 @@
 
 
 
-            <form action="{{ route('home-update') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('house-update') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
 

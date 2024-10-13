@@ -95,10 +95,10 @@ Route::middleware('auth')->group(function () {
 
     // Home Insurance Page
     Route::prefix('home')->group(function () {
-        Route::get('/', [HomeInsuranceController::class, 'index'])->name('home-insurance');
-        Route::get('/show/header', [HomeInsuranceController::class, 'showHomeHeader'])->name('home-header');
-        Route::post('/header/update', [HomeInsuranceController::class, 'updateHomeInsuranceHeader'])->name('home-header-update');
-        Route::post('/update', [HomeInsuranceController::class, 'updateHomeInsurance'])->name('home-update');
+        Route::get('/', [HomeInsuranceController::class, 'index'])->name('house-insurance');
+        Route::get('/show/header', [HomeInsuranceController::class, 'showHomeHeader'])->name('house-header');
+        Route::post('/header/update', [HomeInsuranceController::class, 'updateHomeInsuranceHeader'])->name('house-header-update');
+        Route::post('/update', [HomeInsuranceController::class, 'updateHomeInsurance'])->name('house-update');
     });
 
 

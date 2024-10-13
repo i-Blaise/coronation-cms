@@ -101,14 +101,14 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fa fa-fw fa-user-circle"></i> Home Insuance Page <span class="badge badge-success">6</span></a>
+                        <a class="nav-link {{ Route::is('house-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fa fa-fw fa-user-circle"></i> Home Insuance Page <span class="badge badge-success">6</span></a>
                         <div id="submenu-6" class="collapse submenu" style="">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('home-header') }}">Header</a>
+                                    <a class="nav-link" href="{{ route('house-header') }}">Header</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('home-insurance') }}">Home Insurance</a>
+                                    <a class="nav-link" href="{{ route('house-insurance') }}">Home Insurance</a>
                                 </li>
                             </ul>
                         </div>
