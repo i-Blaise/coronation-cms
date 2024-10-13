@@ -6,7 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Travel Insurance Header</title>
+    <title>Home Insurance Header</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}">
     <link href="{{ asset('assets/vendor/fonts/circular-std/style.css') }}" rel="stylesheet">
@@ -89,7 +89,7 @@
                 </div>
 
 
-            <form action="{{ route('travel-header-update') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('home-header-update') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
                 <div class="row">
@@ -109,7 +109,7 @@
                     </div>
 
                     @php
-                    $image = $travel->header_image;
+                    $image = $home->header_image;
                     @endphp
                     {{-- Current Image Card --}}
                     @include('components.current-image')
@@ -120,8 +120,8 @@
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
                             @php
-                                $caption = $travel->header_caption;
-                                $body = $travel->header_body;
+                                $caption = $home->header_caption;
+                                $body = $home->header_body;
                             @endphp
                             @include('components.form-group.left-right-text-form')
                             <button class="btn btn-primary" type="submit">Submit</button>

@@ -13,6 +13,19 @@ return new class extends Migration
     {
         Schema::create('home_insurance', function (Blueprint $table) {
             $table->id();
+            $table->string('header_image');
+            $table->string('header_caption');
+            $table->text('header_body');
+            $table->string('sec1_caption');
+            $table->text('sec1_body');
+            $table->string('homeowner_ins_image');
+            $table->text('homeowner_ins_body');
+            $table->text('homeowner_ins_features');
+            $table->string('householder_ins_image');
+            $table->text('householder_ins_body');
+            $table->text('householder_ins_features');
+            $table->text('benefit_image');
+            $table->text('benefit_body');
             $table->timestamps();
         });
     }

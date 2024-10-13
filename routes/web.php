@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Individual\AboutUsController;
+use App\Http\Controllers\Individual\HomeInsuranceController;
 use App\Http\Controllers\Individual\HomepageController;
 use App\Http\Controllers\Individual\MotorInsuranceController;
 use App\Http\Controllers\Individual\PnSController;
@@ -89,6 +90,16 @@ Route::middleware('auth')->group(function () {
         Route::post('/header/update', [TravelInsuranceController::class, 'updateTravelInsuranceHeader'])->name('travel-header-update');
         Route::get('/show/travel-insurance', [TravelInsuranceController::class, 'showTravelHeader'])->name('travel-insurance');
         Route::post('/update', [TravelInsuranceController::class, 'updateTravelInsurance'])->name('travel-update');
+    });
+
+
+    // Home Insurance Page
+    Route::prefix('home')->group(function () {
+        Route::get('/', [HomeInsuranceController::class, 'index'])->name('home');
+        Route::get('/show/header', [HomeInsuranceController::class, 'showHomeHeader'])->name('home-header');
+        Route::post('/header/update', [HomeInsuranceController::class, 'updateHomeInsuranceHeader'])->name('home-header-update');
+        // Route::get('/show/travel-insurance', [TravelInsuranceController::class, 'showTravelHeader'])->name('travel-insurance');
+        // Route::post('/update', [TravelInsuranceController::class, 'updateTravelInsurance'])->name('travel-update');
     });
 
 
