@@ -108,7 +108,7 @@
                                     <a class="nav-link" href="{{ route('home-header') }}">Header</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('motor') }}">Home Insurance</a>
+                                    <a class="nav-link" href="{{ route('home-insurance') }}">Home Insurance</a>
                                 </li>
                             </ul>
                         </div>

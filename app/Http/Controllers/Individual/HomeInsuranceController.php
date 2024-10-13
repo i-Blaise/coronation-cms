@@ -58,4 +58,52 @@ class HomeInsuranceController extends Controller
         return back();
     }
 
+
+
+
+    public function updateHomeInsurance(Request $request)
+    {
+        // dd($request->all());
+
+        $request->validate([
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'caption' => 'required',
+            'body' => 'required',
+            'body1' => 'required',
+            'features' => 'required',
+        ]);
+
+
+        if(!is_null($request->file('image')))
+        {
+            $imagePath = $this->uploadImage($request->file('image'));
+        }
+
+        $home = HomeInsurance::find(1);
+
+        $home->sec1_caption = $request->caption;
+        $home->sec1_body = $request->body;
+
+        if($request->submit == 'homeowner')
+        {
+            isset($imagePath) ? $home->homeowner_ins_image = $imagePath : '';
+            $home->homeowner_ins_body = $request->body1;
+            $home->homeowner_ins_features = $request->features;
+
+        }elseif($request->submit == 'householder')
+        {
+            isset($imagePath) ? $home->householder_ins_image = $imagePath : '';
+            $home->householder_ins_body = $request->body1;
+            $home->householder_ins_features = $request->features;
+
+        }
+
+        $home->save();
+
+        toastr()->success('Home Insurance Page Updated');
+
+        return back();
+    }
+
+
 }

@@ -50,14 +50,14 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Travel Insurance Page</h2>
+                            <h2 class="pageheader-title">Home Insurance Page</h2>
                             <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Individual</a></li>
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Inurance</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Travel</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Home</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -91,7 +91,7 @@
 
 
 
-            <form action="{{ route('travel-update') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('home-update') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
 
@@ -102,8 +102,8 @@
                         <h3>Section 1 Texts</h3>
                         <div class="card">
                             @php
-                                $caption = $travel->sec1_caption;
-                                $body = $travel->sec1_body;
+                                $caption = $home->sec1_caption;
+                                $body = $home->sec1_body;
                             @endphp
                             @include('components.form-group.left-right-text-form')
                         </div>
@@ -123,14 +123,14 @@
 
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
 
-                        <a href="?type=student" class="btn btn-primary btn-lg" style="margin-right: 10px">Students  &nbsp
-                            @if (request('type') == 'student' || is_null(request('type')))
+                        <a href="?type=homeowner" class="btn btn-primary btn-lg" style="margin-right: 10px">Homeowners  &nbsp
+                            @if (request('type') == 'homeowner' || is_null(request('type')))
                             <span class="badge-dot badge-success"></span>
                             @endif
                         </a>
 
-                        <a href="?type=individual" class="btn btn-primary btn-lg" style="margin-right: 10px">Individuals &nbsp
-                            @if (request('type') == 'individual')
+                        <a href="?type=householder" class="btn btn-primary btn-lg" style="margin-right: 10px">Householders &nbsp
+                            @if (request('type') == 'householder')
                             <span class="badge-dot badge-success"></span>
                             @endif
                         </a>
@@ -141,13 +141,13 @@
 
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         @php
-                        if(request('type') == 'comp' || is_null(request('type')))
+                        if(request('type') == 'homeowner' || is_null(request('type')))
                         {
-                            $title = 'Students';
+                            $title = 'Homeowners';
 
-                        }elseif (request('type') == 'individual') {
+                        }elseif (request('type') == 'householder') {
 
-                            $title = 'Individuals';
+                            $title = 'Householders';
 
                         }
                         @endphp
@@ -160,17 +160,17 @@
 
 
                     @php
-                    if(request('type') == 'student' || is_null(request('type')))
+                    if(request('type') == 'homeowner' || is_null(request('type')))
                     {
-                        $body1 = $travel->student_insurance_body;
-                        $features = $travel->student_insurance_features;
-                        $image = $travel->student_ins_image;
-                        $submit_value = 'student';
-                    }elseif (request('type') == 'individual') {
-                        $body1 = $travel->individual_insurance_body;
-                        $features = $travel->individual_insurance_features;
-                        $image = $travel->individual_ins_image;
-                        $submit_value = 'individual';
+                        $body1 = $home->homeowner_ins_body;
+                        $features = $home->homeowner_ins_features;
+                        $image = $home->homeowner_ins_image;
+                        $submit_value = 'homeowner';
+                    }elseif (request('type') == 'householder') {
+                        $body1 = $home->householder_ins_body;
+                        $features = $home->householder_ins_features;
+                        $image = $home->householder_ins_image;
+                        $submit_value = 'householder';
                     }
                     @endphp
 
