@@ -66,7 +66,7 @@ class HomeInsuranceController extends Controller
         // dd($request->all());
 
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:10000',
             'caption' => 'required',
             'body' => 'required',
             'body1' => 'required',
