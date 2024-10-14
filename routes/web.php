@@ -3,6 +3,7 @@
 use App\Http\Controllers\Individual\AboutUsController;
 use App\Http\Controllers\Individual\HomeInsuranceController;
 use App\Http\Controllers\Individual\HomepageController;
+use App\Http\Controllers\Individual\InsightsController;
 use App\Http\Controllers\Individual\MotorInsuranceController;
 use App\Http\Controllers\Individual\PnSController;
 use App\Http\Controllers\Individual\TravelInsuranceController;
@@ -101,6 +102,14 @@ Route::middleware('auth')->group(function () {
         Route::post('/update', [HomeInsuranceController::class, 'updateHomeInsurance'])->name('house-update');
     });
 
+
+
+    // Insights Page
+    Route::prefix('insights')->group(function () {
+        Route::get('/all-blogs', [InsightsController::class, 'allBlogPage'])->name('blogs-all');
+        Route::get('/add-blog', [InsightsController::class, 'showAddBlogPage'])->name('add-blog');
+        Route::post('/submit-blog', [InsightsController::class, 'addBlog'])->name('submit-blog');
+    });
 
 });
 

@@ -7,5 +7,15 @@
         plugins: 'code table lists',
         toolbar: 'undo redo | bold italic | bullist numlist'
       });
+
+      tinymce.init({
+        selector: 'textarea#blogBody',
+        height: 800,
+        plugins: [
+        'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',
+        'searchreplace', 'wordcount', 'visualblocks', 'visualchars', 'code', 'fullscreen', 'insertdatetime',
+        'media', 'table', 'emoticons', 'help'
+        ],
+      });
     </script>
 </div>

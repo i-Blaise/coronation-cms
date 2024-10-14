@@ -115,6 +115,19 @@
                     </li>
 
 
+                    <li class="nav-item">
+                        <a class="nav-link {{ Route::is('blogs-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-7" aria-controls="submenu-7"><i class="fa fa-fw fa-user-circle"></i> Insights<span class="badge badge-success">7</span></a>
+                        <div id="submenu-7" class="collapse submenu" style="">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('blogs-all') }}">All Blogs</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('add-blog') }}">Add New Blog</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
 
 
                     <li class="nav-divider">
