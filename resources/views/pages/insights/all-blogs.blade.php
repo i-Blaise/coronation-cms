@@ -82,7 +82,7 @@
 
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="margin-bottom: 2rem;">
-                        <a href="{{ route('about-create-bod') }}" class="btn btn-primary btn-lg" style="margin-right: 10px">Add New Blog</a>
+                        <a href="{{ route('add-blog') }}" class="btn btn-primary btn-lg" style="margin-right: 10px">Add New Blog</a>
                     </div>
 
                 </div>
