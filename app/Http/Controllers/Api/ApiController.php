@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\AboutUs;
 use App\Models\BOD;
+use App\Models\HomeInsurance;
 use App\Models\Homepage;
 use App\Models\MotorInsurance;
 use App\Models\PnS;
+use App\Models\TravelInsurance;
 use Illuminate\Http\Request;
 
 class ApiController extends Controller
@@ -40,5 +42,17 @@ class ApiController extends Controller
     {
         $motor = MotorInsurance::all();
         return response()->json($motor);
+    }
+
+    public function individualTravelInsurance()
+    {
+        $travel = TravelInsurance::all();
+        return response()->json($travel);
+    }
+
+    public function individualHomeInsurance()
+    {
+        $home = HomeInsurance::all();
+        return response()->json($home);
     }
 }

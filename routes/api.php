@@ -13,3 +13,7 @@ Route::get('/about/fetch', [ApiController::class, 'aboutpage']);
 Route::get('/bod/fetch', [ApiController::class, 'bod']);
 Route::get('/pns/fetch', [ApiController::class, 'pns']);
 Route::get('/motor/individual/fetch', [ApiController::class, 'individualMotorInsurance']);
+
+Route::get('/travel/individual/fetch', [ApiController::class, 'individualTravelInsurance']);
+
+Route::get('/home/individual/fetch', [ApiController::class, 'individualHomeInsurance']);
