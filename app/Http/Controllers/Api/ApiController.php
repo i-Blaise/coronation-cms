@@ -81,4 +81,12 @@ class ApiController extends Controller
         ->get();
         return response()->json($data);
     }
+
+    public function fetchBlogDetail(String $id)
+    {
+        $data = Insight::where('id', $id)
+        ->where('publish', true)
+        ->get();
+        return response()->json($data);
+    }
 }
