@@ -109,6 +109,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/all-blogs', [InsightsController::class, 'allBlogPage'])->name('blogs-all');
         Route::get('/add-blog', [InsightsController::class, 'showAddBlogPage'])->name('add-blog');
         Route::post('/submit-blog', [InsightsController::class, 'addBlog'])->name('submit-blog');
+        Route::get('/blog/{id}/delete', [InsightsController::class, 'deleteBlog'])->name('delete-blog');
+        Route::get('/blog/{id}/publish', [InsightsController::class, 'publishBlog'])->name('publish-blog');
     });
 
 });

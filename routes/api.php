@@ -17,3 +17,5 @@ Route::get('/motor/individual/fetch', [ApiController::class, 'individualMotorIns
 Route::get('/travel/individual/fetch', [ApiController::class, 'individualTravelInsurance']);
 
 Route::get('/home/individual/fetch', [ApiController::class, 'individualHomeInsurance']);
+
+Route::get('/published-blogs', [ApiController::class, 'fetchPublishedBlogs']);

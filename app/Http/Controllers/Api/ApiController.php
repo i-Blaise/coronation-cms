@@ -7,6 +7,7 @@ use App\Models\AboutUs;
 use App\Models\BOD;
 use App\Models\HomeInsurance;
 use App\Models\Homepage;
+use App\Models\Insight;
 use App\Models\MotorInsurance;
 use App\Models\PnS;
 use App\Models\TravelInsurance;
@@ -54,5 +55,11 @@ class ApiController extends Controller
     {
         $home = HomeInsurance::all();
         return response()->json($home);
+    }
+
+    public function fetchPublishedBlogs()
+    {
+        $data = Insight::where('publish', true)->get();
+        return response()->json($data);
     }
 }

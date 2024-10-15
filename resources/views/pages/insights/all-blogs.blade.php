@@ -100,7 +100,7 @@
                                         <th class="border-0">Blog Name</th>
                                         <th class="border-0">Publish Status</th>
                                         <th class="border-0">Date Added</th>
-                                        <th class="border-0">Action</th>
+                                        <th class="border-0">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -110,7 +110,13 @@
                                             <div class="m-r-10"><a href="{{ asset($blog->main_image) }}" target="_blank"><img src="{{ asset($blog->main_image) }}" alt="user" width="35"></a></div>
                                         </td>
                                         <td>{!! $blog->caption !!}</td>
-                                        <td>{{ $blog->publish }}</td>
+                                        <td>
+                                            @if ($blog->publish)
+                                            <span class="badge badge-success">Published</span>
+                                            @else
+                                            <span class="badge badge-danger">Not Published</span>
+                                            @endif
+                                        </td>
                                         <td>{{ $blog->created_at }}</td>
                                         <td>
                                             <div class="dropdown float-right">
@@ -119,9 +125,15 @@
                                                              </a>
                                                 <div class="dropdown-menu dropdown-menu-right">
                                                     <!-- item-->
-                                                    <a href="" class="dropdown-item">Edit</a>
+                                                    <a href="{{ route('publish-blog', ['id' => $blog->id]) }}" class="dropdown-item">
+                                                        @if ($blog->publish)
+                                                            Unpublish
+                                                        @else
+                                                            Publish
+                                                        @endif
+                                                    </a>
                                                     <!-- item-->
-                                                    <a href="" class="dropdown-item">Delete</a>
+                                                    <a href="{{ route('delete-blog', ['id' => $blog->id]) }}" class="dropdown-item">Delete</a>
                                                 </div>
                                             </div>
                                         </td>

@@ -87,4 +87,29 @@ class InsightsController extends Controller
 
         return back();
     }
+
+    public function deleteBlog(String $id)
+    {
+        Insight::destroy($id);
+        toastr()->success('Blog Deleted');
+        return back();
+    }
+
+    public function publishBlog(String $id)
+    {
+        $insight = Insight::find($id);
+        if($insight->publish == false)
+        {
+            $insight->publish = true;
+            $insight->publish_date = now();
+            toastr()->success('Blog Published');
+        }else{
+            $insight->publish = false;
+            toastr()->success('Blog Unpublished');
+        }
+
+        $insight->save();
+
+        return back();
+    }
 }
