@@ -6,18 +6,19 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Coronation Admin</title>
+    <title>Homepage Section 2</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}">
     <link href="{{ asset('assets/vendor/fonts/circular-std/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/libs/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/fonts/fontawesome/css/fontawesome-all.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap-select/css/bootstrap-select.css') }}">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
+
 
     {{-- TinyMCE Editor  --}}
     @include('components.head.tinymce-config')
-
-    {{-- Toastr Notifications  --}}
-    @include('components.head.notif')
 </head>
 
 <body>
@@ -50,14 +51,14 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Add Member</h2>
+                            <h2 class="pageheader-title">Insights</h2>
                             <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Individual</a></li>
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Aboutpage</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Edit BOD</li>
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Insights</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Add New Blog</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -75,76 +76,95 @@
                         <div class="page-section" id="overview">
                             <div class="row">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <h2>Overview</h2>
-                                    <p class="lead">Iframe of section being edited.</p>
+                                    <h2>Create New Blog Post</h2>
+                                    <p class="lead"></p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                {{-- <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <iframe style="border:2px #000 solid" src="https://coronation.interactivedigital.com.gh/" title="iFrame" width="100%" height="400px" scrolling="no" frameborder="yes" allow=""></iframe>
-                    </div>
-                </div> --}}
 
-
-
-
-                <form action="{{ route('about-sec5-update', ['id' => $bod->id]) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('update-blog', ['id' => $blog->id]) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('POST')
 
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
-                            <h5 class="card-header">Upload Section 3 Image</h5>
-                            <div class="card-body form-row">
-                                <div class="custom-file col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mt-4" style="    margin-top: 35px !important;">
-                                    <input type="file" class="custom-file-input" id="customFile" name="image">
-                                    <label class="custom-file-label" for="customFile">File Input</label>
+                            <h5 class="card-header">Upload Blog Cover Image</h5>
+                            <div class="card-body">
+
+                                <div class="form-row">
+                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2">
+                                    <div class="custom-file mb-3">
+                                        <input type="file" class="custom-file-input" id="customFile" name="main_image">
+                                        <label class="custom-file-label" for="customFile">File Input</label>
+                                    </div>
+                                    </div>
+                                        @php
+                                            $image = $blog->main_image;
+                                        @endphp
+                                        @include('components.current-image')
                                 </div>
 
-                                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                                    <label for="inputText3" class="col-form-label">Member Name</label>
-                                    <input id="inputText3" type="text" name="name" class="form-control" value="{{ $bod->name }}">
-                                </div>
                             </div>
                         </div>
                     </div>
 
-
-                </div>
-
-
-
-                <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
-                            <h5 class="card-header">Section 1 Text</h5>
+                            {{-- <h5 class="card-header">Section 2 Text</h5> --}}
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2">
+                                        <label for="exampleFormControlTextarea1">Blog Caption</label>
+                                        <textarea id="shortText" name="caption">{{ $blog->caption }}</textarea>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2">
+                                        <label for="exampleFormControlTextarea1">Blog Excerpt</label>
+                                        <textarea id="shortText" name="excerpt">{{ $blog->excerpt }}</textarea>
+                                    </div>
+                                </div>
 
-                            <div class="card-body form-row">
-                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2">
-                                <label for="inputText3" class="col-form-label">Member Title</label>
-                                <input id="inputText3" type="text" name="title" class="form-control" value="{{ $bod->title }}">
-                            </div>
-
-
-                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2">
-                                <label for="exampleFormControlTextarea1">Body</label>
-                                <textarea id="shortText" name="body">{{ $bod->body }}</textarea>
-                            </div>
-
+                                <div class="form-row mt-5">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-2">
+                                        <label for="exampleFormControlTextarea1">Blog Body</label>
+                                        <textarea id="blogBody" name="body">{{ $blog->body }}</textarea>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+
+
+
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="card">
+                            <h5 class="card-header">Blog Category (Type new category or select from existing category)</h5>
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-2 mt-2">
+                                        <label for="exampleFormControlTextarea1">Type Blog Category</label>
+                                        <input id="inputText3" type="text" class="form-control form-control-lg" placeholder="Eg. Insurance" name="category" value="{{ ucfirst($blog->category) }}">
+                                    </div>
+                                    {{-- <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ">
+                                        <h5 class="card-title">Select Existing Category</h5>
+                                        <select class="selectpicker" data-width="85%" name="existing_category">
+                                            @foreach ( $categories as $category)
+                                                <option {{ $blog->category == strtolower($category->category) ? 'selected' : '' }}>{{ ucfirst($category->category) }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div> --}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
-                {{-- <a href="#" class="btn btn-primary btn-block">Submit</a> --}}
-                <button class="btn btn-primary btn-block" type="submit">Submit</button>
-                </form>
-
-
+                <button class="btn btn-primary btn-block" type="submit" name="submit" value="" >Submit</button>
+            </form>
             </div>
 
 
@@ -168,6 +188,8 @@
     <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.js') }}"></script>
     <script src="{{ asset('assets/vendor/slimscroll/jquery.slimscroll.js') }}"></script>
     <script src="{{ asset('assets/libs/js/main-js.js') }}"></script>
+    <script src="{{ asset('assets/vendor/bootstrap-select/js/bootstrap-select.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
         @if ($errors->any())
             @foreach ($errors->all() as $error)

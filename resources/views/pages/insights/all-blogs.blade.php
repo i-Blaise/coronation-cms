@@ -133,6 +133,8 @@
                                                         @endif
                                                     </a>
                                                     <!-- item-->
+                                                    <a href="{{ route('edit-blog', ['id' => $blog->id]) }}" class="dropdown-item">Edit</a>
+                                                    <!-- item-->
                                                     <a href="{{ route('delete-blog', ['id' => $blog->id]) }}" class="dropdown-item">Delete</a>
                                                 </div>
                                             </div>

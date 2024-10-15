@@ -111,6 +111,8 @@ Route::middleware('auth')->group(function () {
         Route::post('/submit-blog', [InsightsController::class, 'addBlog'])->name('submit-blog');
         Route::get('/blog/{id}/delete', [InsightsController::class, 'deleteBlog'])->name('delete-blog');
         Route::get('/blog/{id}/publish', [InsightsController::class, 'publishBlog'])->name('publish-blog');
+        Route::get('/blog/{id}/edit', [InsightsController::class, 'editBlog'])->name('edit-blog');
+        Route::post('/blog/{id}/update', [InsightsController::class, 'updateBlog'])->name('update-blog');
     });
 
 });

@@ -112,4 +112,57 @@ class InsightsController extends Controller
 
         return back();
     }
+
+
+    public function editBlog(String $id)
+    {
+        $blog = Insight::find($id);
+        $categories = InsightCategory::all();
+        return view('pages.insights.edit-blog', compact('blog', 'categories'));
+    }
+
+
+
+    public function updateBlog(Request $request, String $id)
+    {
+        $request->validate([
+            'main_image' => 'image|mimes:jpeg,png,jpg,gif|max:10000',
+            'blog_image1' => 'image|mimes:jpeg,png,jpg,gif',
+            'blog_image2' => 'image|mimes:jpeg,png,jpg,gif',
+            'blog_image3' => 'image|mimes:jpeg,png,jpg,gif',
+            'caption' => 'required',
+            'body' => 'required',
+            'category' => 'required'
+        ]);
+
+        $categoryCheck = InsightCategory::firstOrNew(
+            ['category' => strtolower($request->category)],  // Search condition
+            ['category' => strtolower($request->category)]   // Values if not found
+        );
+        if (!$categoryCheck->exists) {
+            $categoryCheck->save();
+        }
+        $category = strtolower($request->category);
+
+        if(!is_null($request->file('image')))
+        {
+            $main_image = $this->uploadImage($request->file('main_image'));
+        }
+
+        $blog = Insight::find($id);
+
+        isset($main_image) ? $blog->main_image = $main_image : '';
+
+        $blog->caption = $request->caption;
+        $blog->category = $category;
+        $blog->body = $request->body;
+        $blog->category = $request->category;
+
+        $blog->save();
+
+        toastr()->success('Blog Updated');
+
+        return redirect()->route('blogs-all');
+    }
+
 }

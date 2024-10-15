@@ -98,6 +98,9 @@
                         </div>
                     </div>
 
+
+
+
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
                             {{-- <h5 class="card-header">Section 2 Text</h5> --}}
@@ -138,9 +141,9 @@
                                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ">
                                         <h5 class="card-title">Select Existing Category</h5>
                                         <select class="selectpicker" data-width="85%" name="existing_category">
-                                            <option {{ old('existing_category') == 'male' ? 'selected' : '' }}>Mustard</option>
-                                            <option>Ketchup</option>
-                                            <option>Relish</option>
+                                            @foreach ( $categories as $category)
+                                                <option {{ old('existing_category') == ucfirst($category->category) ? 'selected' : '' }}>{{ ucfirst($category->category) }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
