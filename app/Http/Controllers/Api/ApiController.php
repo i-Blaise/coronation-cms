@@ -77,7 +77,8 @@ class ApiController extends Controller
         $data = Insight::where('publish', true)
         ->select('caption', 'category', 'main_image', 'excerpt', 'id')
         ->orderBy('created_at', 'desc')
-        ->get(2);
+        ->take(2)
+        ->get();
         return response()->json($data);
     }
 }
