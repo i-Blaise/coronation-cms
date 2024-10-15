@@ -85,7 +85,7 @@ class InsightsController extends Controller
 
         toastr()->success('New Blog added');
 
-        return back();
+        return route('blogs-all');
     }
 
     public function deleteBlog(String $id)
