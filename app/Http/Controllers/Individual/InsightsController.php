@@ -132,7 +132,8 @@ class InsightsController extends Controller
             'blog_image3' => 'image|mimes:jpeg,png,jpg,gif',
             'caption' => 'required',
             'body' => 'required',
-            'category' => 'required'
+            'category' => 'required',
+            'excerpt' => 'required'
         ]);
 
         $categoryCheck = InsightCategory::firstOrNew(
@@ -156,7 +157,7 @@ class InsightsController extends Controller
         $blog->caption = $request->caption;
         $blog->category = $category;
         $blog->body = $request->body;
-        $blog->category = $request->category;
+        $blog->excerpt = $request->excerpt;
 
         $blog->save();
 
