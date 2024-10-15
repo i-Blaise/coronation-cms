@@ -71,4 +71,13 @@ class ApiController extends Controller
         ->get();
         return response()->json($data);
     }
+
+    public function fetchPublishedBlogsCardsLatestTwo()
+    {
+        $data = Insight::where('publish', true)
+        ->select('caption', 'category', 'main_image', 'excerpt', 'id')
+        ->orderBy('created_at', 'desc')
+        ->get(2);
+        return response()->json($data);
+    }
 }

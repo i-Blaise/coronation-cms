@@ -20,3 +20,4 @@ Route::get('/home/individual/fetch', [ApiController::class, 'individualHomeInsur
 
 Route::get('/published-blogs', [ApiController::class, 'fetchPublishedBlogs']);
 Route::get('/published-blogs/cards', [ApiController::class, 'fetchPublishedBlogsCards']);
+Route::get('/published-blogs/cards/latest-two', [ApiController::class, 'fetchPublishedBlogsCardsLatestTwo']);
