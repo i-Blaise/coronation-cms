@@ -76,7 +76,7 @@
                         <div class="page-section" id="overview">
                             <div class="row">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <h2>Create New Blog Post</h2>
+                                    <h2>Edit Blog Post</h2>
                                     <p class="lead"></p>
                                 </div>
                             </div>

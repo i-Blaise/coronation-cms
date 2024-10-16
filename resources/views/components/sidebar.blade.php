@@ -129,6 +129,20 @@
                         </div>
                     </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link {{ Route::is('careers-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-8" aria-controls="submenu-8"><i class="fa fa-fw fa-user-circle"></i> Careers<span class="badge badge-success">8</span></a>
+                        <div id="submenu-8" class="collapse submenu" style="">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('careers-header') }}">Header</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Section 1</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
 
                     <li class="nav-divider">
                         Institute

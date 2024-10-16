@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Individual\AboutUsController;
+use App\Http\Controllers\Individual\CareerController;
 use App\Http\Controllers\Individual\HomeInsuranceController;
 use App\Http\Controllers\Individual\HomepageController;
 use App\Http\Controllers\Individual\InsightsController;
@@ -114,6 +115,15 @@ Route::middleware('auth')->group(function () {
         Route::get('/blog/{id}/edit', [InsightsController::class, 'editBlog'])->name('edit-blog');
         Route::post('/blog/{id}/update', [InsightsController::class, 'updateBlog'])->name('update-blog');
     });
+
+
+
+    // Careers Page
+    Route::prefix('careers')->group(function () {
+        Route::get('/show/header', [CareerController::class, 'showCareersHeader'])->name('careers-header');
+        Route::post('/header/update', [CareerController::class, 'updateCareerseHeader'])->name('careers-header-update');
+    });
+
 
 });
 
