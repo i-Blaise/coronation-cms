@@ -8,6 +8,7 @@ use App\Models\BOD;
 use App\Models\HomeInsurance;
 use App\Models\Homepage;
 use App\Models\Insight;
+use App\Models\InsightCategory;
 use App\Models\MotorInsurance;
 use App\Models\PnS;
 use App\Models\TravelInsurance;
@@ -86,6 +87,13 @@ class ApiController extends Controller
     {
         $data = Insight::where('id', $id)
         ->where('publish', true)
+        ->get();
+        return response()->json($data);
+    }
+
+    public function getBlogCategories()
+    {
+        $data = InsightCategory::select('category')
         ->get();
         return response()->json($data);
     }

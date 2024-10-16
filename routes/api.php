@@ -22,3 +22,4 @@ Route::get('/published-blogs', [ApiController::class, 'fetchPublishedBlogs']);
 Route::get('/published-blogs/cards', [ApiController::class, 'fetchPublishedBlogsCards']);
 Route::get('/published-blogs/cards/latest-two', [ApiController::class, 'fetchPublishedBlogsCardsLatestTwo']);
 Route::get('/blog/{id}/details', [ApiController::class, 'fetchBlogDetail']);
+Route::get('/blog-categories', [ApiController::class, 'getBlogCategories']);
