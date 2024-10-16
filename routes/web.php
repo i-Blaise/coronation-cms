@@ -124,6 +124,8 @@ Route::middleware('auth')->group(function () {
         Route::post('/header/update', [CareerController::class, 'updateCareersHeader'])->name('careers-header-update');
         Route::get('/show/section1', [CareerController::class, 'showCareersSection1'])->name('careers-section1');
         Route::post('/section1/update', [CareerController::class, 'updateCareersSection1'])->name('careers-section1-update');
+        Route::get('/show/section2', [CareerController::class, 'showCareersSection2'])->name('careers-section2');
+        Route::post('/section2/update', [CareerController::class, 'updateCareersSection2'])->name('careers-section2-update');
     });
 
 

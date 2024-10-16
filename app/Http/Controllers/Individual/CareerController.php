@@ -22,6 +22,14 @@ class CareerController extends Controller
         return view('pages.careers.section1', compact('career'));
     }
 
+    public function showCareersSection2()
+    {
+        $career = Career::select('sec2_image', 'sec2_caption', 'sec2_body')
+        ->find(1);
+        return view('pages.careers.section2', compact('career'));
+    }
+
+
     public function uploadImage($imageFile): string
     { //Move Uploaded File to public folder
         $destinationPath = 'images/uploads/career-insuracne/';
@@ -83,6 +91,33 @@ class CareerController extends Controller
         $career->save();
 
         toastr()->success('Careers Section 1 Updated');
+
+        return back();
+    }
+
+    public function updateCareersSection2(Request $request)
+    {
+        $request->validate([
+            'image' => 'image|mimes:jpeg,png,jpg,gif,webp,JPG|max:10000',
+            'caption' => 'required',
+            'body' => 'required'
+        ]);
+
+
+        if(!is_null($request->file('image')))
+        {
+            $imagePath = $this->uploadImage($request->file('image'));
+        }
+
+        $career = Career::find(1);
+
+        isset($imagePath) ? $career->sec2_image = $imagePath : '';
+        $career->sec2_caption = $request->caption;
+        $career->sec2_body = $request->body;
+
+        $career->save();
+
+        toastr()->success('Careers Section 2 Updated');
 
         return back();
     }
