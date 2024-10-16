@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\AboutUs;
 use App\Models\BOD;
+use App\Models\Career;
 use App\Models\HomeInsurance;
 use App\Models\Homepage;
 use App\Models\Insight;
@@ -95,6 +96,12 @@ class ApiController extends Controller
     {
         $data = InsightCategory::select('category')
         ->get();
+        return response()->json($data);
+    }
+
+    public function getCareersPage()
+    {
+        $data = Career::get();
         return response()->json($data);
     }
 }
