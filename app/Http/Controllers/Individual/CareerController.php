@@ -24,7 +24,29 @@ class CareerController extends Controller
 
     public function showCareersSection2()
     {
-        $career = Career::select('sec2_image', 'sec2_caption', 'sec2_body')
+        $career = Career::select('card1_image',
+         'card1_caption',
+          'card1_body',
+          'card2_image',
+          'card2_caption',
+          'card2_body',
+          'card3_image',
+          'card3_caption',
+          'card3_body',
+          'card4_image',
+          'card4_caption',
+          'card4_body',
+          'card5_image',
+          'card5_caption',
+          'card5_body',
+          )
+        ->find(1);
+        return view('pages.careers.section3', compact('career'));
+    }
+
+    public function showCareersSection3()
+    {
+        $career = Career::select('sec1_body', 'sec2_caption', 'sec2_body')
         ->find(1);
         return view('pages.careers.section2', compact('career'));
     }
@@ -118,6 +140,61 @@ class CareerController extends Controller
         $career->save();
 
         toastr()->success('Careers Section 2 Updated');
+
+        return back();
+    }
+
+
+    public function updateCareersSection3(Request $request)
+    {
+        $request->validate([
+            'image' => 'image|mimes:jpeg,png,jpg,gif,webp,JPG|max:10000',
+            'caption' => 'required',
+            'body' => 'required'
+        ]);
+
+
+        if(!is_null($request->file('image')))
+        {
+            $imagePath = $this->uploadImage($request->file('image'));
+        }
+
+        $career = Career::find(1);
+
+        switch ($request->submit) {
+            case 'card1':
+                isset($imagePath) ? $career->card1_image = $imagePath : '';
+                $career->card1_caption = $request->caption;
+                $career->card1_body = $request->body;
+                break;
+            case 'card2':
+                isset($imagePath) ? $career->card2_image = $imagePath : '';
+                $career->card2_caption = $request->caption;
+                $career->card2_body = $request->body;
+                break;
+            case 'card3':
+                isset($imagePath) ? $career->card3_image = $imagePath : '';
+                $career->card3_caption = $request->caption;
+                $career->card3_body = $request->body;
+                break;
+            case 'card4':
+                isset($imagePath) ? $career->card4_image = $imagePath : '';
+                $career->card4_caption = $request->caption;
+                $career->card4_body = $request->body;
+                break;
+            case 'card5':
+                isset($imagePath) ? $career->card5_image = $imagePath : '';
+                $career->card5_caption = $request->caption;
+                $career->card5_body = $request->body;
+                break;
+            default:
+                toastr()->error('Something Went Wront');
+                return back();
+        }
+
+        $career->save();
+
+        toastr()->success('Careers Card Updated');
 
         return back();
     }
