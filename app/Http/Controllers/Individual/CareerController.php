@@ -24,7 +24,7 @@ class CareerController extends Controller
 
     public function showCareersSection2()
     {
-        $career = Career::select('sec2_body', 'sec2_caption', 'sec2_body')
+        $career = Career::select('sec2_image', 'sec2_caption', 'sec2_body')
         ->find(1);
         return view('pages.careers.section2', compact('career'));
     }
