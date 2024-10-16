@@ -24,6 +24,14 @@ class CareerController extends Controller
 
     public function showCareersSection2()
     {
+        $career = Career::select('sec2_body', 'sec2_caption', 'sec2_body')
+        ->find(1);
+        return view('pages.careers.section2', compact('career'));
+    }
+
+
+    public function showCareersSection3()
+    {
         $career = Career::select('card1_image',
          'card1_caption',
           'card1_body',
@@ -44,12 +52,6 @@ class CareerController extends Controller
         return view('pages.careers.section3', compact('career'));
     }
 
-    public function showCareersSection3()
-    {
-        $career = Career::select('sec1_body', 'sec2_caption', 'sec2_body')
-        ->find(1);
-        return view('pages.careers.section2', compact('career'));
-    }
 
 
     public function uploadImage($imageFile): string
