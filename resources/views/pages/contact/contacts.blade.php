@@ -53,14 +53,14 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Career Section 3</h2>
+                            <h2 class="pageheader-title">Contacts</h2>
                             <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Individual</a></li>
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Career</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Section 3</li>
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Contact Page</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Contacts</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -94,49 +94,22 @@
 
 
 
-            <form action="{{ route('careers-section3-update') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('contact-update') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
-
-
-
-
-
-
-
-
-
 
                 <div class="row">
 
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
 
-                        <a href="?card=1" class="btn btn-primary btn-lg" style="margin-right: 10px">Card 1  &nbsp
-                            @if (request('card') == '1' || is_null(request('card')))
+                        <a href="?country=gh" class="btn btn-primary btn-lg" style="margin-right: 10px">Ghana  &nbsp
+                            @if (request('country') == 'gh' || is_null(request('country')))
                             <span class="badge-dot badge-success"></span>
                             @endif
                         </a>
 
-                        <a href="?card=2" class="btn btn-primary btn-lg" style="margin-right: 10px">Card 2 &nbsp
-                            @if (request('card') == '2')
-                            <span class="badge-dot badge-success"></span>
-                            @endif
-                        </a>
-
-                        <a href="?card=3" class="btn btn-primary btn-lg" style="margin-right: 10px">Card 3 &nbsp
-                            @if (request('card') == '3')
-                            <span class="badge-dot badge-success"></span>
-                            @endif
-                        </a>
-
-                        <a href="?card=4" class="btn btn-primary btn-lg" style="margin-right: 10px">Card 4 &nbsp
-                            @if (request('card') == '4')
-                            <span class="badge-dot badge-success"></span>
-                            @endif
-                        </a>
-
-                        <a href="?card=5" class="btn btn-primary btn-lg" style="margin-right: 10px">Card 5 &nbsp
-                            @if (request('card') == '5')
+                        <a href="?country=ng" class="btn btn-primary btn-lg" style="margin-right: 10px">Nigeria &nbsp
+                            @if (request('country') == 'ng')
                             <span class="badge-dot badge-success"></span>
                             @endif
                         </a>
@@ -147,30 +120,18 @@
 
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         @php
-                        if(request('card') == '1' || is_null(request('card')))
+                        if(request('country') == 'gh' || is_null(request('country')))
                         {
-                            $title = 'Card 1';
+                            $title = 'Ghana';
 
-                        }elseif (request('card') == '2') {
+                        }elseif (request('country') == 'ng') {
 
-                            $title = 'Card 2';
-
-                        }elseif (request('card') == '3') {
-
-                        $title = 'Card 3';
-
-                        }elseif (request('card') == '4') {
-
-                        $title = 'Card 4';
-
-                        }elseif (request('card') == '5') {
-
-                        $title = 'Card 5';
+                            $title = 'Nigeria';
 
                         }
                         @endphp
 
-                        <h3> {{ $title }}</h3>
+                        <h3> {{ $title }} Contact</h3>
                     </div>
 
 
@@ -178,54 +139,19 @@
 
 
                     @php
-                    if(request('card') == '1' || is_null(request('card')))
+                    if(request('country') == 'gh' || is_null(request('country')))
                     {
-                        $body = $career->card1_body;
-                        $caption = $career->card1_caption;
-                        $image = $career->card1_image;
-                        $submit_value = 'card1';
-                    }elseif (request('card') == '2') {
-                        $body = $career->card2_body;
-                        $caption = $career->card2_caption;
-                        $image = $career->card2_image;
-                        $submit_value = 'card2';
-                    }elseif (request('card') == '3') {
-                        $body = $career->card3_body;
-                        $caption = $career->card3_caption;
-                        $image = $career->card3_image;
-                        $submit_value = 'card3';
-                    }elseif (request('card') == '4') {
-                        $body = $career->card4_body;
-                        $caption = $career->card4_caption;
-                        $image = $career->card4_image;
-                        $submit_value = 'card4';
-                    }elseif (request('card') == '5') {
-                        $body = $career->card5_body;
-                        $caption = $career->card5_caption;
-                        $image = $career->card5_image;
-                        $submit_value = 'card5';
+                        $number = $contact->gh_call_no;
+                        $email = $contact->gh_email;
+                        $location = $contact->gh_headoffice;
+                        $submit_value = 'gh';
+                    }elseif (request('country') == 'ng') {
+                        $number = $contact->ng_call_no;
+                        $email = $contact->ng_email;
+                        $location = $contact->ng_headoffice;
+                        $submit_value = 'ng';
                     }
                     @endphp
-
-
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                        <div class="card">
-                            <h5 class="card-header">Upload Image</h5>
-                            <div class="card-body">
-                                    <div class="custom-file mb-3">
-                                        <input type="file" class="custom-file-input" id="customFile" name="image">
-                                        <label class="custom-file-label" for="customFile">File Input</label>
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
-                    {{-- Current Image Card --}}
-                    @include('components.current-image')
-
-                </div>
 
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -234,12 +160,16 @@
                             <div class="card-body">
                                 <div class="form-row">
                                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2">
-                                        <label for="exampleFormControlTextarea1">Body</label>
-                                        <textarea id="shortText" name="body">{{ $body }}</textarea>
+                                        <label for="exampleFormControlTextarea1">Phone Number/s</label>
+                                        <input id="inputText3" type="text" class="form-control" name="number" value="{{ $number }}">
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2">
-                                        <label for="exampleFormControlTextarea1">Features</label>
-                                        <textarea id="shortText" name="caption">{{ $caption }}</textarea>
+                                        <label for="exampleFormControlTextarea1">Email</label>
+                                        <input id="inputText3" type="text" class="form-control" name="email" value="{{ $email }}">
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2">
+                                        <label for="exampleFormControlTextarea1">Head Office Location</label>
+                                        <input id="inputText3" type="text" class="form-control" name="location" value="{{ $location }}">
                                     </div>
                                 </div>
                             </div>

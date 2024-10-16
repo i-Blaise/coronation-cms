@@ -137,6 +137,8 @@ Route::middleware('auth')->group(function () {
     Route::prefix('contact')->group(function () {
         Route::get('/show/header', [ContactController::class, 'showContactHeader'])->name('contact-header');
         Route::post('/header/update', [ContactController::class, 'updateContactHeader'])->name('contact-header-update');
+        Route::get('/show/contacts', [ContactController::class, 'showContacts'])->name('contact-details');
+        Route::post('/contacts/update', [ContactController::class, 'updateContacts'])->name('contact-update');
     });
 
 

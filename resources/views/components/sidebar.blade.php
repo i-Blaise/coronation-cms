@@ -157,7 +157,7 @@
                                     <a class="nav-link" href="{{ route('contact-header') }}">Header</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Contacts</a>
+                                    <a class="nav-link" href="{{ route('contact-details') }}">Contacts</a>
                                 </li>
                             </ul>
                         </div>

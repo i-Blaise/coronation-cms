@@ -15,6 +15,20 @@ class ContactController extends Controller
         return view('pages.contact.header', compact('contact'));
     }
 
+    public function showContacts()
+    {
+        $contact = Contact::select(
+            'gh_call_no',
+            'gh_email',
+            'gh_headoffice',
+            'ng_call_no',
+            'ng_email',
+            'ng_headoffice'
+         )
+        ->find(1);
+        return view('pages.contact.contacts', compact('contact'));
+    }
+
 
     public function uploadImage($imageFile): string
     { //Move Uploaded File to public folder
@@ -53,5 +67,40 @@ class ContactController extends Controller
         return back();
     }
 
+
+    public function updateContacts(Request $request)
+    {
+        $request->validate([
+            'number' => 'required',
+            'email' => 'required|email',
+            'location' => 'required'
+        ]);
+
+        $contact = Contact::find(1);
+
+        switch ($request->submit) {
+            case 'gh':
+                $contact->gh_call_no = $request->number;
+                $contact->gh_email = $request->email;
+                $contact->gh_headoffice = $request->location;
+                break;
+            case 'ng':
+                $contact->ng_call_no = $request->number;
+                $contact->ng_email = $request->email;
+                $contact->ng_headoffice = $request->location;
+                break;
+            default:
+                toastr()->error('Something Went Wront');
+                return back();
+        }
+
+
+
+        $contact->save();
+
+        toastr()->success('Contacts Updated');
+
+        return back();
+    }
 
 }
