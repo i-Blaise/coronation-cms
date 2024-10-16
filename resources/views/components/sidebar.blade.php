@@ -149,6 +149,20 @@
                         </div>
                     </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link {{ Route::is('contact-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-9" aria-controls="submenu-9"><i class="fa fa-fw fa-user-circle"></i> Contact<span class="badge badge-success">9</span></a>
+                        <div id="submenu-9" class="collapse submenu" style="">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('contact-header') }}">Header</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Contacts</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
 
                     <li class="nav-divider">
                         Institute

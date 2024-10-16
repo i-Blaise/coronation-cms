@@ -56,7 +56,7 @@ class CareerController extends Controller
 
     public function uploadImage($imageFile): string
     { //Move Uploaded File to public folder
-        $destinationPath = 'images/uploads/career-insuracne/';
+        $destinationPath = 'images/uploads/career/';
         $hashed_image_name = $imageFile->hashName();
         $img_path = $destinationPath.$hashed_image_name;
         $imageFile->move(public_path($destinationPath), $hashed_image_name);
