@@ -137,7 +137,7 @@
                                     <a class="nav-link" href="{{ route('careers-header') }}">Header</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Section 1</a>
+                                    <a class="nav-link" href="{{ route('careers-section1') }}">Section 1</a>
                                 </li>
                             </ul>
                         </div>

@@ -121,7 +121,9 @@ Route::middleware('auth')->group(function () {
     // Careers Page
     Route::prefix('careers')->group(function () {
         Route::get('/show/header', [CareerController::class, 'showCareersHeader'])->name('careers-header');
-        Route::post('/header/update', [CareerController::class, 'updateCareerseHeader'])->name('careers-header-update');
+        Route::post('/header/update', [CareerController::class, 'updateCareersHeader'])->name('careers-header-update');
+        Route::get('/show/section1', [CareerController::class, 'showCareersSection1'])->name('careers-section1');
+        Route::post('/section1/update', [CareerController::class, 'updateCareersSection1'])->name('careers-section1-update');
     });
 
 

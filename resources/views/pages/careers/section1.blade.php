@@ -6,7 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Careers Page Header</title>
+    <title>Coronation CMS</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}">
     <link href="{{ asset('assets/vendor/fonts/circular-std/style.css') }}" rel="stylesheet">
@@ -54,14 +54,14 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Careers Page Header </h2>
+                            <h2 class="pageheader-title">Careers Page Section 1 </h2>
                             <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Individual</a></li>
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Careers Page</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Header</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Section 1</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -93,7 +93,7 @@
                 </div>
 
 
-            <form action="{{ route('careers-header-update') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('careers-section1-update') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
                 <div class="row">
@@ -113,7 +113,7 @@
                     </div>
 
                     @php
-                    $image = $career->header_image;
+                    $image = $career->sec1_image;
                     @endphp
                     {{-- Current Image Card --}}
                     @include('components.current-image')
@@ -124,8 +124,8 @@
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
                             @php
-                                $caption = $career->header_caption;
-                                $body = $career->header_body;
+                                $caption = $career->sec1_caption;
+                                $body = $career->sec1_body;
                             @endphp
                             @include('components.form-group.left-right-text-form')
                             <button class="btn btn-primary" type="submit">Submit</button>
