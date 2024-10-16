@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('header_image')->default('default');
             $table->string('header_caption')->default('default');
-            $table->text('header_body')->default('default');
+            $table->text('header_body');
             $table->string('gh_call_no')->default('default');
             $table->string('gh_email')->default('default');
             $table->string('gh_headoffice')->default('default');
