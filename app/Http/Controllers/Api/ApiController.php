@@ -11,6 +11,7 @@ use App\Models\HomeInsurance;
 use App\Models\Homepage;
 use App\Models\Insight;
 use App\Models\InsightCategory;
+use App\Models\InstituteMotorInsurance;
 use App\Models\InstitutePns;
 use App\Models\MotorInsurance;
 use App\Models\PnS;
@@ -116,6 +117,12 @@ class ApiController extends Controller
     public function institutePnS()
     {
         $data = InstitutePns::get();
+        return response()->json($data);
+    }
+
+    public function instituteMotorInsurance()
+    {
+        $data = InstituteMotorInsurance::get();
         return response()->json($data);
     }
 }

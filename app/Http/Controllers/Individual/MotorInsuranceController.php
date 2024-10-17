@@ -17,7 +17,7 @@ class MotorInsuranceController extends Controller
 
     public function uploadImage($imageFile): string
     { //Move Uploaded File to public folder
-        $destinationPath = 'images/uploads/motor-insuracne/';
+        $destinationPath = 'images/uploads/motor-insurance/';
         $hashed_image_name = $imageFile->hashName();
         $img_path = $destinationPath.$hashed_image_name;
         $imageFile->move(public_path($destinationPath), $hashed_image_name);

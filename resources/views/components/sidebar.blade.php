@@ -209,15 +209,15 @@
                     </li> --}}
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-4" aria-controls="submenu-4"><i class="fa fa-fw fa-user-circle"></i> Motor Insuance Page <span class="badge badge-success">6</span></a>
-                        <div id="submenu-4" class="collapse submenu" style="">
+                        <a class="nav-link {{ Route::is('institute-motor-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-11" aria-controls="submenu-11"><i class="fa fa-fw fa-user-circle"></i> Motor Insuance Page <span class="badge badge-success">11</span></a>
+                        <div id="submenu-11" class="collapse submenu" style="">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('pns-header') }}">Header</a>
+                                    <a class="nav-link" href="{{ route('institute-motor-header') }}">Header</a>
                                 </li>
-                                <li class="nav-item">
+                                {{-- <li class="nav-item">
                                     <a class="nav-link" href="{{ route('motor') }}">Motor Insurance</a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </div>
                     </li>

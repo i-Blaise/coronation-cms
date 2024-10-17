@@ -9,6 +9,7 @@ use App\Http\Controllers\Individual\InsightsController;
 use App\Http\Controllers\Individual\MotorInsuranceController;
 use App\Http\Controllers\Individual\PnSController;
 use App\Http\Controllers\Individual\TravelInsuranceController;
+use App\Http\Controllers\Institute\MotorInsuranceController as InstituteMotorInsuranceController;
 use App\Http\Controllers\Institute\PnSController as InstitutePnSController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -146,12 +147,23 @@ Route::middleware('auth')->group(function () {
 
     // Institute
     Route::prefix('institute')->group(function () {
+
+
         // PNS Page
         Route::prefix('pns')->group(function () {
             Route::get('/show/header', [InstitutePnSController::class, 'showPnSHeader'])->name('institute-pns-header');
             Route::post('/header/update', [InstitutePnSController::class, 'updatePnSHeader'])->name('institute-pns-header-update');
             Route::get('/show/section1', [InstitutePnSController::class, 'PnsSec1'])->name('institute-pns-section1');
             Route::post('/section1/update', [InstitutePnSController::class, 'updateSection1'])->name('institute-pns-section1-update');
+        });
+
+
+        // Motor Insurance Page
+        Route::prefix('motor')->group(function () {
+            Route::get('/show/header', [InstituteMotorInsuranceController::class, 'showHeader'])->name('institute-motor-header');
+            Route::post('/header/update', [InstituteMotorInsuranceController::class, 'updateMotorInsuranceHeader'])->name('institute-motor-header-update');
+            // Route::get('/show/section1', [InstitutePnSController::class, 'PnsSec1'])->name('institute-pns-section1');
+            // Route::post('/section1/update', [InstitutePnSController::class, 'updateSection1'])->name('institute-pns-section1-update');
         });
     });
 
