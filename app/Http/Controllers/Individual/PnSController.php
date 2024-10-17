@@ -110,7 +110,7 @@ class PnSController extends Controller
 
         $pns->save();
 
-        toastr()->success('Section 2 Updated');
+        toastr()->success('Section 1 Updated');
 
         return back();
     }

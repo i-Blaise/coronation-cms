@@ -53,4 +53,64 @@ class PnSController extends Controller
         return back();
     }
 
+
+       //  Section 1
+       public function PnsSec1()
+       {
+           $pns = InstitutePns::find(1);
+           return view('pages.Institute.pns.section1', compact('pns'));
+       }
+
+
+
+       public function updateSection1(Request $request)
+       {
+           // dd($request->all());
+
+           $request->validate([
+               'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+               'caption1' => 'required',
+               'body1' => 'required',
+               'caption' => 'required',
+               'body' => 'required'
+           ]);
+
+           if(!is_null($request->file('image')))
+           {
+               $imagePath = $this->uploadImage($request->file('image'));
+           }
+
+           $pns = InstitutePns::find(1);
+
+
+           $pns->sec1_caption = $request->caption1;
+           $pns->sec1_body = $request->body1;
+
+           if($request->submit == 'motor')
+           {
+               // dd($request->all());
+               isset($imagePath) ? $pns->motor_image = $imagePath : '';
+               $pns->motor_caption = $request->caption;
+               $pns->motor_body = $request->body;
+
+           }elseif($request->submit == 'eng')
+           {
+               isset($imagePath) ? $pns->eng_image = $imagePath : '';
+               $pns->eng_caption = $request->caption;
+               $pns->eng_body = $request->body;
+
+           }elseif($request->submit == 'marine')
+           {
+               isset($imagePath) ? $pns->marine_image = $imagePath : '';
+               $pns->marine_caption = $request->caption;
+               $pns->marine_body = $request->body;
+           }
+
+           $pns->save();
+
+           toastr()->success('Section 1 Updated');
+
+           return back();
+       }
+
 }

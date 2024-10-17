@@ -150,6 +150,8 @@ Route::middleware('auth')->group(function () {
         Route::prefix('pns')->group(function () {
             Route::get('/show/header', [InstitutePnSController::class, 'showPnSHeader'])->name('institute-pns-header');
             Route::post('/header/update', [InstitutePnSController::class, 'updatePnSHeader'])->name('institute-pns-header-update');
+            Route::get('/show/section1', [InstitutePnSController::class, 'PnsSec1'])->name('institute-pns-section1');
+            Route::post('/section1/update', [InstitutePnSController::class, 'updateSection1'])->name('institute-pns-section1-update');
         });
     });
 

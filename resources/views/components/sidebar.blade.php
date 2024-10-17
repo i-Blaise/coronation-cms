@@ -175,6 +175,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('institute-pns-header') }}">Header</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('institute-pns-section1') }}">Section 1</a>
+                                </li>
                             </ul>
                         </div>
                     </li>
