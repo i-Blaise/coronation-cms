@@ -25,3 +25,4 @@ Route::get('/blog/{id}/details', [ApiController::class, 'fetchBlogDetail']);
 Route::get('/blog-categories', [ApiController::class, 'getBlogCategories']);
 Route::get('/careerspage/fetch', [ApiController::class, 'getCareersPage']);
 Route::get('/contactpage/fetch', [ApiController::class, 'getContactPage']);
+Route::get('/institute/pns/fetch', [ApiController::class, 'institutePnS']);

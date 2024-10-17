@@ -172,11 +172,8 @@
                         <a class="nav-link {{ Route::is('institute-pns-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-10" aria-controls="submenu-10"><i class="fa fa-fw fa-user-circle"></i> Products & Solutions<span class="badge badge-success">10</span></a>
                         <div id="submenu-10" class="collapse submenu" style="">
                             <ul class="nav flex-column">
-                                {{-- <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('institute-pns-header') }}">Header</a>
-                                </li> --}}
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Header</a>
+                                    <a class="nav-link" href="{{ route('institute-pns-header') }}">Header</a>
                                 </li>
                             </ul>
                         </div>

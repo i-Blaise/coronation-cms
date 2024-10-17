@@ -9,6 +9,7 @@ use App\Http\Controllers\Individual\InsightsController;
 use App\Http\Controllers\Individual\MotorInsuranceController;
 use App\Http\Controllers\Individual\PnSController;
 use App\Http\Controllers\Individual\TravelInsuranceController;
+use App\Http\Controllers\Institute\PnSController as InstitutePnSController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -140,6 +141,18 @@ Route::middleware('auth')->group(function () {
         Route::get('/show/contacts', [ContactController::class, 'showContacts'])->name('contact-details');
         Route::post('/contacts/update', [ContactController::class, 'updateContacts'])->name('contact-update');
     });
+
+
+
+    // Institute
+    Route::prefix('institute')->group(function () {
+        // PNS Page
+        Route::prefix('pns')->group(function () {
+            Route::get('/show/header', [InstitutePnSController::class, 'showPnSHeader'])->name('institute-pns-header');
+            Route::post('/header/update', [InstitutePnSController::class, 'updatePnSHeader'])->name('institute-pns-header-update');
+        });
+    });
+
 
 
 });
