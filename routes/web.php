@@ -162,8 +162,8 @@ Route::middleware('auth')->group(function () {
         Route::prefix('motor')->group(function () {
             Route::get('/show/header', [InstituteMotorInsuranceController::class, 'showHeader'])->name('institute-motor-header');
             Route::post('/header/update', [InstituteMotorInsuranceController::class, 'updateMotorInsuranceHeader'])->name('institute-motor-header-update');
-            // Route::get('/show/section1', [InstitutePnSController::class, 'PnsSec1'])->name('institute-pns-section1');
-            // Route::post('/section1/update', [InstitutePnSController::class, 'updateSection1'])->name('institute-pns-section1-update');
+            Route::get('/show/motor', [InstituteMotorInsuranceController::class, 'showMotorPage'])->name('institute-motor-page');
+            Route::post('/section1/update', [InstituteMotorInsuranceController::class, 'updateMotorInsurance'])->name('institute-motor-section1-update');
         });
     });
 

@@ -52,4 +52,68 @@ class MotorInsuranceController extends Controller
         return back();
     }
 
+    public function showMotorPage()
+    {
+        $motor = InstituteMotorInsurance::find(1);
+        return view('pages.Institute.motor_insurance.index', compact('motor'));
+    }
+
+
+
+    public function updateMotorInsurance(Request $request)
+    {
+
+        $request->validate([
+            'image' => 'image|mimes:jpeg,png,jpg,gif,JPG|max:10000',
+            'background_image' => 'image|mimes:jpeg,png,jpg,gif,JPG|max:10000',
+            'caption' => 'required',
+            'body' => 'required',
+            'body1' => 'required',
+            'features' => 'required',
+        ]);
+
+
+
+        if(!is_null($request->file('image')))
+        {
+            $imagePath = $this->uploadImage($request->file('image'));
+        }
+
+        if(!is_null($request->file('background_image')))
+        {
+            $background_imagePath = $this->uploadImage($request->file('background_image'));
+        }
+
+        $motor = InstituteMotorInsurance::find(1);
+
+        isset($imagePath) ? $motor->sec1_image = $imagePath : '';
+        $motor->sec1_caption = $request->caption;
+        $motor->sec1_body = $request->body;
+
+        if($request->submit == 'comp')
+        {
+            isset($background_imagePath) ? $motor->comprehensive_ins_image = $background_imagePath : '';
+            $motor->comprehensive_ins_body = $request->body1;
+            $motor->comprehensive_ins_features = $request->features;
+
+        }elseif($request->submit == 'tpft')
+        {
+            isset($background_imagePath) ? $motor->tp_fire_theft_image = $background_imagePath : '';
+            $motor->tp_fire_theft_body = $request->body1;
+            $motor->tp_fire_theft_features = $request->features;
+
+        }elseif($request->submit == 'tpo')
+        {
+            isset($background_imagePath) ? $motor->tp_only_image = $background_imagePath : '';
+            $motor->tp_only_body = $request->body1;
+            $motor->tp_only_features = $request->features;
+        }
+
+        $motor->save();
+
+        toastr()->success('Motor Insurance Page Updated');
+
+        return back();
+    }
+
 }

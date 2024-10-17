@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Coronation CMS</title>
     <!-- Bootstrap CSS -->
+
     <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}">
     <link href="{{ asset('assets/vendor/fonts/circular-std/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/libs/css/style.css') }}">
@@ -52,14 +53,14 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Products & Solutions Section 1 </h2>
+                            <h2 class="pageheader-title">Motor Insurance Page</h2>
                             <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Institute</a></li>
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Products & Solution</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Section 1</li>
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Insurance</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Motor</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -77,7 +78,7 @@
                         <div class="page-section" id="overview">
                             <div class="row">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <h2>Overview</h2>
+                                    <h2>Live Site</h2>
                                     <p class="lead">Iframe of section being edited.</p>
                                 </div>
                             </div>
@@ -91,72 +92,16 @@
                 </div>
 
 
-            <form action="{{ route('institute-pns-section1-update') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('institute-motor-section1-update') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
-
-                <div class="row mb-5">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3 mt-3">
-                    <h3>Section 1</h3>
-                </div>
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="card">
-                            @php
-                                $caption = $pns->sec1_caption;
-                                $body = $pns->sec1_body;
-                            @endphp
-
-                            <div class="card-body">
-                                <div class="form-row">
-                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2">
-                                        <label for="exampleFormControlTextarea1">Caption</label>
-                                        <textarea id="shortText" name="caption1">{{ $caption }}</textarea>
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2">
-                                        <label for="exampleFormControlTextarea1">Body</label>
-                                        <textarea id="shortText" name="body1">{{ $body }}</textarea>
-                                    </div>
-                                </div>
-                        </div>
-
-                        </div>
-                        </div>
-                    </div>
-
-
-
                 <div class="row">
-
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
-
-                        <a href="?card=motor" class="btn btn-primary btn-lg" style="margin-right: 10px">Motor Insurance  &nbsp
-                            @if (request('card') == 'motor' || is_null(request('card')))
-                            <span class="badge-dot badge-success"></span>
-                            @endif
-                        </a>
-
-                        <a href="?card=eng" class="btn btn-primary btn-lg" style="margin-right: 10px">Engineerng Insurance &nbsp
-                            @if (request('card') == 'eng')
-                            <span class="badge-dot badge-success"></span>
-                            @endif
-                        </a>
-
-                        <a href="?card=marine" class="btn btn-primary btn-lg" style="margin-right: 10px">Marine Insurance &nbsp
-                            @if (request('card') == 'marine')
-                            <span class="badge-dot badge-success"></span>
-                            @endif
-                        </a>
-
-                    </div>
-
-
-
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <h3>Image</h3>
+                        <h3>Background Image</h3>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="card">
-                            <h5 class="card-header">Upload Image</h5>
+                            <h5 class="card-header">Upload Section 1 Image</h5>
                             <div class="card-body">
                                     <div class="custom-file mb-3">
                                         <input type="file" class="custom-file-input" id="customFile" name="image">
@@ -166,42 +111,140 @@
                         </div>
                     </div>
 
-                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                        <div class="card text-white">
-                            @if (request('card') == 'motor' || is_null(request('card')))
-                            <img class="card-img" src="{{ asset($pns->motor_image) }}" alt="Card image">
-                            @elseif (request('card') == 'eng')
-                            <img class="card-img" src="{{ asset($pns->eng_image) }}" alt="Card image">
-                            @elseif (request('card') == 'marine')
-                            <img class="card-img" src="{{ asset($pns->marine_image) }}" alt="Card image">
-                            @endif
-                            {{-- <div class="card-img-overlay">
-                                <a href="#" class="btn btn-primary">Full Image</a>
-                            </div> --}}
-                        </div>
-                    </div>
+                    @php
+                    $image = $motor->sec1_image;
+                    @endphp
+                    {{-- Current Image Card --}}
+                    @include('components.current-image')
+
                 </div>
+
+
 
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
                             @php
-                            if(request('card') == 'motor' || is_null(request('card')))
-                            {
-                                $caption = $pns->motor_caption;
-                                $body = $pns->motor_body;
-                                $submit_value = 'motor';
-                            }elseif (request('card') == 'eng') {
-                                $caption = $pns->eng_caption;
-                                $body = $pns->eng_body;
-                                $submit_value = 'eng';
-                            }elseif (request('card') == 'marine') {
-                                $caption = $pns->marine_caption;
-                                $body = $pns->marine_body;
-                                $submit_value = 'marine';
-                            }
+                                $caption = $motor->sec1_caption;
+                                $body = $motor->sec1_body;
                             @endphp
                             @include('components.form-group.left-right-text-form')
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
+
+                        <a href="?type=comp" class="btn btn-primary btn-lg" style="margin-right: 10px">Compliance Insurance  &nbsp
+                            @if (request('type') == 'comp' || is_null(request('type')))
+                            <span class="badge-dot badge-success"></span>
+                            @endif
+                        </a>
+
+                        <a href="?type=tpft" class="btn btn-primary btn-lg" style="margin-right: 10px">Third Party Fire and Theft &nbsp
+                            @if (request('type') == 'tpft')
+                            <span class="badge-dot badge-success"></span>
+                            @endif
+                        </a>
+
+                        <a href="?type=tpo" class="btn btn-primary btn-lg" style="margin-right: 10px">Third Part Only &nbsp
+                            @if (request('type') == 'tpo')
+                            <span class="badge-dot badge-success"></span>
+                            @endif
+                        </a>
+
+                    </div>
+                </div>
+
+
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        @php
+                        if(request('type') == 'comp' || is_null(request('type')))
+                        {
+                            $title = 'Compliance Insurance';
+
+                        }elseif (request('type') == 'tpft') {
+
+                            $title = 'Third Party Fire and Theft';
+
+                        }elseif (request('type') == 'tpo') {
+
+                            $title = 'Third Party Only';
+
+                        }
+                        @endphp
+
+                        <h2> {{ $title }}</h2>
+                    </div>
+
+
+
+                    @php
+                    if(request('type') == 'comp' || is_null(request('type')))
+                    {
+                        $image1 = $motor->comprehensive_ins_image;
+                        $body1 = $motor->comprehensive_ins_body;
+                        $features = $motor->comprehensive_ins_features;
+                        $submit_value = 'comp';
+                    }elseif (request('type') == 'tpft') {
+                        $image1 = $motor->tp_fire_theft_image;
+                        $body1 = $motor->tp_fire_theft_body;
+                        $features = $motor->tp_fire_theft_features;
+                        $submit_value = 'tpft';
+                    }elseif (request('type') == 'tpo') {
+                        $image1 = $motor->tp_only_image;
+                        $body1 = $motor->tp_only_body;
+                        $features = $motor->tp_only_features;
+                        $submit_value = 'tpo';
+                    }
+                    @endphp
+
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <h3>Image</h3>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                            <div class="card">
+                                <h5 class="card-header">Upload Section 1 Image</h5>
+                                <div class="card-body">
+                                        <div class="custom-file mb-3">
+                                            <input type="file" class="custom-file-input" id="customFile" name="background_image">
+                                            <label class="custom-file-label" for="customFile">File Input</label>
+                                        </div>
+                                </div>
+                          </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                            <div class="card text-white">
+                                <img class="card-img" src="{{ asset($image1) }}" alt="Card image">
+                                <div class="card-img-overlay">
+                                    <a href="{{ asset($image1) }}" target="_blank" class="btn btn-primary">Full Image</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="card">
+
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2">
+                                        <label for="exampleFormControlTextarea1">Body</label>
+                                        <textarea id="shortText" name="body1">{{ $body1 }}</textarea>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2">
+                                        <label for="exampleFormControlTextarea1">Features</label>
+                                        <textarea id="shortText" name="features">{{ $features }}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+
                             <button class="btn btn-primary" type="submit" name="submit" value="{{ $submit_value }}" >Submit</button>
                         </form>
                         </div>
@@ -226,6 +269,7 @@
     <!-- end main wrapper -->
     <!-- ============================================================== -->
     <!-- Optional JavaScript -->
+
     <script src="{{ asset('assets/vendor/jquery/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.js') }}"></script>
     <script src="{{ asset('assets/vendor/slimscroll/jquery.slimscroll.js') }}"></script>

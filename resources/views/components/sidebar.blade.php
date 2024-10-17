@@ -72,7 +72,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link {{ Route::is('motor-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-4" aria-controls="submenu-4"><i class="fa fa-fw fa-user-circle"></i> Motor Insuance Page <span class="badge badge-success">6</span></a>
+                        <a class="nav-link {{ Route::is('motor*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-4" aria-controls="submenu-4"><i class="fa fa-fw fa-user-circle"></i> Motor Insuance Page <span class="badge badge-success">6</span></a>
                         <div id="submenu-4" class="collapse submenu" style="">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
@@ -215,9 +215,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('institute-motor-header') }}">Header</a>
                                 </li>
-                                {{-- <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('motor') }}">Motor Insurance</a>
-                                </li> --}}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('institute-motor-page') }}">Motor Insurance</a>
+                                </li>
                             </ul>
                         </div>
                     </li>

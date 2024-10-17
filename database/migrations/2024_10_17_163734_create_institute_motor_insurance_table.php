@@ -21,7 +21,7 @@ return new class extends Migration
             $table->text('sec1_body');
             $table->string('comprehensive_ins_image')->default('n/a');
             $table->text('comprehensive_ins_body'); // Comprehensive Insurance
-            $table->text('compliance_ins_features');
+            $table->text('comprehensive_ins_features');
             $table->string('tp_fire_theft_image')->default('n/a');
             $table->text('tp_fire_theft_body'); // Third Party Fire and Theft Insurance
             $table->text('tp_fire_theft_features');
