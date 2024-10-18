@@ -92,7 +92,7 @@
                 </div>
 
 
-            <form action="{{ route('institute-eng-header-update') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('institute-marine-header-update') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
                 <div class="row">

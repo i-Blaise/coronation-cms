@@ -28,3 +28,4 @@ Route::get('/contactpage/fetch', [ApiController::class, 'getContactPage']);
 Route::get('/institute/pns/fetch', [ApiController::class, 'institutePnS']);
 Route::get('/institute/motor/fetch', [ApiController::class, 'instituteMotorInsurance']);
 Route::get('/institute/engineering/fetch', [ApiController::class, 'instituteEngInsurance']);
+Route::get('/institute/marine/fetch', [ApiController::class, 'instituteMarineInsurance']);

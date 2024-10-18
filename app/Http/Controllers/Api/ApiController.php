@@ -14,6 +14,7 @@ use App\Models\Insight;
 use App\Models\InsightCategory;
 use App\Models\InstituteMotorInsurance;
 use App\Models\InstitutePns;
+use App\Models\MarineInsurance;
 use App\Models\MotorInsurance;
 use App\Models\PnS;
 use App\Models\TravelInsurance;
@@ -130,6 +131,12 @@ class ApiController extends Controller
     public function instituteEngInsurance()
     {
         $data = EngineeringInsurance::get();
+        return response()->json($data);
+    }
+
+    public function instituteMarineInsurance()
+    {
+        $data = MarineInsurance::get();
         return response()->json($data);
     }
 }
