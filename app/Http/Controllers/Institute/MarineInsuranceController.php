@@ -51,4 +51,55 @@ class MarineInsuranceController extends Controller
 
         return back();
     }
+
+    public function showMarinePage()
+    {
+        $marine = MarineInsurance::find(1);
+        return view('pages.Institute.marine_insurance.index', compact('marine'));
+    }
+
+
+    public function updateMarineInsurance(Request $request)
+    {
+
+        $request->validate([
+            'image' => 'image|mimes:jpeg,png,jpg,gif,JPG,webp|max:10000',
+            'caption' => 'required',
+            'body' => 'required',
+            'insurance_body' => 'required',
+            'features' => 'required',
+        ]);
+
+
+
+        if(!is_null($request->file('image')))
+        {
+            $imagePath = $this->uploadImage($request->file('image'));
+        }
+
+        $marine = MarineInsurance::find(1);
+
+        $marine->sec1_caption = $request->caption;
+        $marine->sec1_body = $request->body;
+
+        if($request->submit == 'cargo')
+        {
+            isset($imagePath) ? $marine->marine_cargo_features_image = $imagePath : '';
+            $marine->marine_cargo_body = $request->insurance_body;
+            $marine->marine_cargo_features = $request->features;
+
+        }elseif($request->submit == 'hull')
+        {
+            isset($imagePath) ? $marine->marine_hull_features_image = $imagePath : '';
+            $marine->marine_hull_body = $request->insurance_body;
+            $marine->marine_hull_features = $request->features;
+
+        }
+
+        $marine->save();
+
+        toastr()->success('Marine Insurance Page Updated');
+
+        return back();
+    }
 }

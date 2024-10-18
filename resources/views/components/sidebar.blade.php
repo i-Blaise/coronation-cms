@@ -283,7 +283,7 @@
                                                 <a class="nav-link" href="{{ route('institute-pns-marine-header') }}">Header</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="">Marine Insurance</a>
+                                                <a class="nav-link" href="{{ route('institute-pns-marine-page') }}">Marine Insurance</a>
                                             </li>
                                         </ul>
                                     </div>

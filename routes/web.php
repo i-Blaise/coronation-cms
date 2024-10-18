@@ -182,8 +182,8 @@ Route::middleware('auth')->group(function () {
         Route::prefix('marine')->group(function () {
             Route::get('/show/header', [MarineInsuranceController::class, 'showHeader'])->name('institute-pns-marine-header');
             Route::post('/header/update', [MarineInsuranceController::class, 'updateMarineInsuranceHeader'])->name('institute-marine-header-update');
-            // Route::get('/show/engineering', [EngineeringInsuranceController::class, 'showEngineeringPage'])->name('institute-engineering-page');
-            // Route::post('/engineering/update', [EngineeringInsuranceController::class, 'updateEngInsurance'])->name('institute-engineering-update');
+            Route::get('/show/marine', [MarineInsuranceController::class, 'showMarinePage'])->name('institute-pns-marine-page');
+            Route::post('/marine/update', [MarineInsuranceController::class, 'updateMarineInsurance'])->name('institute-marine-update');
         });
     });
 
