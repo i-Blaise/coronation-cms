@@ -230,9 +230,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('institute-engineering-header') }}">Header</a>
                                 </li>
-                                {{-- <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('motor') }}">Travel Insurance</a>
-                                </li> --}}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('institute-engineering-page') }}">Engineering Insurance</a>
+                                </li>
                             </ul>
                         </div>
                     </li>

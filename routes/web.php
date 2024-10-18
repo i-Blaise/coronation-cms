@@ -172,8 +172,8 @@ Route::middleware('auth')->group(function () {
         Route::prefix('engineering')->group(function () {
             Route::get('/show/header', [EngineeringInsuranceController::class, 'showHeader'])->name('institute-engineering-header');
             Route::post('/header/update', [EngineeringInsuranceController::class, 'updateEngineeringInsuranceHeader'])->name('institute-eng-header-update');
-            // Route::get('/show/motor', [InstituteMotorInsuranceController::class, 'showMotorPage'])->name('institute-motor-page');
-            // Route::post('/section1/update', [InstituteMotorInsuranceController::class, 'updateMotorInsurance'])->name('institute-motor-section1-update');
+            Route::get('/show/engineering', [EngineeringInsuranceController::class, 'showEngineeringPage'])->name('institute-engineering-page');
+            Route::post('/engineering/update', [EngineeringInsuranceController::class, 'updateEngInsurance'])->name('institute-engineering-update');
         });
     });
 
