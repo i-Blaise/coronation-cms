@@ -57,64 +57,7 @@
                     </li>
 
 
-                    <li class="nav-item">
-                        <a class="nav-link {{ Route::is('pns-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-14" aria-controls="submenu-14"><i class="fas fa-f fa-folder"></i>Products & Solutions</a>
-                        <div id="submenu-14" class="collapse submenu" style="">
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('pns-header') }}">Header</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('pns-sec1') }}">Section 1</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link {{ Route::is('pns-motor*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-15" aria-controls="submenu-15"> Motor Insurance</a>
-                                    <div id="submenu-15" class="collapse submenu" style="">
-                                        <ul class="nav flex-column">
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('pns-motor-header') }}">Motor Insurance Header</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('pns-motor') }}">Motor Insurance Page</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link {{ Route::is('pns-travel*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-16" aria-controls="submenu-16"> Travel Insurance</a>
-                                    <div id="submenu-16" class="collapse submenu" style="">
-                                        <ul class="nav flex-column">
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('pns-travel-header') }}">Travel Insurance Header</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('pns-travel') }}">Travel Insurance Page</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link {{ Route::is('pns-house*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-17" aria-controls="submenu-17"> Home Insurance</a>
-                                    <div id="submenu-17" class="collapse submenu" style="">
-                                        <ul class="nav flex-column">
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('pns-house-header') }}">Home Insurance Header</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('pns-house-insurance') }}">Home Insurance Page</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-
-
-
-                    {{-- <li class="nav-item ">
+                    <li class="nav-item ">
                         <a class="nav-link {{ Route::is('pns-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="fa fa-fw fa-user-circle"></i> Producs & Solutions Page <span class="badge badge-success">6</span></a>
                         <div id="submenu-3" class="collapse submenu" style="">
                             <ul class="nav flex-column">
@@ -169,7 +112,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </li> --}}
+                    </li>
 
 
                     <li class="nav-item">
@@ -225,7 +168,7 @@
                         Institute
                     </li>
 
-                    {{-- <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link {{ Route::is('institute-pns-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-10" aria-controls="submenu-10"><i class="fa fa-fw fa-user-circle"></i> Products & Solutions<span class="badge badge-success">10</span></a>
                         <div id="submenu-10" class="collapse submenu" style="">
                             <ul class="nav flex-column">
@@ -234,59 +177,6 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('institute-pns-section1') }}">Section 1</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li> --}}
-
-                    <li class="nav-item">
-                        <a class="nav-link {{ Route::is('institute-pns-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-18" aria-controls="submenu-18"><i class="fas fa-f fa-folder"></i>Institute Products & Solutions</a>
-                        <div id="submenu-18" class="collapse submenu" style="">
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('institute-pns-header') }}">Header</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('institute-pns-section1') }}">Section 1</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link {{ Route::is('institute-pns-motor*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-19" aria-controls="submenu-19">Motor Insuance</a>
-                                    <div id="submenu-19" class="collapse submenu" style="">
-                                        <ul class="nav flex-column">
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('institute-pns-motor-header') }}">Header</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('institute-pns-motor-page') }}">Motor Insurance</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link {{ Route::is('institute-pns-engineering*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-20" aria-controls="submenu-20">Engineering Insuance </a>
-                                    <div id="submenu-20" class="collapse submenu" style="">
-                                        <ul class="nav flex-column">
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('institute-pns-engineering-header') }}">Header</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('institute-pns-engineering-page') }}">Engineering Insurance</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link {{ Route::is('institute-pns-marine*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-21" aria-controls="submenu-21">Marine Insuance</a>
-                                    <div id="submenu-21" class="collapse submenu" style="">
-                                        <ul class="nav flex-column">
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('institute-pns-marine-header') }}">Header</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="">Marine Insurance</a>
-                                            </li>
-                                        </ul>
-                                    </div>
                                 </li>
                             </ul>
                         </div>
@@ -319,7 +209,7 @@
                         </div>
                     </li> --}}
 
-                    {{-- <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link {{ Route::is('institute-motor-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-11" aria-controls="submenu-11"><i class="fa fa-fw fa-user-circle"></i> Motor Insuance Page <span class="badge badge-success">11</span></a>
                         <div id="submenu-11" class="collapse submenu" style="">
                             <ul class="nav flex-column">
@@ -361,7 +251,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </li> --}}
+                    </li>
 
                     {{-- <li class="nav-item">
                         <a class="nav-link {{ Route::is('institute-marine-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-13" aria-controls="submenu-13"><i class="fa fa-fw fa-user-circle"></i> Marine Insuance Page <span class="badge badge-success">13</span></a>

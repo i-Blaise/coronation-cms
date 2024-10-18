@@ -10,6 +10,7 @@ use App\Http\Controllers\Individual\MotorInsuranceController;
 use App\Http\Controllers\Individual\PnSController;
 use App\Http\Controllers\Individual\TravelInsuranceController;
 use App\Http\Controllers\Institute\EngineeringInsuranceController;
+use App\Http\Controllers\Institute\MarineInsuranceController;
 use App\Http\Controllers\Institute\MotorInsuranceController as InstituteMotorInsuranceController;
 use App\Http\Controllers\Institute\PnSController as InstitutePnSController;
 use App\Http\Controllers\ProfileController;
@@ -82,8 +83,8 @@ Route::middleware('auth')->group(function () {
 
     // Motor Insurance Page
     Route::prefix('motor')->group(function () {
-        Route::get('/', [MotorInsuranceController::class, 'index'])->name('motor');
-        Route::get('/show/header', [MotorInsuranceController::class, 'showMotorHeader'])->name('motor-header');
+        Route::get('/', [MotorInsuranceController::class, 'index'])->name('pns-motor');
+        Route::get('/show/header', [MotorInsuranceController::class, 'showMotorHeader'])->name('pns-motor-header');
         Route::post('/header/update', [MotorInsuranceController::class, 'updateMotorInsuranceHeader'])->name('motor-header-update');
         Route::post('/update', [MotorInsuranceController::class, 'updateMotorInsurance'])->name('motor-update');
     });
@@ -91,18 +92,18 @@ Route::middleware('auth')->group(function () {
 
     // Travel Insurance Page
     Route::prefix('travel')->group(function () {
-        Route::get('/', [TravelInsuranceController::class, 'index'])->name('travel');
-        Route::get('/show/header', [TravelInsuranceController::class, 'showTravelHeader'])->name('travel-header');
+        Route::get('/', [TravelInsuranceController::class, 'index'])->name('pns-travel');
+        Route::get('/show/header', [TravelInsuranceController::class, 'showTravelHeader'])->name('pns-travel-header');
         Route::post('/header/update', [TravelInsuranceController::class, 'updateTravelInsuranceHeader'])->name('travel-header-update');
-        Route::get('/show/travel-insurance', [TravelInsuranceController::class, 'showTravelHeader'])->name('travel-insurance');
+        Route::get('/show/travel-insurance', [TravelInsuranceController::class, 'showTravelHeader'])->name('pns-travel-insurance');
         Route::post('/update', [TravelInsuranceController::class, 'updateTravelInsurance'])->name('travel-update');
     });
 
 
     // Home Insurance Page
     Route::prefix('home')->group(function () {
-        Route::get('/', [HomeInsuranceController::class, 'index'])->name('house-insurance');
-        Route::get('/show/header', [HomeInsuranceController::class, 'showHomeHeader'])->name('house-header');
+        Route::get('/', [HomeInsuranceController::class, 'index'])->name('pns-house-insurance');
+        Route::get('/show/header', [HomeInsuranceController::class, 'showHomeHeader'])->name('pns-house-header');
         Route::post('/header/update', [HomeInsuranceController::class, 'updateHomeInsuranceHeader'])->name('house-header-update');
         Route::post('/update', [HomeInsuranceController::class, 'updateHomeInsurance'])->name('house-update');
     });
@@ -161,19 +162,28 @@ Route::middleware('auth')->group(function () {
 
         // Motor Insurance Page
         Route::prefix('motor')->group(function () {
-            Route::get('/show/header', [InstituteMotorInsuranceController::class, 'showHeader'])->name('institute-motor-header');
+            Route::get('/show/header', [InstituteMotorInsuranceController::class, 'showHeader'])->name('institute-pns-motor-header');
             Route::post('/header/update', [InstituteMotorInsuranceController::class, 'updateMotorInsuranceHeader'])->name('institute-motor-header-update');
-            Route::get('/show/motor', [InstituteMotorInsuranceController::class, 'showMotorPage'])->name('institute-motor-page');
+            Route::get('/show/motor', [InstituteMotorInsuranceController::class, 'showMotorPage'])->name('institute-pns-motor-page');
             Route::post('/section1/update', [InstituteMotorInsuranceController::class, 'updateMotorInsurance'])->name('institute-motor-section1-update');
         });
 
 
         // Engineering Insurance Page
         Route::prefix('engineering')->group(function () {
-            Route::get('/show/header', [EngineeringInsuranceController::class, 'showHeader'])->name('institute-engineering-header');
+            Route::get('/show/header', [EngineeringInsuranceController::class, 'showHeader'])->name('institute-pns-engineering-header');
             Route::post('/header/update', [EngineeringInsuranceController::class, 'updateEngineeringInsuranceHeader'])->name('institute-eng-header-update');
-            Route::get('/show/engineering', [EngineeringInsuranceController::class, 'showEngineeringPage'])->name('institute-engineering-page');
+            Route::get('/show/engineering', [EngineeringInsuranceController::class, 'showEngineeringPage'])->name('institute-pns-engineering-page');
             Route::post('/engineering/update', [EngineeringInsuranceController::class, 'updateEngInsurance'])->name('institute-engineering-update');
+        });
+
+
+        // Marine Insurance Page
+        Route::prefix('marine')->group(function () {
+            Route::get('/show/header', [MarineInsuranceController::class, 'showHeader'])->name('institute-pns-marine-header');
+            // Route::post('/header/update', [EngineeringInsuranceController::class, 'updateEngineeringInsuranceHeader'])->name('institute-eng-header-update');
+            // Route::get('/show/engineering', [EngineeringInsuranceController::class, 'showEngineeringPage'])->name('institute-engineering-page');
+            // Route::post('/engineering/update', [EngineeringInsuranceController::class, 'updateEngInsurance'])->name('institute-engineering-update');
         });
     });
 
