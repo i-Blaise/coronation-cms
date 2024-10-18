@@ -9,6 +9,7 @@ use App\Http\Controllers\Individual\InsightsController;
 use App\Http\Controllers\Individual\MotorInsuranceController;
 use App\Http\Controllers\Individual\PnSController;
 use App\Http\Controllers\Individual\TravelInsuranceController;
+use App\Http\Controllers\Institute\EngineeringInsuranceController;
 use App\Http\Controllers\Institute\MotorInsuranceController as InstituteMotorInsuranceController;
 use App\Http\Controllers\Institute\PnSController as InstitutePnSController;
 use App\Http\Controllers\ProfileController;
@@ -164,6 +165,15 @@ Route::middleware('auth')->group(function () {
             Route::post('/header/update', [InstituteMotorInsuranceController::class, 'updateMotorInsuranceHeader'])->name('institute-motor-header-update');
             Route::get('/show/motor', [InstituteMotorInsuranceController::class, 'showMotorPage'])->name('institute-motor-page');
             Route::post('/section1/update', [InstituteMotorInsuranceController::class, 'updateMotorInsurance'])->name('institute-motor-section1-update');
+        });
+
+
+        // Engineering Insurance Page
+        Route::prefix('engineering')->group(function () {
+            Route::get('/show/header', [EngineeringInsuranceController::class, 'showHeader'])->name('institute-engineering-header');
+            Route::post('/header/update', [EngineeringInsuranceController::class, 'updateEngineeringInsuranceHeader'])->name('institute-eng-header-update');
+            // Route::get('/show/motor', [InstituteMotorInsuranceController::class, 'showMotorPage'])->name('institute-motor-page');
+            // Route::post('/section1/update', [InstituteMotorInsuranceController::class, 'updateMotorInsurance'])->name('institute-motor-section1-update');
         });
     });
 

@@ -224,15 +224,15 @@
 
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fa fa-fw fa-user-circle"></i> Engineer Insuance Page <span class="badge badge-success">6</span></a>
-                        <div id="submenu-5" class="collapse submenu" style="">
+                        <a class="nav-link {{ Route::is('institute-engineering-*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-12" aria-controls="submenu-12"><i class="fa fa-fw fa-user-circle"></i> Engineering Insuance Page <span class="badge badge-success">12</span></a>
+                        <div id="submenu-12" class="collapse submenu" style="">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('pns-header') }}">Header</a>
+                                    <a class="nav-link" href="{{ route('institute-engineering-header') }}">Header</a>
                                 </li>
-                                <li class="nav-item">
+                                {{-- <li class="nav-item">
                                     <a class="nav-link" href="{{ route('motor') }}">Travel Insurance</a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </div>
                     </li>

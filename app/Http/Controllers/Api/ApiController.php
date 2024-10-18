@@ -7,6 +7,7 @@ use App\Models\AboutUs;
 use App\Models\BOD;
 use App\Models\Career;
 use App\Models\Contact;
+use App\Models\EngineeringInsurance;
 use App\Models\HomeInsurance;
 use App\Models\Homepage;
 use App\Models\Insight;
@@ -123,6 +124,12 @@ class ApiController extends Controller
     public function instituteMotorInsurance()
     {
         $data = InstituteMotorInsurance::get();
+        return response()->json($data);
+    }
+
+    public function instituteEngInsurance()
+    {
+        $data = EngineeringInsurance::get();
         return response()->json($data);
     }
 }
