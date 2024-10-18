@@ -4,6 +4,8 @@
 /public/hot
 /public/storage
 /public/images
+# TinyMCE API Key
+/resources/views/components/head
 /storage/*.key
 /vendor
 .env
