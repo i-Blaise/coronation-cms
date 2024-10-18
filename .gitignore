@@ -5,7 +5,7 @@
 /public/storage
 /public/images
 # TinyMCE API Key
-resources/views/components/head/tinymce-config.blade.php
+# resources/views/components/head/tinymce-config.blade.php
 /storage/*.key
 /vendor
 .env
