@@ -112,4 +112,36 @@ class MotorInsuranceController extends Controller
 
         return back();
     }
+
+
+
+    public function showMotorBenefits()
+    {
+        $motor = MotorInsurance::find(1);
+        return view('pages.motor_insurance.benefits', compact('motor'));
+    }
+
+    public function updateMotorBenfits(Request $request)
+    {
+        $request->validate([
+            'benefit_body' => 'required',
+            'comprehensive_benefits' => 'required',
+            'third_party' => 'required',
+        ]);
+
+        $motor = MotorInsurance::find(1);
+
+        $motor->benefits_body = $request->benefit_body;
+        $motor->comprehensive_ins_benefits = $request->comprehensive_benefits;
+        $motor->tp_fire_theft_benefits = $request->third_party;
+
+        $motor->save();
+
+        toastr()->success('Motor Insurance Benefits Updated');
+
+        return back();
+    }
 }
+
+
+

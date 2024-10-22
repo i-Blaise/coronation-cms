@@ -87,6 +87,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/show/header', [MotorInsuranceController::class, 'showMotorHeader'])->name('pns-motor-header');
         Route::post('/header/update', [MotorInsuranceController::class, 'updateMotorInsuranceHeader'])->name('motor-header-update');
         Route::post('/update', [MotorInsuranceController::class, 'updateMotorInsurance'])->name('motor-update');
+        Route::get('/show/benefits', [MotorInsuranceController::class, 'showMotorBenefits'])->name('pns-motor-benefits');
+        Route::post('/update-benefits', [MotorInsuranceController::class, 'updateMotorBenfits'])->name('motor-update-benefits');
     });
 
 
