@@ -138,19 +138,31 @@ class ApiController extends Controller
     public function fetchPublishedBlogsCards()
     {
         $data = Insight::where('publish', true)
-        ->select('caption', 'category', 'main_image', 'excerpt', 'id', 'created_at')
+        ->select('caption', 'category', 'main_image', 'excerpt', 'id', 'created_at', 'publish_date')
         ->orderBy('created_at', 'desc')
         ->get();
+
+        foreach ($data as $blog) {
+            $full_date = $this->formatDate($blog['publish_date']);
+            $blog['publish_date'] = $full_date;
+        }
+
         return response()->json($data);
     }
 
     public function fetchPublishedBlogsCardsLatestTwo()
     {
         $data = Insight::where('publish', true)
-        ->select('caption', 'category', 'main_image', 'excerpt', 'id', 'created_at')
+        ->select('caption', 'category', 'main_image', 'excerpt', 'id', 'created_at', 'publish_date')
         ->orderBy('created_at', 'desc')
         ->take(2)
         ->get();
+
+        foreach ($data as $blog) {
+            $full_date = $this->formatDate($blog['publish_date']);
+            $blog['publish_date'] = $full_date;
+        }
+
         return response()->json($data);
     }
 
@@ -159,6 +171,12 @@ class ApiController extends Controller
         $data = Insight::where('id', $id)
         ->where('publish', true)
         ->get();
+
+        foreach ($data as $blog) {
+            $full_date = $this->formatDate($blog['publish_date']);
+            $blog['publish_date'] = $full_date;
+        }
+
         return response()->json($data);
     }
 
