@@ -64,9 +64,74 @@ class ApiController extends Controller
         return response()->json($home);
     }
 
+    public function formatDate($date)
+    {
+        $get_date = explode(' ', $date);
+        $get_date = $get_date[0];
+        $ymd = explode('-', $get_date);
+        $year = $ymd[0];
+        $month_digi = $ymd[1];
+        $day = $ymd[2];
+
+        switch ($month_digi) {
+            case '1':
+                $month_str = 'January';
+                break;
+            case '2':
+                $month_str = 'February';
+                break;
+            case '3':
+                $month_str = 'March';
+                break;
+            case '4':
+                $month_str = 'April';
+                break;
+            case '5':
+                $month_str = 'May';
+                break;
+            case '6':
+                $month_str = 'June';
+                break;
+            case '7':
+                $month_str = 'July';
+                break;
+            case '8':
+                $month_str = 'August';
+                break;
+            case '9':
+                $month_str = 'September';
+                break;
+            case '10':
+                $month_str = 'October';
+                break;
+            case '11':
+                $month_str = 'November';
+                break;
+            case '12':
+                $month_str = 'December';
+                break;
+            default:
+                $month_str = 'Error';
+                break;
+        }
+
+        $full_date = $month_str.' '.$day.', '.$year;
+
+        return $full_date;
+        // 2024-10-15 10:43:01
+    }
+
     public function fetchPublishedBlogs()
     {
-        $data = Insight::where('publish', true)->get();
+        $data = Insight::select('id', 'caption', 'category', 'body', 'main_image', 'excerpt', 'publish_date')
+        ->where('publish', true)
+        ->get();
+
+        foreach ($data as $blog) {
+            $full_date = $this->formatDate($blog['publish_date']);
+            $blog['publish_date'] = $full_date;
+        }
+
         return response()->json($data);
     }
 
