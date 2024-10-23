@@ -105,5 +105,38 @@ class HomeInsuranceController extends Controller
         return back();
     }
 
+    public function showHomeBenefits()
+    {
+        $home = HomeInsurance::find(1);
+        return view('pages.home_insurance.benefits', compact('home'));
+    }
+
+
+    public function updateHomeBenfits(Request $request)
+    {
+        $request->validate([
+            'benefits_body' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,webp,JPG|max:10000',
+            'benefits' => 'required',
+        ]);
+
+        if(!is_null($request->file('image')))
+        {
+            $imagePath = $this->uploadImage($request->file('image'));
+        }
+
+        $home = HomeInsurance::find(1);
+
+        isset($imagePath) ? $home->benefit_image = $imagePath : '';
+        $home->benefit_body = $request->benefits_body;
+        $home->home_benefits = $request->benefits;
+
+        $home->save();
+
+        toastr()->success('Home Insurance Benefits Updated');
+
+        return back();
+    }
+
 
 }

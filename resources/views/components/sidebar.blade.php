@@ -111,6 +111,9 @@
                                             <li class="nav-item">
                                                 <a class="nav-link" href="{{ route('pns-house-insurance') }}">Home Insurance Page</a>
                                             </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="{{ route('pns-home-benefits') }}">Benefits</a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </li>

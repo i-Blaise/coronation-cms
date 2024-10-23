@@ -50,14 +50,14 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Travel Insurance Benefits</h2>
+                            <h2 class="pageheader-title">Home Insurance Benefits</h2>
                             <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Individual</a></li>
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Inurance</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Travel Benefits</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Home Benefits</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -89,7 +89,7 @@
                 </div>
 
 
-            <form action="{{ route('travel-update-benefits') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('home-update-benefits') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
 
@@ -97,7 +97,7 @@
 
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <h3>Travel Benefits Image</h3>
+                        <h3>Home Benefits Image</h3>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="card">
@@ -112,7 +112,7 @@
                     </div>
 
                     @php
-                    $image = $travel->benefits_image;
+                    $image = $home->benefit_image;
                     @endphp
                     {{-- Current Image Card --}}
                     @include('components.current-image')
@@ -125,18 +125,18 @@
                         <h2>Benefits</h2>
                         <div class="card">
                             @php
-                                $body = $travel->benefits_body;
-                                $benefits = $travel->travel_benefits;
+                                $body = $home->benefit_body;
+                                $benefits = $home->home_benefits;
                             @endphp
 
                             <div class="card-body">
                                 <div class="form-row">
                                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2">
-                                        <label for="exampleFormControlTextarea1">Travel Insurance Benefits Body</label>
+                                        <label for="exampleFormControlTextarea1">home Insurance Benefits Body</label>
                                         <textarea id="shortText" name="benefits_body">{{ $body }}</textarea>
                                     </div>
                                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2">
-                                        <label for="exampleFormControlTextarea1">Travel Insurance Benefits</label>
+                                        <label for="exampleFormControlTextarea1">home Insurance Benefits</label>
                                         <textarea id="shortText" name="benefits">{{ $benefits }}</textarea>
                                     </div>
                                 </div>

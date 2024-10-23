@@ -110,6 +110,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/show/header', [HomeInsuranceController::class, 'showHomeHeader'])->name('pns-house-header');
         Route::post('/header/update', [HomeInsuranceController::class, 'updateHomeInsuranceHeader'])->name('house-header-update');
         Route::post('/update', [HomeInsuranceController::class, 'updateHomeInsurance'])->name('house-update');
+        Route::get('/show/benefits', [HomeInsuranceController::class, 'showHomeBenefits'])->name('pns-home-benefits');
+        Route::post('/update-benefits', [HomeInsuranceController::class, 'updateHomeBenfits'])->name('home-update-benefits');
     });
 
 
