@@ -116,4 +116,31 @@ class MotorInsuranceController extends Controller
         return back();
     }
 
+
+    public function showMotorBenefits()
+    {
+        $motor = InstituteMotorInsurance::find(1);
+        return view('pages.Institute.motor_insurance.benefits', compact('motor'));
+    }
+
+    public function updateMotorBenfits(Request $request)
+    {
+        $request->validate([
+            'benefit_body' => 'required',
+            'comprehensive_benefits' => 'required',
+            'third_party' => 'required',
+        ]);
+
+        $motor = InstituteMotorInsurance::find(1);
+
+        $motor->benefit_body = $request->benefit_body;
+        $motor->comprehensive_benefits = $request->comprehensive_benefits;
+        $motor->tp_fire_theft_benefits = $request->third_party;
+
+        $motor->save();
+
+        toastr()->success('Institute Motor Insurance Benefits Updated');
+
+        return back();
+    }
 }

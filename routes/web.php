@@ -172,6 +172,8 @@ Route::middleware('auth')->group(function () {
             Route::post('/header/update', [InstituteMotorInsuranceController::class, 'updateMotorInsuranceHeader'])->name('institute-motor-header-update');
             Route::get('/show/motor', [InstituteMotorInsuranceController::class, 'showMotorPage'])->name('institute-pns-motor-page');
             Route::post('/section1/update', [InstituteMotorInsuranceController::class, 'updateMotorInsurance'])->name('institute-motor-section1-update');
+            Route::get('/show/benefits', [InstituteMotorInsuranceController::class, 'showMotorBenefits'])->name('institute-pns-motor-benefits');
+            Route::post('/benefits/update', [InstituteMotorInsuranceController::class, 'updateMotorBenfits'])->name('institute-motor-benefits-update');
         });
 
 

@@ -268,6 +268,9 @@
                                             <li class="nav-item">
                                                 <a class="nav-link" href="{{ route('institute-pns-motor-page') }}">Motor Insurance</a>
                                             </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="{{ route('institute-pns-motor-benefits') }}">Benefits</a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </li>
