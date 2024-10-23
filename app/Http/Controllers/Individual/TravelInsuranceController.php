@@ -107,10 +107,39 @@ class TravelInsuranceController extends Controller
 
 
 
+    public function showTravelBenefits()
+    {
+        $travel = TravelInsurance::find(1);
+        return view('pages.travel_insurance.benefits', compact('travel'));
+    }
 
 
 
+    public function updateTravelBenfits(Request $request)
+    {
+        $request->validate([
+            'benefits_body' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,webp,JPG|max:10000',
+            'benefits' => 'required',
+        ]);
 
+        if(!is_null($request->file('image')))
+        {
+            $imagePath = $this->uploadImage($request->file('image'));
+        }
+
+        $travel = TravelInsurance::find(1);
+
+        isset($imagePath) ? $travel->benefits_image = $imagePath : '';
+        $travel->benefits_body = $request->benefits_body;
+        $travel->travel_benefits = $request->benefits;
+
+        $travel->save();
+
+        toastr()->success('Travel Insurance Benefits Updated');
+
+        return back();
+    }
 
 
 

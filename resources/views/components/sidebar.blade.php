@@ -94,6 +94,9 @@
                                             <li class="nav-item">
                                                 <a class="nav-link" href="{{ route('pns-travel') }}">Travel Insurance Page</a>
                                             </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="{{ route('pns-travel-benefits') }}">Benefits</a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </li>

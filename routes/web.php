@@ -99,6 +99,8 @@ Route::middleware('auth')->group(function () {
         Route::post('/header/update', [TravelInsuranceController::class, 'updateTravelInsuranceHeader'])->name('travel-header-update');
         Route::get('/show/travel-insurance', [TravelInsuranceController::class, 'showTravelHeader'])->name('pns-travel-insurance');
         Route::post('/update', [TravelInsuranceController::class, 'updateTravelInsurance'])->name('travel-update');
+        Route::get('/show/benefits', [TravelInsuranceController::class, 'showTravelBenefits'])->name('pns-travel-benefits');
+        Route::post('/update-benefits', [TravelInsuranceController::class, 'updateTravelBenfits'])->name('travel-update-benefits');
     });
 
 
