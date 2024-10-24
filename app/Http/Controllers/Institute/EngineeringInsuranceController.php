@@ -121,4 +121,32 @@ class EngineeringInsuranceController extends Controller
         return back();
     }
 
+
+    public function showEngBenefits()
+    {
+        $eng = EngineeringInsurance::find(1);
+        return view('pages.Institute.eng_insurance.benefits', compact('eng'));
+    }
+
+    public function updateEngBenfits(Request $request)
+    {
+        $request->validate([
+            'benefit_body' => 'required',
+            'comprehensive_benefits' => 'required',
+            'third_party' => 'required',
+        ]);
+
+        $eng = EngineeringInsurance::find(1);
+
+        $eng->benefits_body = $request->benefit_body;
+        $eng->comprehensive_benefits = $request->comprehensive_benefits;
+        $eng->tp_fire_theft_benefits = $request->third_party;
+
+        $eng->save();
+
+        toastr()->success('Institute Engineering Insurance Benefits Updated');
+
+        return back();
+    }
+
 }

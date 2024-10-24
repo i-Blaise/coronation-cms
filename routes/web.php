@@ -183,6 +183,8 @@ Route::middleware('auth')->group(function () {
             Route::post('/header/update', [EngineeringInsuranceController::class, 'updateEngineeringInsuranceHeader'])->name('institute-eng-header-update');
             Route::get('/show/engineering', [EngineeringInsuranceController::class, 'showEngineeringPage'])->name('institute-pns-engineering-page');
             Route::post('/engineering/update', [EngineeringInsuranceController::class, 'updateEngInsurance'])->name('institute-engineering-update');
+            Route::get('/show/benefits', [EngineeringInsuranceController::class, 'showEngBenefits'])->name('institute-pns-engineering-benefits');
+            Route::post('/benefits/update', [EngineeringInsuranceController::class, 'updateEngBenfits'])->name('institute-engineering-benefits-update');
         });
 
 

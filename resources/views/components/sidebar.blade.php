@@ -284,6 +284,9 @@
                                             <li class="nav-item">
                                                 <a class="nav-link" href="{{ route('institute-pns-engineering-page') }}">Engineering Insurance</a>
                                             </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="{{ route('institute-pns-engineering-benefits') }}">Benefits</a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </li>
