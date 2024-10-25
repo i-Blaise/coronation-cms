@@ -300,6 +300,9 @@
                                             <li class="nav-item">
                                                 <a class="nav-link" href="{{ route('institute-pns-marine-page') }}">Marine Insurance</a>
                                             </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="{{ route('institute-pns-marine-benefits') }}">Benefits</a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </li>

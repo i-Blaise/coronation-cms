@@ -102,4 +102,37 @@ class MarineInsuranceController extends Controller
 
         return back();
     }
+
+
+    public function showMarineBenefits()
+    {
+        $marine = MarineInsurance::find(1);
+        return view('pages.Institute.marine_insurance.benefits', compact('marine'));
+    }
+
+    public function updateMarineBenfits(Request $request)
+    {
+        $request->validate([
+            'benefits_body' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,webp,JPG|max:10000',
+            'benefits' => 'required',
+        ]);
+
+        if(!is_null($request->file('image')))
+        {
+            $imagePath = $this->uploadImage($request->file('image'));
+        }
+
+        $marine = MarineInsurance::find(1);
+
+        isset($imagePath) ? $marine->benefits_image = $imagePath : '';
+        $marine->benefits_body = $request->benefits_body;
+        $marine->marine_benefits = $request->benefits;
+
+        $marine->save();
+
+        toastr()->success('Marine Insurance Benefits Updated');
+
+        return back();
+    }
 }
