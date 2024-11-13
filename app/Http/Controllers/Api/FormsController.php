@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\ContactFormMessage;
+use App\Models\FeedbackMessage;
 use Illuminate\Http\Request;
 
 class FormsController extends Controller
@@ -24,6 +25,32 @@ class FormsController extends Controller
         $data = $request->all();
         $message = ContactFormMessage::create($data);
         if($message){
+            return [
+                'status' => 'Success'
+            ];
+        }else{
+            return [
+                'status' => 'Failed',
+                'message' => 'Error while saving data'
+            ];
+        }
+
+
+    }
+
+
+
+
+    public function saveFeedbackMessage(Request $request){
+        $data = $request->validate([
+            'rating' => 'required|numeric',
+            'likely_to_recommend' => 'required|numeric',
+            'feedback' => 'nullable'
+        ]);
+
+        $data = $request->all();
+        $feedback = FeedbackMessage::create($data);
+        if($feedback){
             return [
                 'status' => 'Success'
             ];

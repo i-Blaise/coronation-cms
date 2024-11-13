@@ -38,3 +38,5 @@ Route::get('/institute/marine/fetch', [ApiController::class, 'instituteMarineIns
 
 // Contact Form Message Save
 Route::post('/contact/form', [FormsController::class, 'saveContactFormMessage']);
+// Feedback Form
+Route::post('/feedback/form', [FormsController::class, 'saveFeedbackMessage']);
