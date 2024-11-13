@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\ApiController;
+use App\Http\Controllers\Api\FormsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,3 +30,11 @@ Route::get('/institute/pns/fetch', [ApiController::class, 'institutePnS']);
 Route::get('/institute/motor/fetch', [ApiController::class, 'instituteMotorInsurance']);
 Route::get('/institute/engineering/fetch', [ApiController::class, 'instituteEngInsurance']);
 Route::get('/institute/marine/fetch', [ApiController::class, 'instituteMarineInsurance']);
+
+
+
+
+
+
+// Contact Form Message Save
+Route::post('/contact/form', [FormsController::class, 'saveContactFormMessage']);
