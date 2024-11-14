@@ -125,7 +125,7 @@ class ApiController extends Controller
 
     public function fetchPublishedBlogs()
     {
-        $data = Insight::select('id', 'caption', 'category', 'body', 'main_image', 'excerpt', 'publish_date')
+        $data = Insight::select('id', 'caption', 'category', 'body', 'main_image', 'excerpt', 'publish_date', 'pdf_file')
         ->where('publish', true)
         ->get();
 
