@@ -130,6 +130,7 @@ class InsightsController extends Controller
     {
         $request->validate([
             'main_image' => 'image|mimes:jpeg,png,jpg,gif|max:10000',
+            'pdf_file' => 'mimes:pdf|max:10000|file',
             'blog_image1' => 'image|mimes:jpeg,png,jpg,gif',
             'blog_image2' => 'image|mimes:jpeg,png,jpg,gif',
             'blog_image3' => 'image|mimes:jpeg,png,jpg,gif',
@@ -153,9 +154,16 @@ class InsightsController extends Controller
             $main_image = $this->uploadImage($request->file('main_image'));
         }
 
+        if(!is_null($request->file('pdf_file')))
+        {
+            $pdf_file = $this->uploadImage($request->file('pdf_file'));
+        }
+
+
         $blog = Insight::find($id);
 
         isset($main_image) ? $blog->main_image = $main_image : '';
+        isset($pdf_file) ? $blog->pdf_file = $pdf_file : '';
 
         $blog->caption = $request->caption;
         $blog->category = $category;
