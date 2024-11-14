@@ -50,7 +50,7 @@
 <body>
     <!-- Header with Image Banner -->
     <div class="header-banner">
-        <img src="" alt="Header Banner">
+        <img src="{{ public_path($main_image) }}" alt="Header Banner">
         <div class="header-title">{!! $caption !!}</div>
     </div>
 
