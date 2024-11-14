@@ -115,9 +115,21 @@
                         <div class="card">
                             <h5 class="card-header">Upload New Article PDF</h5>
                             <div class="card-body">
-                                    <div class="custom-file mb-3">
+                                    {{-- <div class="custom-file mb-3">
                                         <input type="file" class="custom-file-input" id="customFile" name="pdf_file">
                                         <label class="custom-file-label" for="customFile">File Input</label>
+                                    </div> --}}
+                                    <div class="form-row">
+                                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 mb-2">
+                                        <div class="custom-file mb-3">
+                                            <input type="file" class="custom-file-input" id="customFile" name="pdf_file">
+                                            <label class="custom-file-label" for="customFile">File Input</label>
+                                        </div>
+                                        </div>
+                                            @php
+                                                $image = $blog->pdf_file;
+                                            @endphp
+                                            <a href="{{ asset($image) }}" class="btn btn-primary btn-block" >View Current PDF</a>
                                     </div>
                             </div>
                         </div>
