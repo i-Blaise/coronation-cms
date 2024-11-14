@@ -88,12 +88,23 @@
                     @method('POST')
 
                 <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="card">
                             <h5 class="card-header">Upload Blog Cover Image</h5>
                             <div class="card-body">
                                     <div class="custom-file mb-3">
                                         <input type="file" class="custom-file-input" id="customFile" name="main_image">
+                                        <label class="custom-file-label" for="customFile">File Input</label>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="card">
+                            <h5 class="card-header">Upload Article PDF</h5>
+                            <div class="card-body">
+                                    <div class="custom-file mb-3">
+                                        <input type="file" class="custom-file-input" id="customFile" name="pdf_file">
                                         <label class="custom-file-label" for="customFile">File Input</label>
                                     </div>
                             </div>

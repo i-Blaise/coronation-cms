@@ -15,5 +15,6 @@ class Insight extends Model
         'body',
         'main_image',
         'excerpt',
+        'pdf_file'
     ];
 }

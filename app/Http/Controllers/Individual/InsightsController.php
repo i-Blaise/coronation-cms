@@ -37,6 +37,7 @@ class InsightsController extends Controller
         // dd($request);
         $request->validate([
             'main_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:10000',
+            'pdf_file' => 'required|image|mimes:pdf|max:10000',
             'blog_image1' => 'image|mimes:jpeg,png,jpg,gif',
             'blog_image2' => 'image|mimes:jpeg,png,jpg,gif',
             'blog_image3' => 'image|mimes:jpeg,png,jpg,gif',
@@ -65,12 +66,14 @@ class InsightsController extends Controller
         // dd($request);
 
         $main_image = $this->uploadImage($request->file('main_image'));
+        $pdf_file = $this->uploadImage($request->file('pdf_file'));
 
         Insight::create([
             'caption' => $request->caption,
             'category' => $category,
             'body' => $request->body,
-            'main_image' => $main_image
+            'main_image' => $main_image,
+            'pdf_file' => $pdf_file
         ]);
 
         // isset($imagePath) ? $blog->header_image = $imagePath : '';
