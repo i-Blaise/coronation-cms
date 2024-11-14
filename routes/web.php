@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\ApiController;
 use App\Http\Controllers\Individual\AboutUsController;
 use App\Http\Controllers\Individual\CareerController;
 use App\Http\Controllers\Individual\ContactController;
@@ -209,7 +210,7 @@ require __DIR__.'/auth.php';
 
 
 
-
+Route::get('/pdf-view/{id}', [ApiController::class, 'viewPDFPage']);
 
 
 // Route::get('/', function () {

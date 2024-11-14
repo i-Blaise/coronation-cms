@@ -18,6 +18,8 @@ use App\Models\MarineInsurance;
 use App\Models\MotorInsurance;
 use App\Models\PnS;
 use App\Models\TravelInsurance;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
 
 class ApiController extends Controller
@@ -222,4 +224,22 @@ class ApiController extends Controller
         $data = MarineInsurance::get();
         return response()->json($data);
     }
+
+
+
+    public function downloadPDP($id)
+    {
+        $data = Insight::find($id)->toArray();
+
+        $pdf = FacadePdf::loadView('article-pdf-view', $data);
+
+        return $pdf->download('article-pdf-view.pdf');
+    }
+
+    // public function viewPDFPage($id)
+    // {
+    //     $data = Insight::find($id);
+
+    //     return view('article-pdf-view', compact('data'));
+    // }
 }
