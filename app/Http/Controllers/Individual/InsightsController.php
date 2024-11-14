@@ -37,7 +37,7 @@ class InsightsController extends Controller
         // dd($request);
         $request->validate([
             'main_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:10000',
-            'pdf_file' => 'required|image|mimes:pdf|max:10000',
+            'pdf_file' => 'required|mimes:pdf|max:10000|file',
             'blog_image1' => 'image|mimes:jpeg,png,jpg,gif',
             'blog_image2' => 'image|mimes:jpeg,png,jpg,gif',
             'blog_image3' => 'image|mimes:jpeg,png,jpg,gif',
