@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../assets/libs/css/style.css">
     <link rel="stylesheet" href="../assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
     <link rel="stylesheet" href="../assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Toastr CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
 
@@ -28,6 +29,9 @@
     @include('components.head.notif')
 
 </head>
+
+
+
 
 <body>
     <!-- ============================================================== -->
@@ -135,7 +139,8 @@
                                                     <!-- item-->
                                                     <a href="{{ route('edit-blog', ['id' => $blog->id]) }}" class="dropdown-item">Edit</a>
                                                     <!-- item-->
-                                                    <a href="{{ route('delete-blog', ['id' => $blog->id]) }}" class="dropdown-item">Delete</a>
+                                                    <a href="{{ route('delete-blog', ['id' => $blog->id]) }}" class="dropdown-item" onclick="return confirm('Are you sure?')">Delete</a>
+                                                    {{-- <a href="#" onclick="confirmDelete()" class="dropdown-item">Delete</a> --}}
                                                 </div>
                                             </div>
                                         </td>
@@ -171,9 +176,20 @@
     <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="../assets/vendor/slimscroll/jquery.slimscroll.js"></script>
     <script src="../assets/libs/js/main-js.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- Toastr JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
+    <script>
+        function confirmDelete() {
+          let text = "Press a button!\nEither OK or Cancel.";
+          if (confirm(text) == true) {
+            text = "You pressed OK!";
+          } else {
+            text = "You canceled!";
+          }
+          document.getElementById("demo").innerHTML = text;
+        }
+        </script>
 </body>
 
 </html>
