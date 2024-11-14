@@ -89,9 +89,36 @@
                     </div>
                 </div>
 
-                <form action="{{ route('about-sec4-update') }}" method="POST">
+                <form action="{{ route('about-sec4-update') }}" method="POST"  enctype="multipart/form-data">
                     @csrf
                     @method('POST')
+
+
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        </div>
+
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                            <div class="card">
+                                <h5 class="card-header">Upload Section 4 Image</h5>
+                                <div class="card-body">
+                                    <div class="custom-file mb-3">
+                                        <input type="file" class="custom-file-input" id="customFile" name="image">
+                                        <label class="custom-file-label" for="customFile">File Input</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        @php
+                        $image = $about->sec4_image;
+                        @endphp
+                        {{-- Current Image Card --}}
+                        @include('components.current-image')
+
+                    </div>
+
+
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="card">

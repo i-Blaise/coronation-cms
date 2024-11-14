@@ -185,7 +185,7 @@ class AboutUsController extends Controller
 
     public function aboutSec4()
     {
-        $about = AboutUs::select('id', 'sec4_caption', 'sec4_body')->where('id', 1)->first();
+        $about = AboutUs::select('id', 'sec4_image', 'sec4_caption', 'sec4_body')->where('id', 1)->first();
         return view('pages.aboutpage.section4', compact('about'));
     }
 
@@ -195,12 +195,19 @@ class AboutUsController extends Controller
         // dd($request->all());
 
         $request->validate([
+            'image' => 'image|mimes:jpeg,png,jpg,PNG,webp|max:2048',
             'caption' => 'required',
             'body' => 'required'
         ]);
 
+        if(!is_null($request->file('image')))
+        {
+            $imagePath = $this->uploadImage($request->file('image'));
+        }
+
         $about_header = AboutUs::find(1);
 
+        isset($imagePath) ? $about_header->sec4_image = $imagePath : '';
         $about_header->sec4_caption = $request->caption;
         $about_header->sec4_body = $request->body;
 
