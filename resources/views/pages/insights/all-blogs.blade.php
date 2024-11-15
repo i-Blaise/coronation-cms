@@ -179,17 +179,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- Toastr JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script>
-        function confirmDelete() {
-          let text = "Press a button!\nEither OK or Cancel.";
-          if (confirm(text) == true) {
-            text = "You pressed OK!";
-          } else {
-            text = "You canceled!";
-          }
-          document.getElementById("demo").innerHTML = text;
-        }
-        </script>
 </body>
 
 </html>

@@ -114,4 +114,15 @@ class PnSController extends Controller
 
         return back();
     }
+
+
+
+
+    //  Section 2
+    public function PnsSec2()
+    {
+        $pns = PnS::find(1);
+        return view('pages.pns.section2', compact('pns'));
+    }
+
 }
