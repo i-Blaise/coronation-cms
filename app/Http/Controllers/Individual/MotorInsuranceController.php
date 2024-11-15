@@ -70,8 +70,8 @@ class MotorInsuranceController extends Controller
         // dd($request->all());
 
         $request->validate([
-            'feature_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'feature_image' => 'image|mimes:jpeg,png,jpg,gif|max:10048',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:10048',
             'caption' => 'required',
             'body' => 'required',
             'body1' => 'required',
