@@ -70,6 +70,7 @@ class MotorInsuranceController extends Controller
         // dd($request->all());
 
         $request->validate([
+            'feature_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
             'caption' => 'required',
             'body' => 'required',
@@ -82,6 +83,10 @@ class MotorInsuranceController extends Controller
         {
             $imagePath = $this->uploadImage($request->file('image'));
         }
+        if(!is_null($request->file('feature_image')))
+        {
+            $featureImagePath = $this->uploadImage($request->file('feature_image'));
+        }
 
         $motor = MotorInsurance::find(1);
 
@@ -91,16 +96,19 @@ class MotorInsuranceController extends Controller
 
         if($request->submit == 'comp')
         {
+            isset($featureImagePath) ? $motor->compliance_ins_feature_image = $featureImagePath : '';
             $motor->compliance_ins_body = $request->body1;
             $motor->compliance_ins_features = $request->features;
 
         }elseif($request->submit == 'tpft')
         {
+            isset($featureImagePath) ? $motor->tp_fire_theft_features_image = $featureImagePath : '';
             $motor->tp_fire_theft_body = $request->body1;
             $motor->tp_fire_theft_features = $request->features;
 
         }elseif($request->submit == 'tpo')
         {
+            isset($featureImagePath) ? $motor->tp_only_features_image = $featureImagePath : '';
             $motor->tp_only_body = $request->body1;
             $motor->tp_only_features = $request->features;
 

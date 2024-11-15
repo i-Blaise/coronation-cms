@@ -162,7 +162,7 @@
                         @php
                         if(request('type') == 'comp' || is_null(request('type')))
                         {
-                            $title = 'Compliance Insurance';
+                            $title = 'Comprehensive Insurance';
 
                         }elseif (request('type') == 'tpft') {
 
@@ -178,25 +178,50 @@
                         <h3> {{ $title }}</h3>
                     </div>
 
+
+
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <h5>Features Image</h5>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="card">
+                            <h5 class="card-header">Upload Image</h5>
+                            <div class="card-body">
+                                    <div class="custom-file mb-3">
+                                        <input type="file" class="custom-file-input" id="customFile" name="feature_image">
+                                        <label class="custom-file-label" for="customFile">File Input</label>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    @php
+                    if(request('type') == 'comp' || is_null(request('type')))
+                    {
+                        $image = $motor->compliance_ins_feature_image;
+                        $body1 = $motor->compliance_ins_body;
+                        $features = $motor->compliance_ins_features;
+                        $submit_value = 'comp';
+                    }elseif (request('type') == 'tpft') {
+                        $image = $motor->tp_fire_theft_features_image;
+                        $body1 = $motor->tp_fire_theft_body;
+                        $features = $motor->tp_fire_theft_features;
+                        $submit_value = 'tpft';
+                    }elseif (request('type') == 'tpo') {
+                        $image = $motor->tp_only_features_image;
+                        $body1 = $motor->tp_only_body;
+                        $features = $motor->tp_only_features;
+                        $submit_value = 'tpo';
+                    }
+                    @endphp
+                    {{-- Current Image Card --}}
+                    @include('components.current-image')
+
+                </div>
+
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
-                            @php
-                            if(request('type') == 'comp' || is_null(request('type')))
-                            {
-                                $body1 = $motor->compliance_ins_body;
-                                $features = $motor->compliance_ins_features;
-                                $submit_value = 'comp';
-                            }elseif (request('type') == 'tpft') {
-                                $body1 = $motor->tp_fire_theft_body;
-                                $features = $motor->tp_fire_theft_features;
-                                $submit_value = 'tpft';
-                            }elseif (request('type') == 'tpo') {
-                                $body1 = $motor->tp_only_body;
-                                $features = $motor->tp_only_features;
-                                $submit_value = 'tpo';
-                            }
-                            @endphp
 
                             <div class="card-body">
                                 <div class="form-row">
