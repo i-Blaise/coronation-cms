@@ -1,5 +1,5 @@
 <div>
-    <script src="https://cdn.tiny.cloud/1/xnd63rrydv2555gttexey3prn6k3qc5oq7wuyu6g4hyy7khs/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/tyyxmenmdgznh2o3kecrdz3goo4q5541avldss8w1vlzhr3b/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
       tinymce.init({
         selector: 'textarea#shortText',
