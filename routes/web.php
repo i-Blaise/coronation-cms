@@ -82,6 +82,7 @@ Route::middleware('auth')->group(function () {
 
 
         Route::get('/section2', [PnSController::class, 'PnsSec2'])->name('pns-sec2');
+        Route::post('/section2/update', [PnSController::class, 'updateSection2'])->name('pns-section2-update');
     });
 
 

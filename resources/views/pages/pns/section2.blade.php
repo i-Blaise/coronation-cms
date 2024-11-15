@@ -6,7 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Products and Solutions Header</title>
+    <title>Products and Solutions</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
@@ -50,14 +50,14 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Products & Solution Header </h2>
+                            <h2 class="pageheader-title">Products & Solution Section 2 </h2>
                             <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Individual</a></li>
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Products & Solution</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Header</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Section 2</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -89,7 +89,7 @@
                 </div>
 
 
-            <form action="{{ route('pns-header-update') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('pns-section2-update') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
                 <div class="row">
@@ -109,7 +109,7 @@
                     </div>
 
                     @php
-                    $image = $pns->header_image;
+                    $image = $pns->sec2_image;
                     @endphp
                     {{-- Current Image Card --}}
                     @include('components.current-image')
@@ -120,8 +120,8 @@
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
                             @php
-                                $caption = $pns->header_caption;
-                                $body = $pns->header_body;
+                                $caption = $pns->sec2_caption;
+                                $body = $pns->sec2_body;
                             @endphp
                             @include('components.form-group.left-right-text-form')
                             <button class="btn btn-primary" type="submit">Submit</button>

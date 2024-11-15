@@ -68,6 +68,9 @@
                                     <a class="nav-link" href="{{ route('pns-sec1') }}">Section 1</a>
                                 </li>
                                 <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('pns-sec2') }}">Section 2</a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="nav-link {{ Route::is('pns-motor*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-15" aria-controls="submenu-15"> Motor Insurance</a>
                                     <div id="submenu-15" class="collapse submenu" style="">
                                         <ul class="nav flex-column">
