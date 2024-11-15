@@ -113,4 +113,40 @@ class PnSController extends Controller
            return back();
        }
 
+
+           //  Section 2
+    public function PnsSec2()
+    {
+        $pns = InstitutePns::find(1);
+        return view('pages.Institute.pns.section2', compact('pns'));
+    }
+
+
+    public function updateSection2(Request $request)
+    {
+        // dd($request->all());
+
+        $request->validate([
+            'image' => 'image|mimes:jpeg,png,jpg,webp,PNG|max:2048',
+            'caption' => 'required',
+            'body' => 'required'
+        ]);
+
+        if(!is_null($request->file('image')))
+        {
+            $imagePath = $this->uploadImage($request->file('image'));
+        }
+        $pns = InstitutePns::find(1);
+
+        isset($imagePath) ? $pns->sec2_image = $imagePath : '';
+        $pns->sec2_caption = $request->caption;
+        $pns->sec2_body = $request->body;
+
+        $pns->save();
+
+        toastr()->success('Products and Solutions Section 2 Updated');
+
+        return back();
+    }
+
 }

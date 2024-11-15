@@ -168,6 +168,10 @@ Route::middleware('auth')->group(function () {
             Route::post('/header/update', [InstitutePnSController::class, 'updatePnSHeader'])->name('institute-pns-header-update');
             Route::get('/show/section1', [InstitutePnSController::class, 'PnsSec1'])->name('institute-pns-section1');
             Route::post('/section1/update', [InstitutePnSController::class, 'updateSection1'])->name('institute-pns-section1-update');
+
+
+            Route::get('/show/section2', [InstitutePnSController::class, 'PnsSec2'])->name('institute-pns-section2');
+            Route::post('/section2/update', [InstitutePnSController::class, 'updateSection2'])->name('institute-pns-section2-update');
         });
 
 

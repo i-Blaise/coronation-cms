@@ -262,6 +262,9 @@
                                     <a class="nav-link" href="{{ route('institute-pns-section1') }}">Section 1</a>
                                 </li>
                                 <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('institute-pns-section2') }}">Section 2</a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="nav-link {{ Route::is('institute-pns-motor*') ? 'active' : '' }}" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-19" aria-controls="submenu-19">Motor Insuance</a>
                                     <div id="submenu-19" class="collapse submenu" style="">
                                         <ul class="nav flex-column">
