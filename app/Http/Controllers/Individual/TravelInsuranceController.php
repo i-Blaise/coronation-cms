@@ -66,7 +66,8 @@ class TravelInsuranceController extends Controller
         // dd($request->all());
 
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg,wepb|max:10000',
+            'feature_image' => 'image|mimes:jpeg,png,jpg,webp|max:10000',
             'caption' => 'required',
             'body' => 'required',
             'body1' => 'required',
@@ -78,6 +79,11 @@ class TravelInsuranceController extends Controller
         {
             $imagePath = $this->uploadImage($request->file('image'));
         }
+        if(!is_null($request->file('feature_image')))
+        {
+            $featureImagePath = $this->uploadImage($request->file('feature_image'));
+        }
+        // dd($featureImagePath);
 
         $travel = TravelInsurance::find(1);
 
@@ -87,12 +93,14 @@ class TravelInsuranceController extends Controller
         if($request->submit == 'student')
         {
             isset($imagePath) ? $travel->student_ins_image = $imagePath : '';
+            isset($featureImagePath) ? $travel->student_feature_image = $featureImagePath : '';
             $travel->student_insurance_body = $request->body1;
             $travel->student_insurance_features = $request->features;
 
         }elseif($request->submit == 'individual')
         {
             isset($imagePath) ? $travel->individual_ins_image = $imagePath : '';
+            isset($featureImagePath) ? $travel->individual_feature_image = $featureImagePath : '';
             $travel->individual_insurance_body = $request->body1;
             $travel->individual_insurance_features = $request->features;
 

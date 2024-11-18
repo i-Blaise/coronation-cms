@@ -165,11 +165,13 @@
                         $body1 = $home->homeowner_ins_body;
                         $features = $home->homeowner_ins_features;
                         $image = $home->homeowner_ins_image;
+                        $featureImage = $home->homeowner_feature_image;
                         $submit_value = 'homeowner';
                     }elseif (request('type') == 'householder') {
                         $body1 = $home->householder_ins_body;
                         $features = $home->householder_ins_features;
                         $image = $home->householder_ins_image;
+                        $featureImage = $home->householder_feature_image;
                         $submit_value = 'householder';
                     }
                     @endphp
@@ -180,17 +182,28 @@
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="card">
-                            <h5 class="card-header">Upload Image</h5>
+                            <h5 class="card-header">Upload Card Image</h5>
                             <div class="card-body">
                                     <div class="custom-file mb-3">
                                         <input type="file" class="custom-file-input" id="customFile" name="image">
                                         <label class="custom-file-label" for="customFile">File Input</label>
                                     </div>
+                                    <a href="{{ asset($image) }}" target="_blank" class="btn btn-primary">View Current Image</a>
                             </div>
                         </div>
                     </div>
-                    {{-- Current Image Card --}}
-                    @include('components.current-image')
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="card">
+                            <h5 class="card-header">Upload Feature Image</h5>
+                            <div class="card-body">
+                                    <div class="custom-file mb-3">
+                                        <input type="file" class="custom-file-input" id="customFile" name="feature_image">
+                                        <label class="custom-file-label" for="customFile">File Input</label>
+                                    </div>
+                                    <a href="{{ asset($featureImage) }}" target="_blank" class="btn btn-primary">View Current Image</a>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
 

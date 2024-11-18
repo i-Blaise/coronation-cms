@@ -66,7 +66,8 @@ class HomeInsuranceController extends Controller
         // dd($request->all());
 
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:10000',
+            'image' => 'image|mimes:jpeg,png,jpg,webp|max:10000',
+            'feature_image' => 'image|mimes:jpeg,png,jpg,webp|max:10000',
             'caption' => 'required',
             'body' => 'required',
             'body1' => 'required',
@@ -78,6 +79,10 @@ class HomeInsuranceController extends Controller
         {
             $imagePath = $this->uploadImage($request->file('image'));
         }
+        if(!is_null($request->file('feature_image')))
+        {
+            $featureImagePath = $this->uploadImage($request->file('feature_image'));
+        }
 
         $home = HomeInsurance::find(1);
 
@@ -87,12 +92,14 @@ class HomeInsuranceController extends Controller
         if($request->submit == 'homeowner')
         {
             isset($imagePath) ? $home->homeowner_ins_image = $imagePath : '';
+            isset($featureImagePath) ? $home->homeowner_feature_image = $featureImagePath : '';
             $home->homeowner_ins_body = $request->body1;
             $home->homeowner_ins_features = $request->features;
 
         }elseif($request->submit == 'householder')
         {
             isset($imagePath) ? $home->householder_ins_image = $imagePath : '';
+            isset($featureImagePath) ? $home->householder_feature_image = $featureImagePath : '';
             $home->householder_ins_body = $request->body1;
             $home->householder_ins_features = $request->features;
 

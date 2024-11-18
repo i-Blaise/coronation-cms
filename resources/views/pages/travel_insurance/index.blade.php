@@ -165,11 +165,13 @@
                         $body1 = $travel->student_insurance_body;
                         $features = $travel->student_insurance_features;
                         $image = $travel->student_ins_image;
+                        $featureImage = $travel->student_feature_image;
                         $submit_value = 'student';
                     }elseif (request('type') == 'individual') {
                         $body1 = $travel->individual_insurance_body;
                         $features = $travel->individual_insurance_features;
                         $image = $travel->individual_ins_image;
+                        $featureImage = $travel->individual_feature_image;
                         $submit_value = 'individual';
                     }
                     @endphp
@@ -180,17 +182,29 @@
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="card">
-                            <h5 class="card-header">Upload Image</h5>
+                            <h5 class="card-header">Upload Card Image</h5>
                             <div class="card-body">
                                     <div class="custom-file mb-3">
                                         <input type="file" class="custom-file-input" id="customFile" name="image">
                                         <label class="custom-file-label" for="customFile">File Input</label>
                                     </div>
+                                    <a href="{{ asset($image) }}" target="_blank" class="btn btn-primary">View Current Image</a>
                             </div>
                         </div>
                     </div>
                     {{-- Current Image Card --}}
-                    @include('components.current-image')
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                        <div class="card">
+                            <h5 class="card-header">Upload Feature Image</h5>
+                            <div class="card-body">
+                                    <div class="custom-file mb-3">
+                                        <input type="file" class="custom-file-input" id="customFile" name="feature_image">
+                                        <label class="custom-file-label" for="customFile">File Input</label>
+                                    </div>
+                                    <a href="{{ asset($featureImage) }}" target="_blank" class="btn btn-primary">View Current Image</a>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
 
