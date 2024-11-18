@@ -186,26 +186,31 @@
                         $image = $eng->plant_all_risk_image;
                         $body1 = $eng->plant_all_risk_body;
                         $features = $eng->plant_all_risk_features;
+                        $featureImage = $eng->plant_all_risk_features_image;
                         $submit_value = 'plant';
                     }elseif (request('type') == 'contractors') {
                         $image = $eng->contractors_all_risk_image;
                         $body1 = $eng->contractors_all_risk_body;
                         $features = $eng->contractors_all_risk_features;
+                        $featureImage = $eng->contractors_all_risk_features_image;
                         $submit_value = 'contractors';
                     }elseif (request('type') == 'machinery') {
                         $image = $eng->machinery_breakdown_image;
                         $body1 = $eng->machinery_breakdown_body;
                         $features = $eng->machinery_breakdown_features;
+                        $featureImage = $eng->machinery_breakdown_features_image;
                         $submit_value = 'machinery';
                     }elseif (request('type') == 'erection') {
                         $image = $eng->erection_all_image;
                         $body1 = $eng->erection_all_body;
                         $features = $eng->erection_all_features;
+                        $featureImage = $eng->erection_all_features_image;
                         $submit_value = 'erection';
                     }elseif (request('type') == 'computer') {
                         $image = $eng->computer_all_risk_image;
                         $body1 = $eng->computer_all_risk_body;
                         $features = $eng->computer_all_risk_features;
+                        $featureImage = $eng->computer_all_risk_features_image;
                         $submit_value = 'computer';
                     }
                     @endphp
@@ -216,20 +221,25 @@
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                             <div class="card">
-                                <h5 class="card-header">Upload Section 1 Image</h5>
+                                <h5 class="card-header">Upload Card Image</h5>
                                 <div class="card-body">
                                         <div class="custom-file mb-3">
                                             <input type="file" class="custom-file-input" id="customFile" name="image">
                                             <label class="custom-file-label" for="customFile">File Input</label>
                                         </div>
+                                        <a href="{{ asset($image) }}" target="_blank" class="btn btn-primary">View Current Image</a>
                                 </div>
-                          </div>
+                            </div>
                         </div>
-                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                            <div class="card text-white">
-                                <img class="card-img" src="{{ asset($image) }}" alt="Card image">
-                                <div class="card-img-overlay">
-                                    <a href="{{ asset($image) }}" target="_blank" class="btn btn-primary">Full Image</a>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                            <div class="card">
+                                <h5 class="card-header">Upload Feature Image</h5>
+                                <div class="card-body">
+                                        <div class="custom-file mb-3">
+                                            <input type="file" class="custom-file-input" id="customFile" name="feature_image">
+                                            <label class="custom-file-label" for="customFile">File Input</label>
+                                        </div>
+                                        <a href="{{ asset($featureImage) }}" target="_blank" class="btn btn-primary">View Current Image</a>
                                 </div>
                             </div>
                         </div>

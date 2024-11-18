@@ -65,6 +65,7 @@ class EngineeringInsuranceController extends Controller
 
         $request->validate([
             'image' => 'image|mimes:jpeg,png,jpg,gif,JPG,webp|max:10000',
+            'feature_image' => 'image|mimes:jpeg,png,jpg,JPG,webp|max:10000',
             'caption' => 'required',
             'body' => 'required',
             'insurance_body' => 'required',
@@ -77,6 +78,10 @@ class EngineeringInsuranceController extends Controller
         {
             $imagePath = $this->uploadImage($request->file('image'));
         }
+        if(!is_null($request->file('feature_image')))
+        {
+            $featureImagePath = $this->uploadImage($request->file('feature_image'));
+        }
 
         $eng = EngineeringInsurance::find(1);
 
@@ -86,30 +91,35 @@ class EngineeringInsuranceController extends Controller
         if($request->submit == 'plant')
         {
             isset($imagePath) ? $eng->plant_all_risk_image = $imagePath : '';
+            isset($featureImagePath) ? $eng->plant_all_risk_features_image = $featureImagePath : '';
             $eng->plant_all_risk_body = $request->insurance_body;
             $eng->plant_all_risk_features = $request->features;
 
         }elseif($request->submit == 'contractors')
         {
             isset($imagePath) ? $eng->contractors_all_risk_image = $imagePath : '';
+            isset($featureImagePath) ? $eng->contractors_all_risk_features_image = $featureImagePath : '';
             $eng->contractors_all_risk_body = $request->insurance_body;
             $eng->contractors_all_risk_features = $request->features;
 
         }elseif($request->submit == 'machinery')
         {
             isset($imagePath) ? $eng->machinery_breakdown_image = $imagePath : '';
+            isset($featureImagePath) ? $eng->machinery_breakdown_features_image = $featureImagePath : '';
             $eng->machinery_breakdown_body = $request->insurance_body;
             $eng->machinery_breakdown_features = $request->features;
 
         }elseif($request->submit == 'erection')
         {
             isset($imagePath) ? $eng->erection_all_image = $imagePath : '';
+            isset($featureImagePath) ? $eng->erection_all_features_image = $featureImagePath : '';
             $eng->erection_all_body = $request->insurance_body;
             $eng->erection_all_features = $request->features;
 
         }elseif($request->submit == 'computer')
         {
             isset($imagePath) ? $eng->computer_all_risk_image = $imagePath : '';
+            isset($featureImagePath) ? $eng->computer_all_risk_features_image = $featureImagePath : '';
             $eng->computer_all_risk_body = $request->insurance_body;
             $eng->computer_all_risk_features = $request->features;
         }

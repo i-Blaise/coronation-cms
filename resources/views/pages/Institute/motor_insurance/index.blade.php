@@ -209,7 +209,7 @@
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                             <div class="card">
-                                <h5 class="card-header">Upload Section 1 Image</h5>
+                                <h5 class="card-header">Upload Feature Image</h5>
                                 <div class="card-body">
                                         <div class="custom-file mb-3">
                                             <input type="file" class="custom-file-input" id="customFile" name="background_image">
